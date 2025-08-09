@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://bim4ov1kyfwdj"]
+
+[ext_resource type="Script" uid="uid://dv2hn4e4pcuy4" path="res://scripts/MainMenu.gd" id="1_yqorp"]
+[ext_resource type="Texture2D" uid="uid://c1phegqmh20g3" path="res://assets/main_bg.jpg" id="2_0ykhv"]
+[ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="3_2wh52"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ow34m"]
+font = ExtResource("3_2wh52")
+font_size = 100
+font_color = Color(0.862745, 0.317647, 0.47451, 1)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_yqorp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource("2_0ykhv")
+
+[node name="NombreJuego" type="Label" parent="."]
+offset_left = 308.0
+offset_top = 240.0
+offset_right = 972.0
+offset_bottom = 385.0
+text = "AmorPixeleado"
+label_settings = SubResource("LabelSettings_ow34m")
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 576.0
+offset_top = 416.0
+offset_right = 704.0
+offset_bottom = 472.0
+text = "Iniciar"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 576.0
+offset_top = 488.0
+offset_right = 704.0
+offset_bottom = 544.0
+text = "Quit"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

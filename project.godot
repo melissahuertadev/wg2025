@@ -11,8 +11,19 @@ config_version=5
 [application]
 
 config/name="nada-es-lo-que-parece"
+run/main_scene="uid://bim4ov1kyfwdj"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalManager="*res://scripts/Global.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 
 [rendering]
 
