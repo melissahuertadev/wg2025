@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx2pl5vmvpelg"
-path="res://.godot/imported/bg_personaje_femenino.png-a3ee92dde9492aef6151e1d778981ca4.ctex"
+uid="uid://2nacvrsrdw8"
+path="res://.godot/imported/boton_rosa_disable.png-e207fb71c61ad6ee1b08453b4a836424.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chat/bg_personaje_femenino.png"
-dest_files=["res://.godot/imported/bg_personaje_femenino.png-a3ee92dde9492aef6151e1d778981ca4.ctex"]
+source_file="res://assets/ui/botones/boton_rosa_disable.png"
+dest_files=["res://.godot/imported/boton_rosa_disable.png-e207fb71c61ad6ee1b08453b4a836424.ctex"]
 
 [params]
 
