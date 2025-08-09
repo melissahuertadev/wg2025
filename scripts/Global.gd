@@ -1,5 +1,5 @@
 extends Node
 
 # Aqui se almacenan los intereses del jugador
-enum INTERESES {DEPORTES, VIDEOJUEGOS, LIBROS, COCINA, CINE, ANIME}
+enum INTERESES {DEPORTES, CINE, VIDEOJUEGOS, ANIMES, LIBROS, COCINA, FESTIVALES, MUSICA, TECH}
 var main_character_intereses = []
