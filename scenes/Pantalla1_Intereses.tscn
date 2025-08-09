@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://b42cdt8riqtk8"]
+
+[ext_resource type="Script" uid="uid://dwn5i5w1d4gln" path="res://scripts/Intereses.gd" id="1_48mov"]
+[ext_resource type="Texture2D" uid="uid://dx2pl5vmvpelg" path="res://assets/chat/bg_personaje_femenino.png" id="2_lt5cb"]
+
+[node name="PantallaIntereses" type="Node2D"]
+script = ExtResource("1_48mov")
+
+[node name="Mujer_Frame" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lt5cb")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Interes1Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ContinuarButton" type="Button" parent="."]
+offset_left = 534.0
+offset_top = 475.0
+offset_right = 732.0
+offset_bottom = 532.0
+text = "Iniciar sesion"
+
+[connection signal="pressed" from="ContinuarButton" to="." method="_on_continue_button_pressed"]

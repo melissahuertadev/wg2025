@@ -6,7 +6,7 @@
 [node name="PantallaRegistro" type="Node2D"]
 script = ExtResource("1_ttuqq")
 
-[node name="Movil_Mujer" type="TextureRect" parent="."]
+[node name="Mujer_Frame" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,9 +17,11 @@ grow_vertical = 2
 texture = ExtResource("1_uuewj")
 expand_mode = 3
 
-[node name="Button" type="Button" parent="."]
+[node name="ContinuarButton" type="Button" parent="."]
 offset_left = 534.0
 offset_top = 475.0
 offset_right = 732.0
 offset_bottom = 532.0
-text = "Iniciar sesion"
+text = "Continuar"
+
+[connection signal="pressed" from="ContinuarButton" to="." method="_on_continue_button_pressed"]
