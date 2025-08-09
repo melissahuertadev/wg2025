@@ -1,20 +1,34 @@
-[gd_scene load_steps=9 format=3 uid="uid://b42cdt8riqtk8"]
+[gd_scene load_steps=30 format=3 uid="uid://b42cdt8riqtk8"]
 
 [ext_resource type="Script" uid="uid://dwn5i5w1d4gln" path="res://scripts/Intereses.gd" id="1_udxmp"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_gavju"]
-[ext_resource type="Texture2D" uid="uid://b48e4np3gntfa" path="res://assets/chat/mujer_movil_BG.png" id="3_uu14n"]
-[ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="4_m3t46"]
+[ext_resource type="Texture2D" uid="uid://d38d7ba1ylrsl" path="res://assets/chat/mujer_movil_intereses.png" id="3_udxmp"]
+[ext_resource type="Texture2D" uid="uid://b81jox36n1p3m" path="res://assets/ui/botones/boton_back_enable.png" id="4_2t7eq"]
+[ext_resource type="Texture2D" uid="uid://bd8vgs8f1k2ki" path="res://assets/ui/intereses/deporte_standar.png" id="4_bsbbg"]
 [ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="5_2t7eq"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_118yx"]
-load_path = "res://.godot/imported/btnprincipal.png-0d6bc5cb90a54b55ae68453184990732.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dg110"]
-load_path = "res://.godot/imported/btnprincipal_deshabilitado.png-75c49434600ede597118355f299b8862.ctex"
-
-[sub_resource type="LabelSettings" id="LabelSettings_dg110"]
-font = ExtResource("4_m3t46")
-font_size = 30
+[ext_resource type="Texture2D" uid="uid://bjwsnkc2wimq1" path="res://assets/ui/botones/boton_next_disable.png" id="5_amjhj"]
+[ext_resource type="Texture2D" uid="uid://ed2yyahale54" path="res://assets/ui/intereses/deporte_pressed.png" id="5_wr0it"]
+[ext_resource type="Texture2D" uid="uid://cdowxou7i2sp8" path="res://assets/ui/botones/boton_back_pressed.png" id="6_e0vuy"]
+[ext_resource type="Texture2D" uid="uid://dqommqmkueh2b" path="res://assets/ui/intereses/videojuegos_standar.png" id="6_hrael"]
+[ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="7_e0vuy"]
+[ext_resource type="Texture2D" uid="uid://dlvadjd6a4bx0" path="res://assets/ui/intereses/videojuegos_pressed.png" id="7_kbqxa"]
+[ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="8_bsbbg"]
+[ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="9_wr0it"]
+[ext_resource type="LabelSettings" uid="uid://blcj8jkmck0sl" path="res://tres/label_settings/interes_label.tres" id="13_sjuwq"]
+[ext_resource type="Texture2D" uid="uid://drqael15325q2" path="res://assets/ui/intereses/cine_standar.png" id="15_pc4ie"]
+[ext_resource type="Texture2D" uid="uid://tlwlwhqrdm54" path="res://assets/ui/intereses/cine_pressed.png" id="16_mu2s7"]
+[ext_resource type="Texture2D" uid="uid://22eroav7uyfu" path="res://assets/ui/intereses/animes_standar.png" id="17_rc70f"]
+[ext_resource type="Texture2D" uid="uid://laknsgm4m8c6" path="res://assets/ui/intereses/animes_pressed.png" id="18_84y4e"]
+[ext_resource type="Texture2D" uid="uid://dfis8ao0uamb4" path="res://assets/ui/intereses/libros_standar.png" id="19_e18od"]
+[ext_resource type="Texture2D" uid="uid://dw7xtrg5hfbgf" path="res://assets/ui/intereses/libros_pressed.png" id="20_jjvns"]
+[ext_resource type="Texture2D" uid="uid://dwo3xk3j6wc2c" path="res://assets/ui/intereses/cocina_standar.png" id="21_e18od"]
+[ext_resource type="Texture2D" uid="uid://dxeqjjwqf5p2g" path="res://assets/ui/intereses/cocina_pressed.png" id="22_jjvns"]
+[ext_resource type="Texture2D" uid="uid://bwsv25u420rad" path="res://assets/ui/intereses/festivales_standar.png" id="23_1653i"]
+[ext_resource type="Texture2D" uid="uid://chayc2wwfh12l" path="res://assets/ui/intereses/festivales_pressed.png" id="24_grgab"]
+[ext_resource type="Texture2D" uid="uid://byl7ko6gvl1ch" path="res://assets/ui/intereses/musica_standar.png" id="25_mganv"]
+[ext_resource type="Texture2D" uid="uid://ugh57vofi6tq" path="res://assets/ui/intereses/musica_pressed.png" id="26_sjuwq"]
+[ext_resource type="Texture2D" uid="uid://cuv4nqvppuesl" path="res://assets/ui/intereses/tech_standar.png" id="27_mganv"]
+[ext_resource type="Texture2D" uid="uid://btrupbhogp04w" path="res://assets/ui/intereses/tech_pressed.png" id="28_sjuwq"]
 
 [node name="PantallaIntereses" type="Node2D"]
 script = ExtResource("1_udxmp")
@@ -35,83 +49,127 @@ offset_left = 497.0
 offset_top = 98.0
 offset_right = 781.0
 offset_bottom = 596.0
-texture = ExtResource("3_uu14n")
+texture = ExtResource("3_udxmp")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Hobbies" type="VBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 515.0
-offset_top = 188.0
-offset_right = 762.0
-offset_bottom = 465.0
-
-[node name="Interes_deportes" type="TextureButton" parent="Control/Hobbies"]
-layout_mode = 2
-texture_normal = SubResource("CompressedTexture2D_118yx")
-stretch_mode = 3
-
-[node name="Interes_videojuegos" type="TextureButton" parent="Control/Hobbies"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("CompressedTexture2D_118yx")
-stretch_mode = 3
-
-[node name="Interes_libros" type="TextureButton" parent="Control/Hobbies"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("CompressedTexture2D_118yx")
-stretch_mode = 3
-
-[node name="Interes_cocina" type="TextureButton" parent="Control/Hobbies"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("CompressedTexture2D_118yx")
-stretch_mode = 3
-
-[node name="Interes_cine" type="TextureButton" parent="Control/Hobbies"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("CompressedTexture2D_118yx")
-stretch_mode = 3
-
-[node name="Interes_anime" type="TextureButton" parent="Control/Hobbies"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("CompressedTexture2D_118yx")
-stretch_mode = 3
+[node name="RetrocederButton" type="TextureButton" parent="."]
+offset_left = 521.0
+offset_top = 473.0
+offset_right = 545.0
+offset_bottom = 505.0
+texture_normal = ExtResource("4_2t7eq")
+texture_pressed = ExtResource("5_amjhj")
+texture_disabled = ExtResource("6_e0vuy")
 
 [node name="ContinuarButton" type="TextureButton" parent="."]
-offset_left = 515.0
+offset_left = 730.0
 offset_top = 473.0
 offset_right = 754.0
-offset_bottom = 539.0
-texture_normal = SubResource("CompressedTexture2D_118yx")
-texture_disabled = SubResource("CompressedTexture2D_dg110")
-
-[node name="Label" type="Label" parent="ContinuarButton"]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 4.0
-offset_right = 212.0
-offset_bottom = 48.0
-text = "Buscar Match"
-label_settings = SubResource("LabelSettings_dg110")
+offset_bottom = 505.0
+texture_normal = ExtResource("7_e0vuy")
+texture_pressed = ExtResource("8_bsbbg")
+texture_disabled = ExtResource("9_wr0it")
 
 [node name="Mujer_Manos" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_2t7eq")
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 515.0
+offset_top = 266.0
+offset_right = 762.0
+offset_bottom = 465.0
+size_flags_horizontal = 0
+
+[node name="Hobbies" type="FlowContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Interes_deportes" type="TextureButton" parent="Control/Hobbies"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("4_bsbbg")
+texture_pressed = ExtResource("5_wr0it")
+
+[node name="Label" type="Label" parent="Control/Hobbies/Interes_deportes"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 3.0
+offset_right = 95.0
+offset_bottom = 26.0
+text = "Deportes"
+label_settings = ExtResource("13_sjuwq")
+
+[node name="Interes_cine" type="TextureButton" parent="Control/Hobbies"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("15_pc4ie")
+texture_pressed = ExtResource("16_mu2s7")
+stretch_mode = 0
+
+[node name="Interes_videojuegos" type="TextureButton" parent="Control/Hobbies"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("6_hrael")
+texture_pressed = ExtResource("7_kbqxa")
+stretch_mode = 0
+
+[node name="Interes_anime" type="TextureButton" parent="Control/Hobbies"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("17_rc70f")
+texture_pressed = ExtResource("18_84y4e")
+stretch_mode = 3
+
+[node name="Interes_libros" type="TextureButton" parent="Control/Hobbies"]
+layout_mode = 2
+texture_normal = ExtResource("19_e18od")
+texture_pressed = ExtResource("20_jjvns")
+stretch_mode = 3
+
+[node name="Interes_cocina" type="TextureButton" parent="Control/Hobbies"]
+layout_mode = 2
+texture_normal = ExtResource("21_e18od")
+texture_pressed = ExtResource("22_jjvns")
+stretch_mode = 3
+
+[node name="Interes_festivales" type="TextureButton" parent="Control/Hobbies"]
+layout_mode = 2
+texture_normal = ExtResource("23_1653i")
+texture_pressed = ExtResource("24_grgab")
+stretch_mode = 3
+
+[node name="Interes_musica" type="TextureButton" parent="Control/Hobbies"]
+layout_mode = 2
+texture_normal = ExtResource("25_mganv")
+texture_pressed = ExtResource("26_sjuwq")
+stretch_mode = 3
+
+[node name="Interes_tech" type="TextureButton" parent="Control/Hobbies"]
+layout_mode = 2
+texture_normal = ExtResource("27_mganv")
+texture_pressed = ExtResource("28_sjuwq")
+stretch_mode = 3
+
+[connection signal="pressed" from="RetrocederButton" to="." method="_on_retroceder_button_pressed"]
+[connection signal="pressed" from="ContinuarButton" to="." method="_on_continuar_button_pressed"]
 [connection signal="pressed" from="Control/Hobbies/Interes_deportes" to="." method="_on_interes_deportes_pressed"]
+[connection signal="pressed" from="Control/Hobbies/Interes_cine" to="." method="_on_interes_cine_pressed"]
 [connection signal="pressed" from="Control/Hobbies/Interes_videojuegos" to="." method="_on_interes_videojuegos_pressed"]
+[connection signal="pressed" from="Control/Hobbies/Interes_anime" to="." method="_on_interes_anime_pressed"]
 [connection signal="pressed" from="Control/Hobbies/Interes_libros" to="." method="_on_interes_libros_pressed"]
 [connection signal="pressed" from="Control/Hobbies/Interes_cocina" to="." method="_on_interes_cocina_pressed"]
-[connection signal="pressed" from="Control/Hobbies/Interes_cine" to="." method="_on_interes_cine_pressed"]
-[connection signal="pressed" from="Control/Hobbies/Interes_anime" to="." method="_on_interes_anime_pressed"]
-[connection signal="pressed" from="ContinuarButton" to="." method="_on_continuar_button_pressed"]
+[connection signal="pressed" from="Control/Hobbies/Interes_festivales" to="." method="_on_interes_festivales_pressed"]
+[connection signal="pressed" from="Control/Hobbies/Interes_musica" to="." method="_on_interes_musica_pressed"]
+[connection signal="pressed" from="Control/Hobbies/Interes_tech" to="." method="_on_interes_tech_pressed"]
