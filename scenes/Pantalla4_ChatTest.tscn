@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cq5ahh7362img"]
 
-[ext_resource type="Script" uid="uid://cej7mnpvfsmph" path="res://scenes/pantalla_4_chat_test.gd" id="1_g0rh8"]
+[ext_resource type="Script" path="res://scenes/pantalla_4_chat_test.gd" id="1_g0rh8"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_oe8ec"]
 [ext_resource type="Texture2D" uid="uid://dyfs8e3t4on7" path="res://assets/chat/mujer_movil_chat.png" id="3_rqhye"]
 [ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="7_b6gm4"]

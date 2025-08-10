@@ -95,7 +95,7 @@ flip_v = true
 [node name="Label3" type="Label" parent="."]
 offset_left = 530.0
 offset_top = 260.0
-offset_right = 687.0
+offset_right = 689.0
 offset_bottom = 290.0
 theme_override_colors/font_color = Color(0.305882, 0.0313726, 0.0313726, 1)
 theme_override_fonts/font = ExtResource("5_hxmf3")
@@ -109,7 +109,7 @@ offset_right = 745.0
 offset_bottom = 332.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_blml6")
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="txt_nombre" type="TextEdit" parent="."]
 offset_left = 539.0
 offset_top = 296.0
 offset_right = 724.0
@@ -123,3 +123,4 @@ placeholder_text = "👤 Tu nombre"
 
 [connection signal="pressed" from="btn_go_edad" to="." method="_on_btn_go_edad_pressed"]
 [connection signal="pressed" from="btn_back_inicio" to="." method="_on_btn_back_inicio_pressed"]
+[connection signal="text_changed" from="txt_nombre" to="." method="_on_txt_nombre_text_changed"]

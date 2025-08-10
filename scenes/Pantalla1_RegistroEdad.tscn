@@ -109,7 +109,7 @@ offset_right = 745.0
 offset_bottom = 332.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_blml6")
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="txt_edad" type="TextEdit" parent="."]
 offset_left = 539.0
 offset_top = 296.0
 offset_right = 724.0
@@ -123,3 +123,4 @@ placeholder_text = "16"
 
 [connection signal="pressed" from="btn_go_intereses" to="." method="_on_btn_go_intereses_pressed"]
 [connection signal="pressed" from="btn_back_nombre" to="." method="_on_btn_back_nombre_pressed"]
+[connection signal="text_changed" from="txt_edad" to="." method="_on_txt_edad_text_changed"]
