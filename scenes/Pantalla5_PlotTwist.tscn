@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cudlgvfqa4w6f"]
+[gd_scene load_steps=9 format=3 uid="uid://cudlgvfqa4w6f"]
 
+[ext_resource type="Script" uid="uid://dshtvfie7mbgd" path="res://scripts/PlotTwistFinal.gd" id="1_p5lpp"]
 [ext_resource type="Texture2D" uid="uid://d35xwhaqyijgf" path="res://assets/scenes/hombre_BG.png" id="1_tlhj7"]
 [ext_resource type="Texture2D" uid="uid://n0xqghy7i8j4" path="res://assets/chat/hombre_manos.png" id="2_lngnf"]
-[ext_resource type="Texture2D" uid="uid://dyfs8e3t4on7" path="res://assets/chat/mujer_movil_chat.png" id="2_tlhj7"]
+[ext_resource type="Texture2D" uid="uid://1gct3pcrtxgg" path="res://assets/chat/hombre_movil_chat.png" id="3_wh6tj"]
 [ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="4_wh6tj"]
 [ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="5_w72tf"]
 [ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="6_oo0hf"]
+[ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="8_w72tf"]
 
 [node name="PantallaPlotTwist" type="Node2D"]
+position = Vector2(2, 7)
+script = ExtResource("1_p5lpp")
 
 [node name="Hombre_Frame" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -25,7 +29,7 @@ offset_left = 497.0
 offset_top = 98.0
 offset_right = 781.0
 offset_bottom = 596.0
-texture = ExtResource("2_tlhj7")
+texture = ExtResource("3_wh6tj")
 
 [node name="Hombre_Manos" type="TextureRect" parent="."]
 offset_right = 1280.0
@@ -40,3 +44,16 @@ offset_bottom = 505.0
 texture_normal = ExtResource("4_wh6tj")
 texture_pressed = ExtResource("5_w72tf")
 texture_disabled = ExtResource("6_oo0hf")
+
+[node name="lbltexto" type="Label" parent="."]
+offset_left = 507.0
+offset_top = 125.0
+offset_right = 768.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.329412, 0.0666667, 0.0705882, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("8_w72tf")
+theme_override_font_sizes/font_size = 22
+text = "Usuario"
+horizontal_alignment = 1
