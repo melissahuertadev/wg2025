@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsblgfahrqr53"]
+
+[ext_resource type="Texture2D" uid="uid://c3i11lx3bhl15" path="res://assets/chat/message_recieved.png" id="1_pner3"]
+[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="2_baooq"]
+
+[node name="BurbujaMatchSinAvatar" type="HBoxContainer"]
+
+[node name="Placeholder" type="Control" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Burbuja" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_pner3")
+
+[node name="Texto" type="Label" parent="Burbuja"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 194.0
+offset_bottom = 45.0
+label_settings = ExtResource("2_baooq")
+autowrap_mode = 2

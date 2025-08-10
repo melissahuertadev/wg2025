@@ -1,98 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://5sr4dns83sex"]
+[gd_scene load_steps=10 format=3 uid="uid://5sr4dns83sex"]
 
 [ext_resource type="Script" uid="uid://deqiylcb2cqcb" path="res://scripts/Chat.gd" id="1_bl14k"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="1_ud1xa"]
 [ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="3_5grah"]
 [ext_resource type="Texture2D" uid="uid://dyfs8e3t4on7" path="res://assets/chat/mujer_movil_chat.png" id="3_bl14k"]
-[ext_resource type="Texture2D" uid="uid://blnv8tbv0db84" path="res://assets/chat/iconchat_man.png" id="5_le8ot"]
-[ext_resource type="Animation" uid="uid://b1s1o6y1p4hps" path="res://tres/animations/match_chat_animation.res" id="5_n68mj"]
-[ext_resource type="Texture2D" uid="uid://c3i11lx3bhl15" path="res://assets/chat/message_recieved.png" id="6_ud1xa"]
 [ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="7_bl14k"]
 [ext_resource type="Texture2D" uid="uid://wy7aixvatfn0" path="res://assets/chat/message_sent.png" id="8_5grah"]
 [ext_resource type="Texture2D" uid="uid://beduk6ero8lwl" path="res://assets/chat/iconchat_woman.png" id="8_kk3dd"]
 [ext_resource type="Texture2D" uid="uid://bfa0j5ope73ma" path="res://assets/ui/botones/boton_player_decision.png" id="10_m5bj7"]
 [ext_resource type="LabelSettings" uid="uid://h68p4ud46nej" path="res://tres/label_settings/player_answers.tres" id="11_hsa72"]
-
-[sub_resource type="Animation" id="Animation_n68mj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(12, 100)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Message_Recieved1:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(48, 100)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Message_Recieved2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(48, 158)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Message_Recieved1:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../Message_Recieved2:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_n68mj"]
-_data = {
-&"RESET": SubResource("Animation_n68mj"),
-&"match_chat_animation": ExtResource("5_n68mj")
-}
 
 [node name="PantallaChat" type="Node2D"]
 script = ExtResource("1_bl14k")
@@ -109,79 +25,15 @@ texture = ExtResource("1_ud1xa")
 expand_mode = 3
 
 [node name="Mujer_Movil" type="TextureRect" parent="."]
-offset_left = 497.0
-offset_top = 98.0
-offset_right = 781.0
-offset_bottom = 596.0
+offset_left = 498.0
+offset_top = 100.0
+offset_right = 782.0
+offset_bottom = 598.0
 mouse_filter = 2
 texture = ExtResource("3_bl14k")
 
-[node name="Msgs_Recieved_Anim" type="AnimationPlayer" parent="Mujer_Movil"]
-root_node = NodePath("../Hombre_PP")
-libraries = {
-&"": SubResource("AnimationLibrary_n68mj")
-}
-
-[node name="Msgs_Sent_Anim" type="AnimationPlayer" parent="Mujer_Movil"]
-
-[node name="Hombre_PP" type="TextureRect" parent="Mujer_Movil"]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -272.0
-offset_top = 100.0
-offset_right = -244.0
-offset_bottom = 127.0
-grow_horizontal = 0
-mouse_filter = 0
-texture = ExtResource("5_le8ot")
-
-[node name="Message_Recieved1" type="TextureRect" parent="Mujer_Movil"]
-visible = false
-layout_mode = 0
-offset_left = 48.0
-offset_top = 100.0
-offset_right = 248.0
-offset_bottom = 150.0
-mouse_filter = 0
-texture = ExtResource("6_ud1xa")
-
-[node name="Label" type="Label" parent="Mujer_Movil/Message_Recieved1"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 8.0
-offset_right = 194.0
-offset_bottom = 43.0
-text = "Hola..."
-label_settings = ExtResource("7_bl14k")
-autowrap_mode = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Mujer_Movil/Message_Recieved1"]
-
-[node name="Message_Recieved2" type="TextureRect" parent="Mujer_Movil"]
-visible = false
-layout_mode = 0
-offset_left = 48.0
-offset_top = 158.0
-offset_right = 248.0
-offset_bottom = 208.0
-mouse_filter = 0
-texture = ExtResource("6_ud1xa")
-
-[node name="Label" type="Label" parent="Mujer_Movil/Message_Recieved2"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 8.0
-offset_right = 194.0
-offset_bottom = 43.0
-label_settings = ExtResource("7_bl14k")
-autowrap_mode = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Mujer_Movil/Message_Recieved2"]
-
 [node name="Player_PP" type="TextureRect" parent="Mujer_Movil"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -195,6 +47,7 @@ mouse_filter = 0
 texture = ExtResource("8_kk3dd")
 
 [node name="Message_Sent1" type="TextureRect" parent="Mujer_Movil"]
+visible = false
 layout_mode = 0
 offset_left = 28.0
 offset_top = 228.0
@@ -281,6 +134,17 @@ offset_right = 1280.0
 offset_bottom = 721.0
 mouse_filter = 2
 texture = ExtResource("3_5grah")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 514.0
+offset_top = 181.0
+offset_right = 763.0
+offset_bottom = 430.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="pressed" from="Mujer_Movil/Rpta_Positiva" to="." method="_on_rpta_positiva_pressed"]
 [connection signal="pressed" from="Mujer_Movil/Rpta_Negativa" to="." method="_on_rpta_negativa_pressed"]

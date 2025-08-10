@@ -1,7 +1,5 @@
 extends Node2D
 
-signal bubble_animation_finished
-
 var ultimo_emisor = null # "match" o "player"
 var isWaitingReply: bool = false
 var msg_recieved_1_dict: Dictionary
@@ -12,13 +10,9 @@ var msg_r_1 = "¡Hola! ¿Qué tal? Vi en tu perfil que te gusta PLAYER_INTEREST"
 var msg_r_2 = ""
 
 func _ready():
-	ultimo_emisor = null
 	load_dictionaries()
-	# Conectar señal solo una vez acá (antes de cargar mensajes)
-	self.connect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
-
 	set_labels_text()
-	#load_msgs_recieved_animation()
+
 
 func replace_message(original_str, old_text, new_text):
 	var new_str = original_str.replace(old_text, new_text)
@@ -90,14 +84,11 @@ func load_dictionaries():
 			"No me interesa. Chau."
 		]
 	}
-	
-func load_msgs_recieved_animation():
-	print("Refactored: load_msgs_recieved_animation ")
 
-func load_player_options(action_name: String) -> void:
-	if action_name == "first":
-		self.connect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
-		#show_player_reply_options()
+func _on_animation_finished(anim_name: String):
+	if anim_name == "match_chat_animation":
+		isWaitingReply = true
+		show_player_reply_options()
 
 func get_rand_item_enum():
 	#var rand_idx = randi() % GlobalManager.main_character_intereses.size()
@@ -110,17 +101,16 @@ func get_rand_item_enum():
 func set_labels_text():
 	var rand_item_enum = get_rand_item_enum()
 	
-	load_initial_match_messages(rand_item_enum)
+	set_msgs_recieved_text(rand_item_enum)
 	set_rptas_text(rand_item_enum)
 
-func load_initial_match_messages(item_enum):
-	ultimo_emisor = ""
+func set_msgs_recieved_text(item_enum):
 	var new_message_1 = replace_message(msg_r_1, "PLAYER_INTEREST", msg_recieved_1_dict[item_enum])
-	var new_message_2 = msg_recieved_2_dict[item_enum]
+	var new_msg_r_2 = msg_recieved_2_dict[item_enum]
+	
 
-	await mostrar_mensaje_match(new_message_1)
-	await mostrar_mensaje_match(new_message_2)
-	#load_player_options("first")
+	mostrar_mensaje_match(new_message_1)
+
 
 func set_rptas_text(item_enum):
 	var RptaPositivaLabel =  $Mujer_Movil/Rpta_Positiva/Label
@@ -149,14 +139,14 @@ func handle_player_answer(inviteAccepted: bool):
 	fade_nodes(nodos, false, 0.42)
 	GlobalManager.inviteAccepted = inviteAccepted
 
-func fade_nodes(nodes: Array, showNode: bool, duration: float = 1.542):
+func fade_nodes(nodes: Array, showNode: bool, duration: float = 0.4):
 	for nodo in nodes:
 		if showNode:
 			nodo.visible = true
-			nodo.modulate.a = 0.0
-			var tween = create_tween()
-			create_tween().tween_property(nodo, "modulate:a", 1.0, duration)
+			#nodo.modulate.a = 0.0
+			#create_tween().tween_property(nodo, "modulate:a", 1.0, duration)
 		else:
+			#nodo.modulate.a = 1.0
 			var tween = create_tween()
 			tween.tween_property(nodo, "modulate:a", 0.0, duration)
 			tween.finished.connect(func():
@@ -171,81 +161,67 @@ func _on_rpta_negativa_pressed() -> void:
 
 
 
-func add_message(emisor: String, texto: String) -> void:
-	var escena_burbuja = load_bubble_scene(emisor, safe_string(ultimo_emisor))
-
-	set_bubble_text(escena_burbuja, texto)
-	prepare_bubble_animation(escena_burbuja)
-	$ScrollContainer/VBoxContainer.add_child(escena_burbuja) # Añadir burbuja al contenedor visible
-	
-	# Agregar espacio de 20 px entre mensajes
-	var espacio = Control.new()
-	espacio.custom_minimum_size = Vector2(0, 20)
-	$ScrollContainer/VBoxContainer.add_child(espacio)
-	
-	play_bubble_animation(escena_burbuja)
-	
-
-	# Esperar un frame para que actualice scroll
-	await get_tree().process_frame
-	$ScrollContainer.scroll_vertical = $ScrollContainer.get_v_scroll_bar().max_value
-	ultimo_emisor = emisor
-	print("ultimo emisor ? ", ultimo_emisor)
-
-func load_bubble_scene(emisor: String, ult_em: String = "") -> Node:
-	var escena_burbuja: Node
-	
-	var ue = ult_em if ult_em != null else ""
+func add_message(emisor: String, texto: String):
+	var escena_burbuja
 	
 	match emisor:
 		"match":
-			if ue == "match":
+			if ultimo_emisor == "match":
 				escena_burbuja = preload("res://scenes/chat/BurbujaMatch_SinAvatar.tscn").instantiate()
 			else:
 				escena_burbuja = preload("res://scenes/chat/BurbujaMatch_ConAvatar.tscn").instantiate()
 		"player":
-			if ue == "player":
+			if ultimo_emisor == "player":
 				escena_burbuja = preload("res://scenes/chat/BurbujaJugador_SinAvatar.tscn").instantiate()
 			else:
 				escena_burbuja = preload("res://scenes/chat/BurbujaJugador_ConAvatar.tscn").instantiate()
-		_:
-			push_error("Emisor desconocido: %s" % emisor)
-			return null
-	
-	return escena_burbuja
 
-func set_bubble_text(escena_burbuja: Node, texto: String) -> void:
-	var burbuja = escena_burbuja.get_node("Burbuja")
-	var label = burbuja.get_node("Texto")
+	# Asignar texto
+	var label = escena_burbuja.get_node("Burbuja/Texto")
 	label.text = texto
-
-func prepare_bubble_animation(escena_burbuja: Node) -> void:
-	# Inicializar alfa y escala para animación
-	var burbuja = escena_burbuja.get_node("Burbuja")
-	burbuja.modulate.a = 0.0
-	burbuja.scale = Vector2(0.8, 0.8)
-
-func play_bubble_animation(escena_burbuja: Node) -> void:
-	var burbuja = escena_burbuja.get_node("Burbuja")
-	var tween = create_tween()
-	tween.tween_property(burbuja, "modulate:a", 1.0, 0.84)
-	tween.tween_property(burbuja, "scale", Vector2(1, 1), 0.4)
-	tween.finished.connect(Callable(self, "_on_tween_finished"))
-
-func _on_tween_finished() -> void:
-	emit_signal("bubble_animation_finished")
 	
-func _on_bubble_animation_finished():
-	print("Animación terminada")
-	isWaitingReply = true
-	show_player_reply_options()
-	self.disconnect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
+	label.visible = true
+	label.modulate.a = 1.0
+	
+	escena_burbuja.visible = true
+	escena_burbuja.modulate.a = 1.0
+	
+	# Añadir al contenedor (sin tweens)
+	$ScrollContainer/VBoxContainer.add_child(escena_burbuja)
 
-func safe_string(value) -> String:
-	return value if value != null else ""
+	await get_tree().process_frame
+	$ScrollContainer.scroll_vertical = $ScrollContainer.get_v_scroll_bar().max_value
+
+
+
+
+	# Añadir al contenedor
+	#$ScrollContainer/VBoxContainer.add_child(escena_burbuja)
+	
+	#await get_tree().process_frame
+	#$ScrollContainer.scroll_vertical = $ScrollContainer.get_v_scroll_bar().max_value
+	print("Tamaño mínimo:", escena_burbuja.get_minimum_size())
+	print("Tamaño real:", escena_burbuja.get_size())
+	print("ScrollContainer visible:", $ScrollContainer.visible)
+	print("VBoxContainer visible:", $ScrollContainer/VBoxContainer.visible)
+	
+	print("ScrollContainer size:", $ScrollContainer.get_size())
+	#print("VBoxContainer size:", $ScrollContainer.get_node("VBoxContainer").rect_size)
+	print("ScrollContainer visible:", $ScrollContainer.visible)
+	print("VBoxContainer visible:", $ScrollContainer.get_node("VBoxContainer").visible)
+	var vbox = $ScrollContainer.get_node("VBoxContainer")
+	print("Clase del nodo VBoxContainer:", vbox.get_class())
+	print("Hereda Control?:", vbox is Control)
+
+
+
 	
 func mostrar_mensaje_match(texto: String):
-	await add_message("match", texto)
+	print("mostrando mensaje..", texto)
+	add_message("match", texto)
+	print("mensaje añadido a la UI")
+	print("$ScrollContainer/VBoxContainer: ", $ScrollContainer/VBoxContainer)
+
 
 func mostrar_mensaje_player(texto: String):
-	await add_message("player", texto)
+	add_message("player", texto)
