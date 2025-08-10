@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://di2tu6tlvesgw"]
+[gd_scene load_steps=2 format=3 uid="uid://di2tu6tlvesgw"]
+
+[ext_resource type="Texture2D" uid="uid://ok2mtew4hfsq" path="res://assets/ui/botones/dating_app_logo.png" id="1_2suo5"]
 
 [node name="PantallaFinal" type="Node2D"]
+
+[node name="DatingAppLogo" type="TextureRect" parent="."]
+offset_left = 257.0
+offset_top = 117.0
+offset_right = 1160.0
+offset_bottom = 613.0
+texture = ExtResource("1_2suo5")
