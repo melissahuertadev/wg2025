@@ -48,6 +48,7 @@ offset_bottom = 596.0
 texture = ExtResource("3_y6r3l")
 
 [node name="Label2" type="Label" parent="Mujer_Movil"]
+layout_mode = 0
 offset_left = 57.5
 offset_top = 133.0
 offset_right = 226.5
@@ -58,6 +59,7 @@ theme_override_font_sizes/font_size = 14
 text = "Elige a tu match perfecto"
 
 [node name="DatingAppLogo" type="TextureRect" parent="Mujer_Movil"]
+layout_mode = 0
 offset_left = 17.0
 offset_top = 19.0
 offset_right = 261.0
