@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwrthkaxcgd63"]
+[gd_scene load_steps=3 format=3 uid="uid://dwrthkaxcgd63"]
 
 [ext_resource type="Texture2D" uid="uid://beduk6ero8lwl" path="res://assets/chat/iconchat_woman.png" id="1_c3fwn"]
 [ext_resource type="Texture2D" uid="uid://c3i11lx3bhl15" path="res://assets/chat/message_recieved.png" id="2_skwwd"]
-[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="3_ky3a2"]
 
 [node name="BurbujaJugadorConAvatar" type="HBoxContainer"]
 offset_right = 236.0
@@ -26,12 +25,3 @@ offset_left = 4.0
 offset_right = 204.0
 offset_bottom = 50.0
 texture = ExtResource("2_skwwd")
-
-[node name="Texto" type="Label" parent="Burbuja"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 5.0
-offset_right = 198.0
-offset_bottom = 45.0
-label_settings = ExtResource("3_ky3a2")
-autowrap_mode = 2
