@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://gxmfwhawibhu" path="res://assets/ui/botones/hover button mesage.png" id="8_n68mj"]
 [ext_resource type="Texture2D" uid="uid://bvgkddi4uh0fk" path="res://assets/chat/movil_dark.png" id="10_hsa72"]
 [ext_resource type="Texture2D" uid="uid://bfa0j5ope73ma" path="res://assets/ui/botones/boton_player_decision.png" id="10_m5bj7"]
-[ext_resource type="AudioStream" uid="uid://cfchdepprp3v8" path="res://assets/sfx/notification-ping-372479.mp3" id="11_elatv"]
+[ext_resource type="AudioStream" uid="uid://0ec3wvorlsnq" path="res://assets/sfx/653820__ukjoncollins__iphone-text-sound.wav" id="11_7g0ak"]
 [ext_resource type="LabelSettings" uid="uid://h68p4ud46nej" path="res://tres/label_settings/player_answers.tres" id="11_hsa72"]
 [ext_resource type="Texture2D" uid="uid://08blnk63e7jy" path="res://assets/plot_twist_1a.png" id="11_xte4i"]
 [ext_resource type="AudioStream" uid="uid://tsohnea8e5w4" path="res://assets/sfx/new-notification-010-352755.mp3" id="12_xte4i"]
@@ -158,7 +158,7 @@ grow_vertical = 2
 label_settings = ExtResource("11_hsa72")
 
 [node name="PlotTwistNotificationSFX" type="AudioStreamPlayer" parent="Mujer_Movil"]
-stream = ExtResource("11_elatv")
+stream = ExtResource("11_7g0ak")
 volume_db = -5.0
 
 [node name="MatchMessageSFX" type="AudioStreamPlayer" parent="Mujer_Movil"]
