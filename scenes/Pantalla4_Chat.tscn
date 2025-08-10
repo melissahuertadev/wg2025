@@ -1,0 +1,203 @@
+[gd_scene load_steps=11 format=3 uid="uid://5sr4dns83sex"]
+
+[ext_resource type="Script" uid="uid://deqiylcb2cqcb" path="res://scripts/Chat.gd" id="1_bl14k"]
+[ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="1_ud1xa"]
+[ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="3_5grah"]
+[ext_resource type="Texture2D" uid="uid://dyfs8e3t4on7" path="res://assets/chat/mujer_movil_chat.png" id="3_bl14k"]
+[ext_resource type="Texture2D" uid="uid://blnv8tbv0db84" path="res://assets/chat/iconchat_man.png" id="5_le8ot"]
+[ext_resource type="Texture2D" uid="uid://c3i11lx3bhl15" path="res://assets/chat/message_recieved.png" id="6_ud1xa"]
+[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="7_bl14k"]
+
+[sub_resource type="Animation" id="Animation_ud1xa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(521, 192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Message_Recieved1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(554, 194)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Message_Recieved2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(554, 251)]
+}
+
+[sub_resource type="Animation" id="Animation_le8ot"]
+resource_name = "SlideIn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(516, 192), Vector2(521, 192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Message_Recieved1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(552, 194), Vector2(557, 194)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Message_Recieved2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.833333, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(552, 251), Vector2(557, 251)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ud1xa"]
+_data = {
+&"RESET": SubResource("Animation_ud1xa"),
+&"SlideIn": SubResource("Animation_le8ot")
+}
+
+[node name="PantallaChat" type="Node2D"]
+script = ExtResource("1_bl14k")
+
+[node name="Mujer_Frame" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ud1xa")
+expand_mode = 3
+
+[node name="Mujer_Movil" type="TextureRect" parent="."]
+offset_left = 497.0
+offset_top = 98.0
+offset_right = 781.0
+offset_bottom = 596.0
+texture = ExtResource("3_bl14k")
+
+[node name="Mujer_Manos" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 721.0
+texture = ExtResource("3_5grah")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 521.0
+offset_top = 192.0
+offset_right = 553.0
+offset_bottom = 224.0
+texture = ExtResource("5_le8ot")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ud1xa")
+}
+autoplay = "SlideIn"
+
+[node name="Message_Recieved1" type="TextureRect" parent="."]
+offset_left = 554.0
+offset_top = 194.0
+offset_right = 754.0
+offset_bottom = 244.0
+texture = ExtResource("6_ud1xa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Message_Recieved1"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ud1xa")
+}
+
+[node name="Label1" type="Label" parent="Message_Recieved1"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 194.0
+offset_bottom = 43.0
+text = "Hola..."
+label_settings = ExtResource("7_bl14k")
+autowrap_mode = 2
+
+[node name="Message_Recieved2" type="TextureRect" parent="."]
+offset_left = 554.0
+offset_top = 251.0
+offset_right = 754.0
+offset_bottom = 301.0
+texture = ExtResource("6_ud1xa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Message_Recieved2"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ud1xa")
+}
+
+[node name="Label" type="Label" parent="Message_Recieved2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 194.0
+offset_bottom = 43.0
+text = ".."
+label_settings = ExtResource("7_bl14k")
+autowrap_mode = 2
+
+[node name="Message_Sent1" type="TextureRect" parent="."]
+offset_left = 523.0
+offset_top = 313.0
+offset_right = 723.0
+offset_bottom = 363.0
+texture = ExtResource("6_ud1xa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Message_Sent1"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ud1xa")
+}
+
+[node name="Label" type="Label" parent="Message_Sent1"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 194.0
+offset_bottom = 43.0
+text = "??"
+label_settings = ExtResource("7_bl14k")
+autowrap_mode = 2

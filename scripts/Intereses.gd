@@ -1,3 +1,5 @@
+# TODO: mantener imagen del boton mientras esta seleccionado
+
 extends Node2D
 
 @onready var continuarButton = $ContinuarButton
@@ -20,8 +22,6 @@ func handle_interest(param):
 	else:
 		GlobalManager.main_character_intereses.push_back(param)
 	handle_button()
-
-# enum INTERESES {DEPORTES, CINE, VIDEOJUEGOS, ANIMES, LIBROS, COCINA, FESTIVALES, MUSICA, TECH}
  
 func handle_button():
 	#print('count', GlobalManager.main_character_intereses.size())
@@ -68,7 +68,7 @@ func _on_interes_tech_pressed() -> void:
 
 func _on_continuar_button_pressed() -> void:
 	print("> Mostrar Candidatos")
-	get_tree().change_scene_to_file("res://scenes/Pantalla2_Candidato.tscn")
+	get_tree().change_scene_to_file("res://scenes/Pantalla3_Candidato.tscn")
 
 func _on_retroceder_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Pantalla1_Registro.tscn")
