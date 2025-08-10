@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4mbep2wm6jpi"]
+
+[ext_resource type="Texture2D" uid="uid://wy7aixvatfn0" path="res://assets/chat/message_sent.png" id="1_namlk"]
+[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="2_66dbl"]
+
+[node name="BurbujaJugadorSinAvatar" type="HBoxContainer"]
+
+[node name="Burbuja" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_namlk")
+
+[node name="Texto" type="Label" parent="Burbuja"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 194.0
+offset_bottom = 45.0
+label_settings = ExtResource("2_66dbl")
+autowrap_mode = 2
