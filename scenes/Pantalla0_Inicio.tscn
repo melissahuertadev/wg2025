@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ce5v6hhdejfvs" path="res://scripts/Inicio.gd" id="1_00umi"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_1d2dg"]
-[ext_resource type="Texture2D" uid="uid://b48e4np3gntfa" path="res://assets/chat/mujer_movil_BG.png" id="3_u3jb3"]
+[ext_resource type="Texture2D" uid="uid://c4wco3veii3n3" path="res://assets/chat/mujer_movil_inicio.png" id="3_00umi"]
 [ext_resource type="Texture2D" uid="uid://c4bupiq7wdio2" path="res://assets/ui/botones/boton_rosa_enable.png" id="4_a5fbw"]
 [ext_resource type="Texture2D" uid="uid://mhdwwnyfwenu" path="res://assets/ui/botones/boton_rosa_selected.png" id="5_5h4ks"]
 [ext_resource type="Texture2D" uid="uid://2nacvrsrdw8" path="res://assets/ui/botones/boton_rosa_disable.png" id="6_lhxtc"]
@@ -32,7 +32,7 @@ offset_left = 497.0
 offset_top = 98.0
 offset_right = 781.0
 offset_bottom = 596.0
-texture = ExtResource("3_u3jb3")
+texture = ExtResource("3_00umi")
 
 [node name="Mujer_Manos" type="TextureRect" parent="."]
 offset_right = 1280.0

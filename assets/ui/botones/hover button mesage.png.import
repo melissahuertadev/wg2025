@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://08blnk63e7jy"
-path="res://.godot/imported/plot_twist_2.png-a8f64197d68669557f0370619656fe06.ctex"
+uid="uid://gxmfwhawibhu"
+path="res://.godot/imported/hover button mesage.png-f779327d2398ac7d42afb996bae67e82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/plot_twist_2.png"
-dest_files=["res://.godot/imported/plot_twist_2.png-a8f64197d68669557f0370619656fe06.ctex"]
+source_file="res://assets/ui/botones/hover button mesage.png"
+dest_files=["res://.godot/imported/hover button mesage.png-f779327d2398ac7d42afb996bae67e82.ctex"]
 
 [params]
 
