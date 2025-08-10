@@ -162,6 +162,8 @@ func load_initial_match_messages(item_enum):
 
 	await show_match_message(new_message_1)
 	await show_match_message(new_message_2)
+	GlobalManager.match_messages.push_back(new_message_1)
+	GlobalManager.match_messages.push_back(new_message_2)
 	#load_player_options("first")
 
 func load_initial_player_messages(item_enum, inviteAccepted) -> void:
@@ -172,6 +174,7 @@ func load_initial_player_messages(item_enum, inviteAccepted) -> void:
 	print("msg... ", player_message)
 	# Esperar que termine show_player_message
 	await show_player_message(player_message)
+	GlobalManager.player_messages.push_back(player_message)
 	
 	# Mostrar las texturas del plot twist
 	var mujer_movil = $Mujer_Movil
