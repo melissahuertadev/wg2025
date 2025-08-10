@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cudlgvfqa4w6f"]
+[gd_scene load_steps=11 format=3 uid="uid://cudlgvfqa4w6f"]
 
 [ext_resource type="Script" uid="uid://dshtvfie7mbgd" path="res://scripts/PlotTwistFinal.gd" id="1_p5lpp"]
 [ext_resource type="Texture2D" uid="uid://d35xwhaqyijgf" path="res://assets/scenes/hombre_BG.png" id="1_tlhj7"]
@@ -8,10 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="5_w72tf"]
 [ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="6_oo0hf"]
 [ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="8_w72tf"]
-[ext_resource type="Texture2D" uid="uid://c3i11lx3bhl15" path="res://assets/chat/message_recieved.png" id="9_wh6tj"]
-[ext_resource type="Texture2D" uid="uid://beduk6ero8lwl" path="res://assets/chat/iconchat_woman.png" id="10_w72tf"]
-[ext_resource type="Texture2D" uid="uid://blnv8tbv0db84" path="res://assets/chat/iconchat_man.png" id="11_28bfe"]
-[ext_resource type="FontFile" uid="uid://c4o3xjoyseo1d" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-Bold.ttf" id="12_2hhfp"]
 [ext_resource type="Texture2D" uid="uid://digfkxxqpjcrm" path="res://assets/plot_twist_1.png" id="13_2hhfp"]
 
 [sub_resource type="Theme" id="Theme_p5lpp"]
@@ -66,6 +62,7 @@ text = "Usuario"
 horizontal_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TopRect" type="ColorRect" parent="CanvasLayer"]
 offset_top = 3.0
@@ -81,96 +78,8 @@ offset_bottom = 760.0
 theme = SubResource("Theme_p5lpp")
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 582.0
-offset_top = 318.0
-offset_right = 744.0
-offset_bottom = 372.0
-texture = ExtResource("9_wh6tj")
-expand_mode = 1
-
-[node name="TextureRect4" type="TextureRect" parent="."]
-offset_left = 529.0
-offset_top = 188.0
-offset_right = 691.0
-offset_bottom = 242.0
-texture = ExtResource("9_wh6tj")
-expand_mode = 1
-
-[node name="TextureRect7" type="TextureRect" parent="."]
-offset_left = 531.0
-offset_top = 388.0
-offset_right = 693.0
-offset_bottom = 442.0
-texture = ExtResource("9_wh6tj")
-expand_mode = 1
-
-[node name="TextureRect5" type="TextureRect" parent="."]
-offset_left = 529.0
-offset_top = 251.0
-offset_right = 691.0
-offset_bottom = 305.0
-texture = ExtResource("9_wh6tj")
-expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = 526.0
-offset_top = 322.0
-offset_right = 566.0
-offset_bottom = 362.0
-texture = ExtResource("10_w72tf")
-
-[node name="TextureRect3" type="TextureRect" parent="."]
-offset_left = 699.0
-offset_top = 195.0
-offset_right = 739.0
-offset_bottom = 235.0
-texture = ExtResource("11_28bfe")
-
-[node name="TextureRect6" type="TextureRect" parent="."]
-offset_left = 708.0
-offset_top = 394.0
-offset_right = 748.0
-offset_bottom = 434.0
-texture = ExtResource("11_28bfe")
-
-[node name="mnsj_saludo" type="Label" parent="."]
-offset_left = 535.0
-offset_top = 191.0
-offset_right = 689.0
-offset_bottom = 215.0
-theme_override_fonts/font = ExtResource("12_2hhfp")
-theme_override_font_sizes/font_size = 14
-text = "Mensaje de saludo"
-
-[node name="mnsj_invitacion" type="Label" parent="."]
-offset_left = 532.0
-offset_top = 253.0
-offset_right = 686.0
-offset_bottom = 277.0
-theme_override_fonts/font = ExtResource("12_2hhfp")
-theme_override_font_sizes/font_size = 14
-text = "Mensaje de si"
-
-[node name="mnsj_respuesta_chica" type="Label" parent="."]
-offset_left = 588.0
-offset_top = 322.0
-offset_right = 733.0
-offset_bottom = 346.0
-theme_override_fonts/font = ExtResource("12_2hhfp")
-theme_override_font_sizes/font_size = 14
-text = "Respuesta chica"
-
-[node name="mnsj_respuesta_chica2" type="Label" parent="."]
-offset_left = 536.0
-offset_top = 392.0
-offset_right = 681.0
-offset_bottom = 416.0
-theme_override_fonts/font = ExtResource("12_2hhfp")
-theme_override_font_sizes/font_size = 14
-text = "Respuesta chico"
-
 [node name="TextureRect8" type="TextureRect" parent="."]
+visible = false
 offset_left = 515.0
 offset_top = 115.0
 offset_right = 761.0
