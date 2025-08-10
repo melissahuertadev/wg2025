@@ -6,10 +6,12 @@ var ultimo_emisor = null # "match" o "player"
 var isWaitingReply: bool = false
 var msg_recieved_1_dict: Dictionary
 var msg_recieved_2_dict: Dictionary
+var player_decisions_1_dict: Dictionary
 var msg_sent_1_dict: Dictionary
 
 var msg_r_1 = "¡Hola! ¿Qué tal? Vi en tu perfil que te gusta PLAYER_INTEREST"
 var msg_r_2 = ""
+var rand_item_enum = ""
 
 func _ready():
 	ultimo_emisor = null
@@ -18,7 +20,6 @@ func _ready():
 	self.connect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
 
 	set_labels_text()
-	#load_msgs_recieved_animation()
 
 func replace_message(original_str, old_text, new_text):
 	var new_str = original_str.replace(old_text, new_text)
@@ -52,7 +53,7 @@ func load_dictionaries():
 	}
 
 	# Respuestas de la chica (player)
-	msg_sent_1_dict = {
+	player_decisions_1_dict = {
 		GlobalManager.INTERESES.DEPORTES: [
 			"¡Claro! Vamos a correr.",
 			"No, me lesioné. Chau."
@@ -91,8 +92,46 @@ func load_dictionaries():
 		]
 	}
 	
-func load_msgs_recieved_animation():
-	print("Refactored: load_msgs_recieved_animation ")
+	# Respuesta en burbuja de la chica
+	msg_sent_1_dict = {
+		GlobalManager.INTERESES.DEPORTES: [
+			"¡Genial! Me encantaría correr contigo este finde.",
+			"Lo siento, me lesioné y necesito descansar."
+		],
+		GlobalManager.INTERESES.CINE: [
+			"¡Perfecto! Me encantaría ir al cine contigo.",
+			"No puedo, ya vi esa película."
+		],
+		GlobalManager.INTERESES.VIDEOJUEGOS: [
+			"¡De una! Me apunto para jugar contigo.",
+			"No juego mucho, pero gracias."
+		],
+		GlobalManager.INTERESES.ANIMES: [
+			"¡Claro! Ver anime contigo sería genial.",
+			"No veo anime, pero gracias."
+		],
+		GlobalManager.INTERESES.LIBROS: [
+			"¡Vamos a la feria de libros juntos!",
+			"No podré ir esta vez, pero gracias."
+		],
+		GlobalManager.INTERESES.COCINA: [
+			"¡Sí! Cocinar juntos suena divertido.",
+			"No me animo a cocinar hoy."
+		],
+		GlobalManager.INTERESES.FESTIVALES: [
+			"¡Obvio! Me encantan los festivales.",
+			"No me siento con ánimos para ir."
+		],
+		GlobalManager.INTERESES.MUSICA: [
+			"¡Sí! Ir al concierto será genial.",
+			"No puedo esta vez, pero gracias."
+		],
+		GlobalManager.INTERESES.TECH: [
+			"¡Perfecto! Me interesa mucho la expo.",
+			"No es lo mío, pero gracias."
+		]
+}
+
 
 func load_player_options(action_name: String) -> void:
 	if action_name == "first":
@@ -103,12 +142,12 @@ func get_rand_item_enum():
 	#var rand_idx = randi() % GlobalManager.main_character_intereses.size()
 	#var rand_item_str = GlobalManager.main_character_intereses[rand_idx]
 	var rand_item_str = "DEPORTES" # PARA TESTEAR
-	var rand_item_enum = GlobalManager.INTERESES[rand_item_str]
+	var rand_item_en = GlobalManager.INTERESES[rand_item_str]
 	
-	return rand_item_enum
+	return rand_item_en
 
 func set_labels_text():
-	var rand_item_enum = get_rand_item_enum()
+	rand_item_enum = get_rand_item_enum()
 	
 	load_initial_match_messages(rand_item_enum)
 	set_rptas_text(rand_item_enum)
@@ -118,16 +157,46 @@ func load_initial_match_messages(item_enum):
 	var new_message_1 = replace_message(msg_r_1, "PLAYER_INTEREST", msg_recieved_1_dict[item_enum])
 	var new_message_2 = msg_recieved_2_dict[item_enum]
 
-	await mostrar_mensaje_match(new_message_1)
-	await mostrar_mensaje_match(new_message_2)
+	await show_match_message(new_message_1)
+	await show_match_message(new_message_2)
 	#load_player_options("first")
 
+func load_initial_player_messages(item_enum, inviteAccepted) -> void:
+	ultimo_emisor = ""
+
+	var player_message = msg_sent_1_dict[item_enum][0] if inviteAccepted else msg_sent_1_dict[item_enum][1]
+	print("rand_item_enum... ", rand_item_enum)
+	print("msg... ", player_message)
+	# Esperar que termine show_player_message
+	await show_player_message(player_message)
+	
+	# Mostrar las texturas del plot twist
+	var mujer_movil = $Mujer_Movil
+	#$ScrollContainer.z_index = 0
+	#$Mujer_Movil/PlotTwist.z_index = 10
+	#$Mujer_Movil/PlotTwist/Notification.z_index = 10
+
+	var dark_bg = mujer_movil.get_node("PlotTwist")
+	var notification = dark_bg.get_node("Notification")
+	
+		# Reproducir sonido antes de mostrar la notificación
+	var sfx = mujer_movil.get_node("PlotTwistNotificationSFX")
+	sfx.play()
+	
+	dark_bg.visible = true
+	notification.visible = true
+	
+	# Ajustar z_index para que estén por encima
+	$ScrollContainer.z_index = 0
+	dark_bg.z_index = 10
+	notification.z_index = 10
+	
 func set_rptas_text(item_enum):
 	var RptaPositivaLabel =  $Mujer_Movil/Rpta_Positiva/Label
 	var RptaNegativaLabel =  $Mujer_Movil/Rpta_Negativa/Label
 	
-	RptaPositivaLabel.text = msg_sent_1_dict[item_enum][0]
-	RptaNegativaLabel.text = msg_sent_1_dict[item_enum][1]
+	RptaPositivaLabel.text = player_decisions_1_dict[item_enum][0]
+	RptaNegativaLabel.text = player_decisions_1_dict[item_enum][1]
 
 func show_player_reply_options():
 	# Lista de nodos a mostrar suavemente, a: alfa 
@@ -140,6 +209,7 @@ func show_player_reply_options():
 	fade_nodes(nodos, true, 0.42)
 
 func handle_player_answer(inviteAccepted: bool):
+	# Hide options
 	var nodos = [
 		$Mujer_Movil/EsperandoRespuesta,
 		$Mujer_Movil/Rpta_Positiva,
@@ -148,6 +218,7 @@ func handle_player_answer(inviteAccepted: bool):
 	
 	fade_nodes(nodos, false, 0.42)
 	GlobalManager.inviteAccepted = inviteAccepted
+	load_initial_player_messages(rand_item_enum, inviteAccepted)
 
 func fade_nodes(nodes: Array, showNode: bool, duration: float = 1.542):
 	for nodo in nodes:
@@ -155,42 +226,13 @@ func fade_nodes(nodes: Array, showNode: bool, duration: float = 1.542):
 			nodo.visible = true
 			nodo.modulate.a = 0.0
 			var tween = create_tween()
-			create_tween().tween_property(nodo, "modulate:a", 1.0, duration)
+			tween.tween_property(nodo, "modulate:a", 1.0, duration)
 		else:
 			var tween = create_tween()
 			tween.tween_property(nodo, "modulate:a", 0.0, duration)
 			tween.finished.connect(func():
 				nodo.visible = false
 			)
-
-func _on_rpta_positiva_pressed() -> void:
-	handle_player_answer(true)
-
-func _on_rpta_negativa_pressed() -> void:
-	handle_player_answer(false)
-
-
-
-func add_message(emisor: String, texto: String) -> void:
-	var escena_burbuja = load_bubble_scene(emisor, safe_string(ultimo_emisor))
-
-	set_bubble_text(escena_burbuja, texto)
-	prepare_bubble_animation(escena_burbuja)
-	$ScrollContainer/VBoxContainer.add_child(escena_burbuja) # Añadir burbuja al contenedor visible
-	
-	# Agregar espacio de 20 px entre mensajes
-	var espacio = Control.new()
-	espacio.custom_minimum_size = Vector2(0, 20)
-	$ScrollContainer/VBoxContainer.add_child(espacio)
-	
-	play_bubble_animation(escena_burbuja)
-	
-
-	# Esperar un frame para que actualice scroll
-	await get_tree().process_frame
-	$ScrollContainer.scroll_vertical = $ScrollContainer.get_v_scroll_bar().max_value
-	ultimo_emisor = emisor
-	print("ultimo emisor ? ", ultimo_emisor)
 
 func load_bubble_scene(emisor: String, ult_em: String = "") -> Node:
 	var escena_burbuja: Node
@@ -232,22 +274,52 @@ func play_bubble_animation(escena_burbuja: Node) -> void:
 	tween.tween_property(burbuja, "scale", Vector2(1, 1), 0.4)
 	tween.finished.connect(Callable(self, "_on_tween_finished"))
 
+
+# Mostrar Burbuja verde, rosa segun el emisor, estas burbujas son escenas creadas
+func show_bubble_message(emisor: String, texto: String) -> void:
+	var escena_burbuja = load_bubble_scene(emisor, safe_string(ultimo_emisor))
+
+	set_bubble_text(escena_burbuja, texto)
+	prepare_bubble_animation(escena_burbuja)
+	$ScrollContainer/VBoxContainer.add_child(escena_burbuja) # Añadir burbuja al contenedor visible
+	
+	# Agregar espacio de 20 px entre mensajes
+	var espacio = Control.new()
+	espacio.custom_minimum_size = Vector2(0, 20)
+	$ScrollContainer/VBoxContainer.add_child(espacio)
+	
+	play_bubble_animation(escena_burbuja)
+	
+	# Esperar un frame para que actualice scroll
+	await get_tree().process_frame
+	$ScrollContainer.scroll_vertical = $ScrollContainer.get_v_scroll_bar().max_value
+	ultimo_emisor = emisor
+	print("ultimo emisor ? ", ultimo_emisor)
+
+func show_match_message(texto: String):
+	var mujer_movil = $Mujer_Movil
+	var sfx = mujer_movil.get_node("MatchMessageSFX")
+	sfx.play()
+	await show_bubble_message("match", texto)
+
+func show_player_message(texto: String):
+	await show_bubble_message("player", texto)
+
+# Helper
+func safe_string(value) -> String:
+	return value if value != null else ""
+	
+# Signals
 func _on_tween_finished() -> void:
 	emit_signal("bubble_animation_finished")
 	
 func _on_bubble_animation_finished():
-	print("Animación terminada")
 	isWaitingReply = true
 	show_player_reply_options()
 	self.disconnect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
 
-func safe_string(value) -> String:
-	return value if value != null else ""
-	
-func mostrar_mensaje_match(texto: String):
-	await add_message("match", texto)
+func _on_rpta_positiva_pressed() -> void:
+	handle_player_answer(true)
 
-func mostrar_mensaje_player(texto: String):
-	await add_message("player", texto)
-	
-	
+func _on_rpta_negativa_pressed() -> void:
+	handle_player_answer(false)

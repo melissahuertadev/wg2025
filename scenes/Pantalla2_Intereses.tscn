@@ -1,12 +1,13 @@
-[gd_scene load_steps=37 format=3 uid="uid://b42cdt8riqtk8"]
+[gd_scene load_steps=39 format=3 uid="uid://b42cdt8riqtk8"]
 
 [ext_resource type="Script" uid="uid://dwn5i5w1d4gln" path="res://scripts/Intereses.gd" id="1_udxmp"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_gavju"]
-[ext_resource type="Texture2D" uid="uid://d38d7ba1ylrsl" path="res://assets/chat/mujer_movil_intereses.png" id="3_udxmp"]
+[ext_resource type="Texture2D" uid="uid://b48e4np3gntfa" path="res://assets/chat/mujer_movil_BG.png" id="3_ximn0"]
 [ext_resource type="Texture2D" uid="uid://b81jox36n1p3m" path="res://assets/ui/botones/boton_back_enable.png" id="4_2t7eq"]
 [ext_resource type="Texture2D" uid="uid://bd8vgs8f1k2ki" path="res://assets/ui/intereses/deporte_standar.png" id="4_bsbbg"]
 [ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="5_2t7eq"]
 [ext_resource type="Texture2D" uid="uid://bjwsnkc2wimq1" path="res://assets/ui/botones/boton_next_disable.png" id="5_amjhj"]
+[ext_resource type="Texture2D" uid="uid://ok2mtew4hfsq" path="res://assets/ui/botones/dating_app_logo.png" id="5_ne1ry"]
 [ext_resource type="Texture2D" uid="uid://ed2yyahale54" path="res://assets/ui/intereses/deporte_pressed.png" id="5_wr0it"]
 [ext_resource type="Texture2D" uid="uid://cdowxou7i2sp8" path="res://assets/ui/botones/boton_back_pressed.png" id="6_e0vuy"]
 [ext_resource type="Texture2D" uid="uid://dqommqmkueh2b" path="res://assets/ui/intereses/videojuegos_standar.png" id="6_hrael"]
@@ -36,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://btrupbhogp04w" path="res://assets/ui/intereses/tech_pressed.png" id="28_sjuwq"]
 [ext_resource type="Texture2D" uid="uid://didb3t2r1en42" path="res://assets/ui/emojis/cocina.png" id="29_p4xr4"]
 [ext_resource type="Texture2D" uid="uid://csksrheu5oh3" path="res://assets/ui/emojis/musica.png" id="32_k53lu"]
+[ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="38_ne1ry"]
 
 [node name="PantallaIntereses" type="Node2D"]
 script = ExtResource("1_udxmp")
@@ -56,12 +58,19 @@ offset_left = 497.0
 offset_top = 98.0
 offset_right = 781.0
 offset_bottom = 596.0
-texture = ExtResource("3_udxmp")
+texture = ExtResource("3_ximn0")
 
 [node name="Mujer_Manos" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_2t7eq")
+
+[node name="DatingAppLogo" type="TextureRect" parent="."]
+offset_left = 514.0
+offset_top = 117.0
+offset_right = 758.0
+offset_bottom = 235.0
+texture = ExtResource("5_ne1ry")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -344,6 +353,16 @@ offset_bottom = 505.0
 texture_normal = ExtResource("7_e0vuy")
 texture_pressed = ExtResource("8_bsbbg")
 texture_disabled = ExtResource("9_wr0it")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 538.0
+offset_top = 224.0
+offset_right = 734.0
+offset_bottom = 254.0
+theme_override_colors/font_color = Color(0.305882, 0.0313726, 0.0313726, 1)
+theme_override_fonts/font = ExtResource("38_ne1ry")
+theme_override_font_sizes/font_size = 20
+text = "Selecciona tus gustos"
 
 [connection signal="pressed" from="Control/Hobbies/Interes_deportes" to="." method="_on_interes_deportes_pressed"]
 [connection signal="pressed" from="Control/Hobbies/Interes_cine" to="." method="_on_interes_cine_pressed"]
