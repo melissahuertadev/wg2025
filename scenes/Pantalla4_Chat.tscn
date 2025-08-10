@@ -176,7 +176,6 @@ offset_left = 6.0
 offset_top = 8.0
 offset_right = 194.0
 offset_bottom = 43.0
-text = ".."
 label_settings = ExtResource("7_bl14k")
 autowrap_mode = 2
 
