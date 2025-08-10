@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5efojqxeuyos"]
+[gd_scene load_steps=4 format=3 uid="uid://cypqbvcckkvst"]
 
 [ext_resource type="Texture2D" uid="uid://blnv8tbv0db84" path="res://assets/chat/iconchat_man.png" id="1_7q2mg"]
 [ext_resource type="Texture2D" uid="uid://wy7aixvatfn0" path="res://assets/chat/message_sent.png" id="2_bt07q"]

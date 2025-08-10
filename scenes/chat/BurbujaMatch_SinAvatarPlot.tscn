@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0aepe7lu2spk"]
+[gd_scene load_steps=3 format=3 uid="uid://cdel4bj5kthq1"]
 
 [ext_resource type="Texture2D" uid="uid://c3i11lx3bhl15" path="res://assets/chat/message_recieved.png" id="1_r5366"]
 [ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="2_sfi2i"]
