@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b81jox36n1p3m" path="res://assets/ui/botones/boton_back_enable.png" id="4_2t7eq"]
 [ext_resource type="Texture2D" uid="uid://bd8vgs8f1k2ki" path="res://assets/ui/intereses/deporte_standar.png" id="4_bsbbg"]
 [ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="5_2t7eq"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://bjwsnkc2wimq1" path="res://assets/ui/botones/boton_next_disable.png" id="5_amjhj"]
 [ext_resource type="Texture2D" uid="uid://ed2yyahale54" path="res://assets/ui/intereses/deporte_pressed.png" id="5_wr0it"]
 [ext_resource type="Texture2D" uid="uid://cdowxou7i2sp8" path="res://assets/ui/botones/boton_back_pressed.png" id="6_e0vuy"]
@@ -29,6 +30,16 @@
 [ext_resource type="Texture2D" uid="uid://ugh57vofi6tq" path="res://assets/ui/intereses/musica_pressed.png" id="26_sjuwq"]
 [ext_resource type="Texture2D" uid="uid://cuv4nqvppuesl" path="res://assets/ui/intereses/tech_standar.png" id="27_mganv"]
 [ext_resource type="Texture2D" uid="uid://btrupbhogp04w" path="res://assets/ui/intereses/tech_pressed.png" id="28_sjuwq"]
+=======
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_118yx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dg110"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dg110"]
+font = ExtResource("4_m3t46")
+font_size = 30
+>>>>>>> Stashed changes
 
 [node name="PantallaIntereses" type="Node2D"]
 script = ExtResource("1_udxmp")

@@ -122,7 +122,7 @@ theme_override_colors/font_placeholder_color = Color(0.180392, 0.180392, 0.18039
 theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 theme_override_fonts/font = ExtResource("6_7s3vy")
 theme_override_font_sizes/font_size = 14
-placeholder_text = "0"
+placeholder_text = "20"
 
 [connection signal="pressed" from="btn_back_nombre" to="." method="_on_btn_back_nombre_pressed"]
 [connection signal="pressed" from="btn_go_intereses" to="." method="_on_btn_go_intereses_pressed"]
