@@ -5,6 +5,10 @@
 
 [node name="BurbujaMatchSinAvatar" type="HBoxContainer"]
 
+[node name="Placeholder" type="Control" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
 [node name="Burbuja" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("1_pner3")

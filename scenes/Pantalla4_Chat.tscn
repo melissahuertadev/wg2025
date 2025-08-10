@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://5sr4dns83sex"]
+[gd_scene load_steps=10 format=3 uid="uid://5sr4dns83sex"]
 
 [ext_resource type="Script" uid="uid://deqiylcb2cqcb" path="res://scripts/Chat.gd" id="1_bl14k"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="1_ud1xa"]
 [ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="3_5grah"]
 [ext_resource type="Texture2D" uid="uid://dyfs8e3t4on7" path="res://assets/chat/mujer_movil_chat.png" id="3_bl14k"]
-[ext_resource type="Texture2D" uid="uid://c3i11lx3bhl15" path="res://assets/chat/message_recieved.png" id="6_ud1xa"]
 [ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="7_bl14k"]
 [ext_resource type="Texture2D" uid="uid://wy7aixvatfn0" path="res://assets/chat/message_sent.png" id="8_5grah"]
 [ext_resource type="Texture2D" uid="uid://beduk6ero8lwl" path="res://assets/chat/iconchat_woman.png" id="8_kk3dd"]
@@ -32,26 +31,6 @@ offset_right = 782.0
 offset_bottom = 598.0
 mouse_filter = 2
 texture = ExtResource("3_bl14k")
-
-[node name="Message_Recieved2" type="TextureRect" parent="Mujer_Movil"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 158.0
-offset_right = 248.0
-offset_bottom = 208.0
-mouse_filter = 0
-texture = ExtResource("6_ud1xa")
-
-[node name="Label" type="Label" parent="Mujer_Movil/Message_Recieved2"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 8.0
-offset_right = 194.0
-offset_bottom = 43.0
-label_settings = ExtResource("7_bl14k")
-autowrap_mode = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Mujer_Movil/Message_Recieved2"]
 
 [node name="Player_PP" type="TextureRect" parent="Mujer_Movil"]
 visible = false
@@ -87,7 +66,6 @@ label_settings = ExtResource("7_bl14k")
 autowrap_mode = 2
 
 [node name="EsperandoRespuesta" type="TextureRect" parent="Mujer_Movil"]
-visible = false
 layout_mode = 0
 offset_left = 26.0
 offset_top = 342.0
@@ -103,7 +81,6 @@ text = "Mario está esperando una respuesta..."
 label_settings = ExtResource("7_bl14k")
 
 [node name="Rpta_Positiva" type="TextureButton" parent="Mujer_Movil"]
-visible = false
 layout_mode = 0
 offset_left = 22.0
 offset_top = 372.0
@@ -127,7 +104,6 @@ grow_vertical = 2
 label_settings = ExtResource("11_hsa72")
 
 [node name="Rpta_Negativa" type="TextureButton" parent="Mujer_Movil"]
-visible = false
 layout_mode = 0
 offset_left = 22.0
 offset_top = 413.0
@@ -157,10 +133,10 @@ mouse_filter = 2
 texture = ExtResource("3_5grah")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-offset_left = 513.0
+offset_left = 514.0
 offset_top = 181.0
-offset_right = 744.0
-offset_bottom = 442.0
+offset_right = 763.0
+offset_bottom = 430.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2

@@ -21,11 +21,6 @@ offset_bottom = 45.0
 label_settings = ExtResource("2_t8hkh")
 autowrap_mode = 2
 
-[node name="Fondo" type="TextureRect" parent="Burbuja"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Avatar" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("2_p0tcv")

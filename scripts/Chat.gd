@@ -1,8 +1,5 @@
 extends Node2D
 
-@onready var MessageRecieved2 = $Mujer_Movil.get_node("Message_Recieved2")
-@onready var MessageRecieved2Label = MessageRecieved2.get_node("Label")
-
 var ultimo_emisor = null # "match" o "player"
 var isWaitingReply: bool = false
 var msg_recieved_1_dict: Dictionary
@@ -13,6 +10,7 @@ var msg_r_1 = "¡Hola! ¿Qué tal? Vi en tu perfil que te gusta PLAYER_INTEREST"
 var msg_r_2 = ""
 
 func _ready():
+	ultimo_emisor = null
 	load_dictionaries()
 	set_labels_text()
 	#load_msgs_recieved_animation()
@@ -89,16 +87,10 @@ func load_dictionaries():
 	}
 	
 func load_msgs_recieved_animation():
-	print("TODO: load_msgs_recieved_animation ")
-	#@onready
-	#var anim_player = $Mujer_Movil/Msgs_Recieved_Anim
-	#anim_player.connect("animation_finished", Callable(self, "_on_animation_finished"))
+	print("Refactored: load_msgs_recieved_animation ")
 
-	# Empieza animación del primer mensaje
-	#anim_player.play("match_chat_animation")
-
-func _on_animation_finished(anim_name: String):
-	if anim_name == "match_chat_animation":
+func load_player_options(action_name: String):
+	if action_name == "first":
 		isWaitingReply = true
 		show_player_reply_options()
 
@@ -113,15 +105,17 @@ func get_rand_item_enum():
 func set_labels_text():
 	var rand_item_enum = get_rand_item_enum()
 	
-	set_msgs_recieved_text(rand_item_enum)
+	load_initial_match_messages(rand_item_enum)
 	set_rptas_text(rand_item_enum)
 
-func set_msgs_recieved_text(item_enum):
+func load_initial_match_messages(item_enum):
+	ultimo_emisor = ""
 	var new_message_1 = replace_message(msg_r_1, "PLAYER_INTEREST", msg_recieved_1_dict[item_enum])
-	var new_msg_r_2 = msg_recieved_2_dict[item_enum]
-	
-	mostrar_mensaje_match(new_message_1)
-	MessageRecieved2Label.text = new_msg_r_2
+	var new_message_2 = msg_recieved_2_dict[item_enum]
+
+	await mostrar_mensaje_match(new_message_1)
+	await mostrar_mensaje_match(new_message_2)
+	await load_player_options("first")
 
 func set_rptas_text(item_enum):
 	var RptaPositivaLabel =  $Mujer_Movil/Rpta_Positiva/Label
@@ -172,20 +166,27 @@ func _on_rpta_negativa_pressed() -> void:
 
 
 
-func add_message(emisor: String, texto: String):
+func add_message(emisor: String, texto: String) -> void:
+	print("add_message: emisor actual: ", ultimo_emisor)
 	var escena_burbuja = load_bubble_scene(emisor, safe_string(ultimo_emisor))
 
 	set_bubble_text(escena_burbuja, texto)
 	prepare_bubble_animation(escena_burbuja)
 	$ScrollContainer/VBoxContainer.add_child(escena_burbuja) # Añadir burbuja al contenedor visible
+	
+	# Agregar espacio de 20 px entre mensajes
+	var espacio = Control.new()
+	espacio.custom_minimum_size = Vector2(0, 20)
+	$ScrollContainer/VBoxContainer.add_child(espacio)
+	
 	play_bubble_animation(escena_burbuja)
 	
 	# Esperar un frame para que actualice scroll
 	await get_tree().process_frame
 	$ScrollContainer.scroll_vertical = $ScrollContainer.get_v_scroll_bar().max_value
-	
+	print("enisor?", emisor)
 	ultimo_emisor = emisor
-
+	print("ultimo ? ", ultimo_emisor)
 
 func load_bubble_scene(emisor: String, ultimo_emisor: String = "") -> Node:
 	var escena_burbuja: Node
@@ -230,10 +231,7 @@ func safe_string(value) -> String:
 	return value if value != null else ""
 	
 func mostrar_mensaje_match(texto: String):
-	#print("mostrando mensaje..", texto)
-	add_message("match", texto)
-	#print("mensaje añadido a la UI")
-	#print("$ScrollContainer/VBoxContainer: ", $ScrollContainer/VBoxContainer)
+	await add_message("match", texto)
 
 func mostrar_mensaje_player(texto: String):
-	add_message("player", texto)
+	await add_message("player", texto)
