@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://boxblajmsgck0"]
+
+[ext_resource type="Script" uid="uid://dqdj75sbo1y5u" path="res://scripts/Registro.gd" id="1_ogdb8"]
+[ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_hjgyw"]
+[ext_resource type="Texture2D" uid="uid://b48e4np3gntfa" path="res://assets/chat/mujer_movil_BG.png" id="3_y6r3l"]
+[ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="4_h7380"]
+[ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="5_hxmf3"]
+[ext_resource type="FontFile" uid="uid://c4o3xjoyseo1d" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-Bold.ttf" id="6_g1klr"]
+[ext_resource type="Texture2D" uid="uid://b81jox36n1p3m" path="res://assets/ui/botones/boton_back_enable.png" id="7_7ejn5"]
+[ext_resource type="Texture2D" uid="uid://cdowxou7i2sp8" path="res://assets/ui/botones/boton_back_pressed.png" id="8_li4jt"]
+[ext_resource type="Texture2D" uid="uid://bjwsnkc2wimq1" path="res://assets/ui/botones/boton_next_disable.png" id="9_dd882"]
+[ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="10_2s7o4"]
+[ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="11_udors"]
+[ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="12_3g4gq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1n1t"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.329412, 0.0666667, 0.0705882, 0.996078)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+corner_detail = 10
+shadow_color = Color(0.392157, 0.392157, 0.392157, 0.25098)
+shadow_size = 3
+shadow_offset = Vector2(2, 4)
+
+[node name="PantallaRegistro" type="Node2D"]
+script = ExtResource("1_ogdb8")
+
+[node name="Mujer_Frame" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hjgyw")
+expand_mode = 3
+
+[node name="Mujer_Movil" type="TextureRect" parent="."]
+offset_left = 497.0
+offset_top = 98.0
+offset_right = 781.0
+offset_bottom = 596.0
+texture = ExtResource("3_y6r3l")
+
+[node name="Mujer_Manos" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 721.0
+texture = ExtResource("4_h7380")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 527.0
+offset_top = 276.0
+offset_right = 691.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.305882, 0.0313726, 0.0313726, 1)
+theme_override_fonts/font = ExtResource("5_hxmf3")
+theme_override_font_sizes/font_size = 20
+text = "¿Cómo te llamas?"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 540.0
+offset_top = 174.0
+offset_right = 737.0
+offset_bottom = 233.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.329412, 0.0666667, 0.0705882, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_hxmf3")
+theme_override_font_sizes/font_size = 40
+text = "Matchbook"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 553.0
+offset_top = 230.0
+offset_right = 745.0
+offset_bottom = 262.0
+theme_override_colors/font_color = Color(0.305882, 0.0313726, 0.0313726, 1)
+theme_override_fonts/font = ExtResource("6_g1klr")
+theme_override_font_sizes/font_size = 15
+text = "Elige a tu match perfecto"
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 525.0
+offset_top = 308.0
+offset_right = 755.0
+offset_bottom = 346.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u1n1t")
+
+[node name="btn_back_inicio" type="TextureButton" parent="."]
+offset_left = 536.0
+offset_top = 373.0
+offset_right = 588.0
+offset_bottom = 420.0
+texture_normal = ExtResource("7_7ejn5")
+texture_pressed = ExtResource("8_li4jt")
+texture_disabled = ExtResource("9_dd882")
+
+[node name="btn_go_edad" type="TextureButton" parent="."]
+offset_left = 731.0
+offset_top = 373.0
+offset_right = 771.0
+offset_bottom = 413.0
+texture_normal = ExtResource("10_2s7o4")
+texture_pressed = ExtResource("11_udors")
+texture_disabled = ExtResource("12_3g4gq")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 535.0
+offset_top = 312.0
+offset_right = 732.0
+offset_bottom = 343.0
+theme_override_colors/background_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_fonts/font = ExtResource("6_g1klr")
+theme_override_font_sizes/font_size = 14
+placeholder_text = "👤 Tu nombre"
+
+[connection signal="pressed" from="btn_back_inicio" to="." method="_on_btn_back_inicio_pressed"]
+[connection signal="pressed" from="btn_go_edad" to="." method="_on_btn_go_edad_pressed"]
