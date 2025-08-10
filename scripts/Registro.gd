@@ -10,5 +10,4 @@ func _on_btn_back_nombre_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Pantalla1_RegistroNombre.tscn")
 
 func _on_btn_go_intereses_pressed() -> void:
-	print("Holis")
-	#get_tree().change_scene_to_file("res://scenes/Pantalla2_Intereses.tscn")
+	get_tree().change_scene_to_file("res://scenes/Pantalla3_Candidato.tscn")

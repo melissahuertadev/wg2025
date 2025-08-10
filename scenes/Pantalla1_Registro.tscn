@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnbcw6kfx1mls"]
+
+[ext_resource type="Script" uid="uid://dqdj75sbo1y5u" path="res://scripts/Registro.gd" id="1_u6uve"]
+[ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_gn8rn"]
+[ext_resource type="Texture2D" uid="uid://b48e4np3gntfa" path="res://assets/chat/mujer_movil_BG.png" id="3_piaf0"]
+[ext_resource type="Texture2D" uid="uid://c4bupiq7wdio2" path="res://assets/ui/botones/boton_rosa_enable.png" id="4_c81o6"]
+[ext_resource type="Texture2D" uid="uid://mhdwwnyfwenu" path="res://assets/ui/botones/boton_rosa_selected.png" id="5_blml6"]
+[ext_resource type="Texture2D" uid="uid://2nacvrsrdw8" path="res://assets/ui/botones/boton_rosa_disable.png" id="6_o7mbe"]
+[ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="7_5mpi4"]
+[ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="8_8bfv1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_52ugs"]
+font = ExtResource("7_5mpi4")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_u6uve"]
+
+[node name="PantallaRegistro" type="Node2D"]
+script = ExtResource("1_u6uve")
+
+[node name="Mujer_Frame" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gn8rn")
+expand_mode = 3
+
+[node name="Mujer_Movil" type="TextureRect" parent="."]
+offset_left = 497.0
+offset_top = 98.0
+offset_right = 781.0
+offset_bottom = 596.0
+texture = ExtResource("3_piaf0")
+
+[node name="Mujer_Manos" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 721.0
+texture = ExtResource("8_8bfv1")
+
+[node name="ContinuarButton" type="TextureButton" parent="."]
+offset_left = 518.0
+offset_top = 494.0
+offset_right = 757.0
+offset_bottom = 560.0
+texture_normal = ExtResource("4_c81o6")
+texture_pressed = ExtResource("5_blml6")
+texture_disabled = ExtResource("6_o7mbe")
+
+[node name="Label" type="Label" parent="ContinuarButton"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 4.0
+offset_right = 212.0
+offset_bottom = 48.0
+text = "Registrar"
+label_settings = SubResource("LabelSettings_52ugs")
+
+[node name="Label" type="Label" parent="."]
+light_mask = 512
+offset_left = 549.0
+offset_top = 213.0
+offset_right = 683.0
+offset_bottom = 236.0
+scale = Vector2(1.97201, 2.35114)
+localize_numeral_system = false
+text = "¿Cómo te llamas?"
+label_settings = SubResource("LabelSettings_u6uve")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ContinuarButton" to="." method="_on_continuar_button_pressed"]
