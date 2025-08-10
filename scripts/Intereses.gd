@@ -67,7 +67,7 @@ func _on_interes_tech_pressed() -> void:
 	handle_interest(interes)
 
 func _on_continuar_button_pressed() -> void:
-	print("> Mostrar Candidatos")
+	#print("> Ir a escena 'Candidato'")
 	get_tree().change_scene_to_file("res://scenes/Pantalla3_Candidato.tscn")
 
 func _on_retroceder_button_pressed() -> void:
