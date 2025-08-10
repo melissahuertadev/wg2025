@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://beduk6ero8lwl" path="res://assets/chat/iconchat_woman.png" id="2_p0tcv"]
 [ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="2_t8hkh"]
 
-[node name="BurbujaJugadorConAvatar" type="HBoxContainer"]
+[node name="BurbujaJugadorConAvatar2" type="HBoxContainer"]
 offset_right = 236.0
 offset_bottom = 51.0
 
