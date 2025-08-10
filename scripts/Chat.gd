@@ -1,17 +1,18 @@
 extends Node2D
 
-@onready var Message1 = $Message_Recieved1
-@onready var Message2 = $Message_Recieved2
+@onready var Message1 = $Mujer_Movil.get_node("Message_Recieved1")
+@onready var Message2 = $Mujer_Movil.get_node("Message_Recieved2")
 
 @onready var Message1Label = Message1.get_node("Label")
 @onready var Message2Label = Message2.get_node("Label")
 
-var message_1_dict: Dictionary
-var message_2_dict: Dictionary
-var respuestas_chica_dict: Dictionary
-var saludo = "¡Hola! ¿Qué tal? Vi en tu perfil que te gusta PLAYER_INTEREST"
-var message_2 = ""
+var msg_recieved_1_dict: Dictionary
+var msg_recieved_2_dict: Dictionary
+var msg_sent_1_dict: Dictionary
 
+var msg_r_1 = "¡Hola! ¿Qué tal? Vi en tu perfil que te gusta PLAYER_INTEREST"
+var msg_r_2 = ""
+var isWaitingReply: bool = true
 
 #GlobalManager.INTERESES 
 
@@ -19,7 +20,7 @@ var interest_obtenido = ""
 
 func _ready():
 	# Primer mensaje del hombre
-	message_1_dict = {
+	msg_recieved_1_dict = {
 		GlobalManager.INTERESES.DEPORTES: "hacer deporte.",
 		GlobalManager.INTERESES.CINE: "ir al cine.", 
 		GlobalManager.INTERESES.VIDEOJUEGOS: "los videojuegos.", 
@@ -32,7 +33,7 @@ func _ready():
 	}
 	
 	# Segundo mensaje del hombre
-	message_2_dict = {
+	msg_recieved_2_dict = {
 		GlobalManager.INTERESES.DEPORTES: "Entreno 3 veces por semana, ¿y tú?",
 		GlobalManager.INTERESES.CINE:"Mi peli favorita es Freaky Friday ¿y la tuya?",
 		GlobalManager.INTERESES.VIDEOJUEGOS: "Ahora juego a aventuras con buena historia.",
@@ -45,7 +46,7 @@ func _ready():
 	}
 
 	# Respuestas de la chica (player)
-	respuestas_chica_dict = {
+	msg_sent_1_dict = {
 		GlobalManager.INTERESES.DEPORTES: [
 			"¡Genial! Yo también entreno, sobre todo yoga y running.",
 			"No practico mucho deporte, la verdad."
@@ -85,15 +86,15 @@ func _ready():
 	}
 
 
-	var rand_idx = randi() % GlobalManager.main_character_intereses.size()
-	var rand_item_str = GlobalManager.main_character_intereses[rand_idx]
+	#var rand_idx = randi() % GlobalManager.main_character_intereses.size()
+	var rand_item_str = "DEPORTES"#GlobalManager.main_character_intereses[rand_idx]
 	var rand_item_enum = GlobalManager.INTERESES[rand_item_str]
 	
-	var new_message_1 = replace_message(saludo, "PLAYER_INTEREST", message_1_dict[rand_item_enum])
-	var new_message_2 = message_2_dict[rand_item_enum]
+	var new_message_1 = replace_message(msg_r_1, "PLAYER_INTEREST", msg_recieved_1_dict[rand_item_enum])
+	var new_msg_r_2 = msg_recieved_2_dict[rand_item_enum]
 	
 	Message1Label.text = new_message_1
-	Message2Label.text = new_message_2
+	Message2Label.text = new_msg_r_2
 
 func replace_message(original_str, old_text, new_text):
 	var new_str = original_str.replace(old_text, new_text)
