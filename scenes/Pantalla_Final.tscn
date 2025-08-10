@@ -1,12 +1,95 @@
-[gd_scene load_steps=2 format=3 uid="uid://di2tu6tlvesgw"]
+[gd_scene load_steps=11 format=3 uid="uid://di2tu6tlvesgw"]
 
-[ext_resource type="Texture2D" uid="uid://ok2mtew4hfsq" path="res://assets/ui/botones/dating_app_logo.png" id="1_2suo5"]
+[ext_resource type="Script" uid="uid://bheiybavelrey" path="res://scripts/MensageFinal.gd" id="1_lk01a"]
+[ext_resource type="Texture2D" uid="uid://d35xwhaqyijgf" path="res://assets/scenes/hombre_BG.png" id="1_w0da5"]
+[ext_resource type="Texture2D" uid="uid://bvoyixc0p6s0a" path="res://tres/hombre_movil_camara.png" id="2_xaoia"]
+[ext_resource type="Texture2D" uid="uid://n0xqghy7i8j4" path="res://assets/chat/hombre_manos.png" id="3_lk01a"]
+[ext_resource type="LabelSettings" uid="uid://beemax7wyajc0" path="res://scripts/main_menu_label_settings.tres" id="4_xaoia"]
+[ext_resource type="Texture2D" uid="uid://c4bupiq7wdio2" path="res://assets/ui/botones/boton_rosa_enable.png" id="6_6t85f"]
+[ext_resource type="Texture2D" uid="uid://mhdwwnyfwenu" path="res://assets/ui/botones/boton_rosa_selected.png" id="7_n1tip"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lk01a"]
+
+[sub_resource type="Gradient" id="Gradient_6t85f"]
+offsets = PackedFloat32Array(0.980907, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n1tip"]
+gradient = SubResource("Gradient_6t85f")
 
 [node name="PantallaFinal" type="Node2D"]
+script = ExtResource("1_lk01a")
 
-[node name="DatingAppLogo" type="TextureRect" parent="."]
-offset_left = 257.0
-offset_top = 117.0
-offset_right = 1160.0
-offset_bottom = 613.0
-texture = ExtResource("1_2suo5")
+[node name="Hombre_Frame" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w0da5")
+expand_mode = 3
+
+[node name="Hombre_Movil" type="TextureRect" parent="."]
+offset_left = 497.0
+offset_top = 98.0
+offset_right = 781.0
+offset_bottom = 596.0
+texture = ExtResource("2_xaoia")
+
+[node name="Hombre_Manos" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_lk01a")
+
+[node name="Dark" type="TextureRect" parent="."]
+visible = false
+texture_filter = 2
+material = SubResource("CanvasItemMaterial_lk01a")
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+flip_h = true
+
+[node name="TextureRect" type="TextureRect" parent="Dark"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = SubResource("GradientTexture1D_n1tip")
+
+[node name="MensajeFinal" type="Label" parent="Dark"]
+layout_mode = 0
+offset_left = 299.0
+offset_top = 80.0
+offset_right = 982.0
+offset_bottom = 495.0
+text = "Mensaje  final"
+label_settings = ExtResource("4_xaoia")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="QuitButton" type="TextureButton" parent="Dark"]
+offset_left = 520.0
+offset_top = 574.0
+offset_right = 759.0
+offset_bottom = 640.0
+texture_normal = ExtResource("6_6t85f")
+texture_pressed = ExtResource("7_n1tip")
+
+[node name="Label" type="Label" parent="Dark/QuitButton"]
+layout_mode = 0
+offset_left = 63.5
+offset_top = -5.0
+offset_right = 175.5
+offset_bottom = 57.0
+text = "Salir"
+label_settings = ExtResource("4_xaoia")
+
+[connection signal="pressed" from="Dark/QuitButton" to="." method="_on_quit_button_pressed"]
