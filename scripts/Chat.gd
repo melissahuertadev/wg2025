@@ -249,3 +249,5 @@ func mostrar_mensaje_match(texto: String):
 
 func mostrar_mensaje_player(texto: String):
 	await add_message("player", texto)
+	
+	
