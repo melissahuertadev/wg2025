@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://blnv8tbv0db84" path="res://assets/chat/iconchat_man.png" id="1_7q2mg"]
 [ext_resource type="Texture2D" uid="uid://wy7aixvatfn0" path="res://assets/chat/message_sent.png" id="2_bt07q"]
-[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="3_3hoqv"]
 
 [node name="BurbujaMatchConAvatar" type="HBoxContainer"]
 offset_right = 237.0
@@ -27,15 +26,3 @@ offset_top = -1.0
 offset_right = -38.0
 offset_bottom = 50.0
 texture = ExtResource("2_bt07q")
-
-[node name="Texto" type="Label" parent="Burbuja"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.562
-anchor_bottom = 1.562
-offset_left = -233.0
-offset_top = -76.1
-offset_right = -43.0
-offset_bottom = -36.1
-label_settings = ExtResource("3_3hoqv")
-autowrap_mode = 2
