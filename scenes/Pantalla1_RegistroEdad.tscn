@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bilhplqgl0g0b"]
+[gd_scene load_steps=15 format=3 uid="uid://bilhplqgl0g0b"]
 
 [ext_resource type="Script" uid="uid://dqdj75sbo1y5u" path="res://scripts/Registro.gd" id="1_4ahgf"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_65n8m"]
 [ext_resource type="Texture2D" uid="uid://b48e4np3gntfa" path="res://assets/chat/mujer_movil_BG.png" id="3_ki42u"]
 [ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="4_7gcg8"]
+[ext_resource type="Texture2D" uid="uid://ok2mtew4hfsq" path="res://assets/ui/botones/dating_app_logo.png" id="5_65n8m"]
 [ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="5_lshoe"]
 [ext_resource type="FontFile" uid="uid://c4o3xjoyseo1d" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-Bold.ttf" id="6_7s3vy"]
 [ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="7_0snb6"]
@@ -46,32 +47,27 @@ offset_right = 781.0
 offset_bottom = 596.0
 texture = ExtResource("3_ki42u")
 
-[node name="Mujer_Manos" type="TextureRect" parent="."]
-offset_right = 1280.0
-offset_bottom = 721.0
-texture = ExtResource("4_7gcg8")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 551.0
-offset_top = 169.0
-offset_right = 729.0
-offset_bottom = 222.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.329412, 0.0666667, 0.0705882, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("5_lshoe")
-theme_override_font_sizes/font_size = 36
-text = "Matchbook"
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 557.0
-offset_top = 219.0
-offset_right = 726.0
-offset_bottom = 242.0
+[node name="Label2" type="Label" parent="Mujer_Movil"]
+offset_left = 57.5
+offset_top = 133.0
+offset_right = 226.5
+offset_bottom = 156.0
 theme_override_colors/font_color = Color(0.305882, 0.0313726, 0.0313726, 1)
 theme_override_fonts/font = ExtResource("6_7s3vy")
 theme_override_font_sizes/font_size = 14
 text = "Elige a tu match perfecto"
+
+[node name="DatingAppLogo" type="TextureRect" parent="Mujer_Movil"]
+offset_left = 17.0
+offset_top = 19.0
+offset_right = 261.0
+offset_bottom = 137.0
+texture = ExtResource("5_65n8m")
+
+[node name="Mujer_Manos" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 721.0
+texture = ExtResource("4_7gcg8")
 
 [node name="btn_go_intereses" type="TextureButton" parent="."]
 offset_left = 711.0
@@ -93,9 +89,9 @@ texture_disabled = ExtResource("12_6oxw3")
 flip_v = true
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 530.0
+offset_left = 538.0
 offset_top = 260.0
-offset_right = 687.0
+offset_right = 695.0
 offset_bottom = 290.0
 theme_override_colors/font_color = Color(0.305882, 0.0313726, 0.0313726, 1)
 theme_override_fonts/font = ExtResource("5_lshoe")

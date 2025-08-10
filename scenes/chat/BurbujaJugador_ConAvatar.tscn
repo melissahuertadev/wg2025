@@ -1,27 +1,37 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3qsloecbyo5p"]
 
-[ext_resource type="Texture2D" uid="uid://wy7aixvatfn0" path="res://assets/chat/message_sent.png" id="1_tmlm4"]
-[ext_resource type="Texture2D" uid="uid://beduk6ero8lwl" path="res://assets/chat/iconchat_woman.png" id="2_p0tcv"]
-[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="2_t8hkh"]
+[ext_resource type="Texture2D" uid="uid://beduk6ero8lwl" path="res://assets/chat/iconchat_woman.png" id="1_p0tcv"]
+[ext_resource type="Texture2D" uid="uid://c3i11lx3bhl15" path="res://assets/chat/message_recieved.png" id="2_t8hkh"]
+[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="3_8i21i"]
 
 [node name="BurbujaJugadorConAvatar2" type="HBoxContainer"]
 offset_right = 236.0
 offset_bottom = 51.0
 
-[node name="Burbuja" type="TextureRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-texture = ExtResource("1_tmlm4")
+
+[node name="Avatar" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("1_p0tcv")
+stretch_mode = 2
+
+[node name="Burbuja" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Burbuja"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 204.0
+offset_bottom = 50.0
+texture = ExtResource("2_t8hkh")
 
 [node name="Texto" type="Label" parent="Burbuja"]
 layout_mode = 0
-offset_left = 4.0
+offset_left = 8.0
 offset_top = 5.0
-offset_right = 194.0
+offset_right = 198.0
 offset_bottom = 45.0
-label_settings = ExtResource("2_t8hkh")
+label_settings = ExtResource("3_8i21i")
 autowrap_mode = 2
-
-[node name="Avatar" type="TextureRect" parent="."]
-layout_mode = 2
-texture = ExtResource("2_p0tcv")
-stretch_mode = 2
