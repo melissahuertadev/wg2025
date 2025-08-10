@@ -3,7 +3,7 @@ extends Node2D
 @onready var Message1 = $Message_Recieved1
 @onready var Message2 = $Message_Recieved2
 
-@onready var Message1Label = Message1.get_node("Label1")
+@onready var Message1Label = Message1.get_node("Label")
 @onready var Message2Label = Message2.get_node("Label")
 
 var saludo = "¡Hola! ¿Qué tal? Vi en tu perfil que te gusta PLAYER_INTEREST"
