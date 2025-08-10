@@ -1,17 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://cudlgvfqa4w6f"]
+[gd_scene load_steps=16 format=3 uid="uid://cudlgvfqa4w6f"]
 
 [ext_resource type="Script" uid="uid://dshtvfie7mbgd" path="res://scripts/PlotTwistFinal.gd" id="1_p5lpp"]
 [ext_resource type="Texture2D" uid="uid://d35xwhaqyijgf" path="res://assets/scenes/hombre_BG.png" id="1_tlhj7"]
 [ext_resource type="Texture2D" uid="uid://n0xqghy7i8j4" path="res://assets/chat/hombre_manos.png" id="2_lngnf"]
 [ext_resource type="Texture2D" uid="uid://1gct3pcrtxgg" path="res://assets/chat/hombre_movil_chat.png" id="3_wh6tj"]
-[ext_resource type="PackedScene" path="res://scenes/chat/BurbujaJugador_SinAvatarPlot.tscn" id="4_28bfe"]
+[ext_resource type="PackedScene" uid="uid://dyfoab8j3xc33" path="res://scenes/chat/BurbujaJugador_SinAvatarPlot.tscn" id="4_28bfe"]
 [ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="4_wh6tj"]
 [ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="5_w72tf"]
 [ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="6_oo0hf"]
 [ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="8_w72tf"]
-[ext_resource type="PackedScene" path="res://scenes/chat/BurbujaJugador_ConAvatarPlot.tscn" id="9_oo0hf"]
-[ext_resource type="PackedScene" path="res://scenes/chat/BurbujaMatch_ConAvatarPlot.tscn" id="10_28bfe"]
-[ext_resource type="Texture2D" uid="uid://digfkxxqpjcrm" path="res://assets/plot_twist_1.png" id="13_2hhfp"]
+[ext_resource type="PackedScene" uid="uid://dwrthkaxcgd63" path="res://scenes/chat/BurbujaJugador_ConAvatarPlot.tscn" id="9_oo0hf"]
+[ext_resource type="PackedScene" uid="uid://cypqbvcckkvst" path="res://scenes/chat/BurbujaMatch_ConAvatarPlot.tscn" id="10_28bfe"]
+[ext_resource type="Texture2D" uid="uid://bvgkddi4uh0fk" path="res://assets/chat/movil_dark.png" id="11_2hhfp"]
+[ext_resource type="Texture2D" uid="uid://08blnk63e7jy" path="res://assets/plot_twist_1a.png" id="12_2hhfp"]
+[ext_resource type="FontFile" uid="uid://c4o3xjoyseo1d" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-Bold.ttf" id="14_6lmx0"]
 
 [sub_resource type="Theme" id="Theme_p5lpp"]
 
@@ -27,6 +29,7 @@ offset_right = 1280.0
 offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_tlhj7")
 expand_mode = 3
 
@@ -35,19 +38,41 @@ offset_left = 497.0
 offset_top = 98.0
 offset_right = 781.0
 offset_bottom = 596.0
+mouse_filter = 2
 texture = ExtResource("3_wh6tj")
 
-[node name="BurbujaJugadorSinAvatar" parent="." instance=ExtResource("4_28bfe")]
+[node name="bubble-invitacion" parent="." instance=ExtResource("4_28bfe")]
 offset_left = 524.0
 offset_top = 240.0
 offset_right = 728.0
 offset_bottom = 291.0
+mouse_filter = 2
 
-[node name="BurbujaJugadorSinAvatar2" parent="." instance=ExtResource("4_28bfe")]
-offset_left = 524.0
-offset_top = 240.0
-offset_right = 728.0
-offset_bottom = 291.0
+[node name="bubble-saludo" parent="." instance=ExtResource("10_28bfe")]
+offset_left = 733.0
+offset_top = 178.0
+offset_right = 970.0
+offset_bottom = 228.0
+mouse_filter = 2
+
+[node name="bubble_match_ans" parent="." instance=ExtResource("9_oo0hf")]
+offset_left = 518.0
+offset_top = 314.0
+offset_right = 735.0
+offset_bottom = 362.0
+
+[node name="lbltexto" type="Label" parent="."]
+offset_left = 507.0
+offset_top = 125.0
+offset_right = 768.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.329412, 0.0666667, 0.0705882, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("8_w72tf")
+theme_override_font_sizes/font_size = 22
+text = "Usuario"
+horizontal_alignment = 1
 
 [node name="ContinuarButton" type="TextureButton" parent="."]
 offset_left = 730.0
@@ -58,20 +83,8 @@ texture_normal = ExtResource("4_wh6tj")
 texture_pressed = ExtResource("5_w72tf")
 texture_disabled = ExtResource("6_oo0hf")
 
-[node name="lbltexto" type="Label" parent="."]
-offset_left = 507.0
-offset_top = 125.0
-offset_right = 768.0
-offset_bottom = 155.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.329412, 0.0666667, 0.0705882, 1)
-theme_override_constants/outline_size = 15
-theme_override_fonts/font = ExtResource("8_w72tf")
-theme_override_font_sizes/font_size = 22
-text = "Usuario"
-horizontal_alignment = 1
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TopRect" type="ColorRect" parent="CanvasLayer"]
 offset_top = 3.0
@@ -87,33 +100,60 @@ offset_bottom = 760.0
 theme = SubResource("Theme_p5lpp")
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect8" type="TextureRect" parent="."]
+[node name="PlotTwist" type="TextureRect" parent="."]
 visible = false
-offset_left = 515.0
-offset_top = 115.0
-offset_right = 761.0
-offset_bottom = 192.0
-texture = ExtResource("13_2hhfp")
+offset_left = 499.0
+offset_top = 101.0
+offset_right = 774.0
+offset_bottom = 589.0
+texture = ExtResource("11_2hhfp")
 
-[node name="BurbujaJugadorConAvatar" parent="." instance=ExtResource("9_oo0hf")]
-offset_left = 518.0
-offset_top = 314.0
-offset_right = 735.0
-offset_bottom = 362.0
-
-[node name="BurbujaMatchConAvatar" parent="." instance=ExtResource("10_28bfe")]
-offset_left = 733.0
-offset_top = 178.0
-offset_right = 970.0
-offset_bottom = 228.0
-
-[node name="BurbujaMatchConAvatar2" parent="." instance=ExtResource("10_28bfe")]
-offset_left = 732.0
-offset_top = 384.0
-offset_right = 969.0
-offset_bottom = 434.0
+[node name="Notification" type="TextureRect" parent="PlotTwist"]
+visible = false
+layout_mode = 0
+offset_left = 14.5
+offset_top = 16.0
+offset_right = 260.5
+offset_bottom = 93.0
+texture = ExtResource("12_2hhfp")
 
 [node name="Hombre_Manos" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
+mouse_filter = 2
 texture = ExtResource("2_lngnf")
+
+[node name="lbl_saludo" type="Label" parent="."]
+offset_left = 530.0
+offset_top = 181.0
+offset_right = 723.0
+offset_bottom = 204.0
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_fonts/font = ExtResource("14_6lmx0")
+theme_override_font_sizes/font_size = 11
+text = "Saludo"
+autowrap_mode = 3
+
+[node name="lbl_invitacion" type="Label" parent="."]
+offset_left = 532.0
+offset_top = 243.0
+offset_right = 724.0
+offset_bottom = 290.0
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_fonts/font = ExtResource("14_6lmx0")
+theme_override_font_sizes/font_size = 11
+text = "Invitacion"
+autowrap_mode = 3
+
+[node name="lbl_respuesta" type="Label" parent="."]
+offset_left = 559.0
+offset_top = 318.0
+offset_right = 747.0
+offset_bottom = 358.0
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_fonts/font = ExtResource("14_6lmx0")
+theme_override_font_sizes/font_size = 11
+text = "Saludo"
+autowrap_mode = 3
+
+[connection signal="pressed" from="ContinuarButton" to="." method="_on_continuar_button_pressed"]
