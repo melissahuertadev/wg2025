@@ -4,3 +4,5 @@ extends Node
 enum INTERESES {DEPORTES, CINE, VIDEOJUEGOS, ANIMES, LIBROS, COCINA, FESTIVALES, MUSICA, TECH}
 enum INTERESES_TEXTO {DEPORTES, CINE, VIDEOJUEGOS, ANIMES, LIBROS, COCINA, FESTIVALES, MUSICA, TECH}
 var main_character_intereses = []
+var main_character_nombre = ""
+var main_character_edad = 0 
