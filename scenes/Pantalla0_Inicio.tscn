@@ -53,6 +53,7 @@ text = "Iniciar Sesión"
 label_settings = SubResource("LabelSettings_52ugs")
 
 [node name="Mujer_Manos" type="TextureRect" parent="ContinuarButton"]
+layout_mode = 0
 offset_left = -518.0
 offset_top = -494.0
 offset_right = 762.0
