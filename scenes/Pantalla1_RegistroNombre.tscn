@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://fgp38c1lqwhg"]
+[gd_scene load_steps=14 format=3 uid="uid://cym8dcylb2cl3"]
 
 [ext_resource type="Script" uid="uid://dqdj75sbo1y5u" path="res://scripts/Registro.gd" id="1_ogdb8"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_hjgyw"]
