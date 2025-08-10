@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://h68p4ud46nej"]
+
+[ext_resource type="FontFile" uid="uid://o1palxwq1qur" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-ExtraBold.ttf" id="1_sfgoy"]
+
+[resource]
+font = ExtResource("1_sfgoy")
+font_color = Color(0.2, 0.2, 0.2, 1)
