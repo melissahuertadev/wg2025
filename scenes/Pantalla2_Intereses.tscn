@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b42cdt8riqtk8"]
+[gd_scene load_steps=41 format=3 uid="uid://b42cdt8riqtk8"]
 
 [ext_resource type="Script" uid="uid://dwn5i5w1d4gln" path="res://scripts/Intereses.gd" id="1_udxmp"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_gavju"]
@@ -34,9 +34,11 @@
 [ext_resource type="Texture2D" uid="uid://dcwtrsynh0ml4" path="res://assets/ui/emojis/libros.png" id="26_jgkl5"]
 [ext_resource type="Texture2D" uid="uid://ugh57vofi6tq" path="res://assets/ui/intereses/musica_pressed.png" id="26_sjuwq"]
 [ext_resource type="Texture2D" uid="uid://cuv4nqvppuesl" path="res://assets/ui/intereses/tech_standar.png" id="27_mganv"]
+[ext_resource type="Texture2D" uid="uid://b6qjxm2kvr2n5" path="res://assets/ui/emojis/festivales.png" id="28_ap4f8"]
 [ext_resource type="Texture2D" uid="uid://btrupbhogp04w" path="res://assets/ui/intereses/tech_pressed.png" id="28_sjuwq"]
 [ext_resource type="Texture2D" uid="uid://didb3t2r1en42" path="res://assets/ui/emojis/cocina.png" id="29_p4xr4"]
 [ext_resource type="Texture2D" uid="uid://csksrheu5oh3" path="res://assets/ui/emojis/musica.png" id="32_k53lu"]
+[ext_resource type="Texture2D" uid="uid://dhfeneyyb6dcx" path="res://assets/ui/emojis/tech.png" id="34_s6b40"]
 [ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="38_ne1ry"]
 
 [node name="PantallaIntereses" type="Node2D"]
@@ -290,7 +292,7 @@ offset_top = -14.0
 offset_right = 22.0
 offset_bottom = 4.0
 grow_vertical = 2
-texture = ExtResource("23_r0btw")
+texture = ExtResource("28_ap4f8")
 
 [node name="Interes_musica" type="TextureButton" parent="Control/Hobbies"]
 layout_mode = 2
@@ -344,7 +346,7 @@ offset_top = -14.0
 offset_right = 29.0
 offset_bottom = 4.0
 grow_vertical = 2
-texture = ExtResource("23_r0btw")
+texture = ExtResource("34_s6b40")
 
 [node name="RetrocederButton" type="TextureButton" parent="."]
 offset_left = 521.0
