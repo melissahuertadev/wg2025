@@ -2,6 +2,9 @@ extends Node2D
 
 signal bubble_animation_finished
 
+@onready var top_rect = $CanvasLayer/TopRect
+@onready var bottom_rect = $CanvasLayer/BottomRect
+
 var ultimo_emisor = null # "match" o "player"
 var isWaitingReply: bool = false
 var msg_recieved_1_dict: Dictionary
@@ -139,9 +142,9 @@ func load_player_options(action_name: String) -> void:
 		#show_player_reply_options()
 
 func get_rand_item_enum():
-	#var rand_idx = randi() % GlobalManager.main_character_intereses.size()
-	#var rand_item_str = GlobalManager.main_character_intereses[rand_idx]
-	var rand_item_str = "DEPORTES" # PARA TESTEAR
+	var rand_idx = randi() % GlobalManager.main_character_intereses.size()
+	var rand_item_str = GlobalManager.main_character_intereses[rand_idx]
+	#var rand_item_str = "DEPORTES" # PARA TESTEAR
 	var rand_item_en = GlobalManager.INTERESES[rand_item_str]
 	
 	return rand_item_en
@@ -172,14 +175,10 @@ func load_initial_player_messages(item_enum, inviteAccepted) -> void:
 	
 	# Mostrar las texturas del plot twist
 	var mujer_movil = $Mujer_Movil
-	#$ScrollContainer.z_index = 0
-	#$Mujer_Movil/PlotTwist.z_index = 10
-	#$Mujer_Movil/PlotTwist/Notification.z_index = 10
-
 	var dark_bg = mujer_movil.get_node("PlotTwist")
 	var notification = dark_bg.get_node("Notification")
 	
-		# Reproducir sonido antes de mostrar la notificación
+	# Reproducir sonido antes de mostrar la notificación
 	var sfx = mujer_movil.get_node("PlotTwistNotificationSFX")
 	sfx.play()
 	
@@ -190,6 +189,12 @@ func load_initial_player_messages(item_enum, inviteAccepted) -> void:
 	$ScrollContainer.z_index = 0
 	dark_bg.z_index = 10
 	notification.z_index = 10
+	$Mujer_Manos.z_index = 20
+	
+	# Mostrar boton CONTINUAR
+	var continue_btn = $ContinuarButton
+	continue_btn.z_index = 30
+	continue_btn.visible = true
 	
 func set_rptas_text(item_enum):
 	var RptaPositivaLabel =  $Mujer_Movil/Rpta_Positiva/Label
@@ -274,7 +279,6 @@ func play_bubble_animation(escena_burbuja: Node) -> void:
 	tween.tween_property(burbuja, "scale", Vector2(1, 1), 0.4)
 	tween.finished.connect(Callable(self, "_on_tween_finished"))
 
-
 # Mostrar Burbuja verde, rosa segun el emisor, estas burbujas son escenas creadas
 func show_bubble_message(emisor: String, texto: String) -> void:
 	var escena_burbuja = load_bubble_scene(emisor, safe_string(ultimo_emisor))
@@ -323,3 +327,29 @@ func _on_rpta_positiva_pressed() -> void:
 
 func _on_rpta_negativa_pressed() -> void:
 	handle_player_answer(false)
+
+
+func _on_continuar_button_pressed() -> void:
+	top_rect.visible = true
+	bottom_rect.visible = true
+	
+	var viewport_size = get_viewport().size
+	top_rect.position = Vector2(0, 0)
+	bottom_rect.position = Vector2(0, viewport_size.y / 2)
+
+	await get_tree().process_frame
+
+	top_rect.position = Vector2(0, -top_rect.size.y)
+	bottom_rect.position = Vector2(0, viewport_size.y)
+
+	var tween = create_tween()
+	var centro_top = Vector2(0, viewport_size.y / 2 - top_rect.size.y)
+	var centro_bottom = Vector2(0, viewport_size.y / 2)
+
+	tween.tween_property(top_rect, "position", centro_top, 0.3)
+	tween.parallel().tween_property(bottom_rect, "position", centro_bottom, 0.3)
+	tween.finished.connect(_on_animacion_terminada)
+	
+	
+func _on_animacion_terminada():
+	await get_tree().change_scene_to_file("res://scenes/Pantalla_Final.tscn")
