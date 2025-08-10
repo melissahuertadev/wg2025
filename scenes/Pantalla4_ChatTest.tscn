@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dg01cw6dyqq5y"]
+[gd_scene load_steps=8 format=3 uid="uid://cik1dggx3qqis"]
 
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_oe8ec"]
 [ext_resource type="Texture2D" uid="uid://dyfs8e3t4on7" path="res://assets/chat/mujer_movil_chat.png" id="3_rqhye"]
