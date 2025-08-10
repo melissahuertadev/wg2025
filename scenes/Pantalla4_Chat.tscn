@@ -66,6 +66,7 @@ label_settings = ExtResource("7_bl14k")
 autowrap_mode = 2
 
 [node name="EsperandoRespuesta" type="TextureRect" parent="Mujer_Movil"]
+visible = false
 layout_mode = 0
 offset_left = 26.0
 offset_top = 342.0
@@ -81,6 +82,7 @@ text = "Mario está esperando una respuesta..."
 label_settings = ExtResource("7_bl14k")
 
 [node name="Rpta_Positiva" type="TextureButton" parent="Mujer_Movil"]
+visible = false
 layout_mode = 0
 offset_left = 22.0
 offset_top = 372.0
@@ -104,6 +106,7 @@ grow_vertical = 2
 label_settings = ExtResource("11_hsa72")
 
 [node name="Rpta_Negativa" type="TextureButton" parent="Mujer_Movil"]
+visible = false
 layout_mode = 0
 offset_left = 22.0
 offset_top = 413.0

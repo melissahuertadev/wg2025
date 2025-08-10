@@ -1,5 +1,7 @@
 extends Node2D
 
+signal bubble_animation_finished
+
 var ultimo_emisor = null # "match" o "player"
 var isWaitingReply: bool = false
 var msg_recieved_1_dict: Dictionary
@@ -12,6 +14,9 @@ var msg_r_2 = ""
 func _ready():
 	ultimo_emisor = null
 	load_dictionaries()
+	# Conectar señal solo una vez acá (antes de cargar mensajes)
+	self.connect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
+
 	set_labels_text()
 	#load_msgs_recieved_animation()
 
@@ -89,10 +94,10 @@ func load_dictionaries():
 func load_msgs_recieved_animation():
 	print("Refactored: load_msgs_recieved_animation ")
 
-func load_player_options(action_name: String):
+func load_player_options(action_name: String) -> void:
 	if action_name == "first":
-		isWaitingReply = true
-		show_player_reply_options()
+		self.connect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
+		#show_player_reply_options()
 
 func get_rand_item_enum():
 	#var rand_idx = randi() % GlobalManager.main_character_intereses.size()
@@ -115,7 +120,7 @@ func load_initial_match_messages(item_enum):
 
 	await mostrar_mensaje_match(new_message_1)
 	await mostrar_mensaje_match(new_message_2)
-	await load_player_options("first")
+	#load_player_options("first")
 
 func set_rptas_text(item_enum):
 	var RptaPositivaLabel =  $Mujer_Movil/Rpta_Positiva/Label
@@ -144,14 +149,14 @@ func handle_player_answer(inviteAccepted: bool):
 	fade_nodes(nodos, false, 0.42)
 	GlobalManager.inviteAccepted = inviteAccepted
 
-func fade_nodes(nodes: Array, showNode: bool, duration: float = 0.4):
+func fade_nodes(nodes: Array, showNode: bool, duration: float = 1.542):
 	for nodo in nodes:
 		if showNode:
 			nodo.visible = true
-			#nodo.modulate.a = 0.0
-			#create_tween().tween_property(nodo, "modulate:a", 1.0, duration)
+			nodo.modulate.a = 0.0
+			var tween = create_tween()
+			create_tween().tween_property(nodo, "modulate:a", 1.0, duration)
 		else:
-			#nodo.modulate.a = 1.0
 			var tween = create_tween()
 			tween.tween_property(nodo, "modulate:a", 0.0, duration)
 			tween.finished.connect(func():
@@ -167,7 +172,6 @@ func _on_rpta_negativa_pressed() -> void:
 
 
 func add_message(emisor: String, texto: String) -> void:
-	print("add_message: emisor actual: ", ultimo_emisor)
 	var escena_burbuja = load_bubble_scene(emisor, safe_string(ultimo_emisor))
 
 	set_bubble_text(escena_burbuja, texto)
@@ -181,26 +185,26 @@ func add_message(emisor: String, texto: String) -> void:
 	
 	play_bubble_animation(escena_burbuja)
 	
+
 	# Esperar un frame para que actualice scroll
 	await get_tree().process_frame
 	$ScrollContainer.scroll_vertical = $ScrollContainer.get_v_scroll_bar().max_value
-	print("enisor?", emisor)
 	ultimo_emisor = emisor
-	print("ultimo ? ", ultimo_emisor)
+	print("ultimo emisor ? ", ultimo_emisor)
 
-func load_bubble_scene(emisor: String, ultimo_emisor: String = "") -> Node:
+func load_bubble_scene(emisor: String, ult_em: String = "") -> Node:
 	var escena_burbuja: Node
 	
-	var ue = ultimo_emisor if ultimo_emisor != null else ""
+	var ue = ult_em if ult_em != null else ""
 	
 	match emisor:
 		"match":
-			if ultimo_emisor == "match":
+			if ue == "match":
 				escena_burbuja = preload("res://scenes/chat/BurbujaMatch_SinAvatar.tscn").instantiate()
 			else:
 				escena_burbuja = preload("res://scenes/chat/BurbujaMatch_ConAvatar.tscn").instantiate()
 		"player":
-			if ultimo_emisor == "player":
+			if ue == "player":
 				escena_burbuja = preload("res://scenes/chat/BurbujaJugador_SinAvatar.tscn").instantiate()
 			else:
 				escena_burbuja = preload("res://scenes/chat/BurbujaJugador_ConAvatar.tscn").instantiate()
@@ -226,7 +230,17 @@ func play_bubble_animation(escena_burbuja: Node) -> void:
 	var tween = create_tween()
 	tween.tween_property(burbuja, "modulate:a", 1.0, 0.84)
 	tween.tween_property(burbuja, "scale", Vector2(1, 1), 0.4)
+	tween.finished.connect(Callable(self, "_on_tween_finished"))
+
+func _on_tween_finished() -> void:
+	emit_signal("bubble_animation_finished")
 	
+func _on_bubble_animation_finished():
+	print("Animación terminada")
+	isWaitingReply = true
+	show_player_reply_options()
+	self.disconnect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
+
 func safe_string(value) -> String:
 	return value if value != null else ""
 	
