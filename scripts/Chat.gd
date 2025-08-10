@@ -148,10 +148,11 @@ func handle_player_answer(inviteAccepted: bool):
 	]
 	
 	fade_nodes(nodos, false, 0.42)
+	GlobalManager.inviteAccepted = inviteAccepted
 
-func fade_nodes(nodes: Array, show: bool, duration: float = 0.4):
+func fade_nodes(nodes: Array, showNode: bool, duration: float = 0.4):
 	for nodo in nodes:
-		if show:
+		if showNode:
 			nodo.visible = true
 			nodo.modulate.a = 0.0
 			create_tween().tween_property(nodo, "modulate:a", 1.0, duration)

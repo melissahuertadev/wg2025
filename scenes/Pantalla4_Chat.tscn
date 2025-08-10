@@ -122,6 +122,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_n68mj")
 }
 
+[node name="Msgs_Sent_Anim" type="AnimationPlayer" parent="Mujer_Movil"]
+
 [node name="Hombre_PP" type="TextureRect" parent="Mujer_Movil"]
 visible = false
 layout_mode = 1
