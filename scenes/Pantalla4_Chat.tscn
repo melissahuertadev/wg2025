@@ -23,6 +23,7 @@
 script = ExtResource("1_bl14k")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TopRect" type="ColorRect" parent="CanvasLayer"]
 visible = false

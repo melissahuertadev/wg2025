@@ -72,6 +72,16 @@ offset_right = 758.0
 offset_bottom = 235.0
 texture = ExtResource("5_ne1ry")
 
+[node name="Label3" type="Label" parent="."]
+offset_left = 538.0
+offset_top = 224.0
+offset_right = 734.0
+offset_bottom = 254.0
+theme_override_colors/font_color = Color(0.305882, 0.0313726, 0.0313726, 1)
+theme_override_fonts/font = ExtResource("38_ne1ry")
+theme_override_font_sizes/font_size = 20
+text = "Selecciona tus gustos"
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -353,16 +363,6 @@ offset_bottom = 505.0
 texture_normal = ExtResource("7_e0vuy")
 texture_pressed = ExtResource("8_bsbbg")
 texture_disabled = ExtResource("9_wr0it")
-
-[node name="Label3" type="Label" parent="."]
-offset_left = 538.0
-offset_top = 224.0
-offset_right = 734.0
-offset_bottom = 254.0
-theme_override_colors/font_color = Color(0.305882, 0.0313726, 0.0313726, 1)
-theme_override_fonts/font = ExtResource("38_ne1ry")
-theme_override_font_sizes/font_size = 20
-text = "Selecciona tus gustos"
 
 [connection signal="pressed" from="Control/Hobbies/Interes_deportes" to="." method="_on_interes_deportes_pressed"]
 [connection signal="pressed" from="Control/Hobbies/Interes_cine" to="." method="_on_interes_cine_pressed"]
