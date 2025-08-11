@@ -9,6 +9,7 @@ extends Node
 #@onready var reas = $lbl_reas
 
 func _ready():
+	GlobalManager.audio_manager.play_plot_twist_music()
 	label_nombre.text = GlobalManager.main_character_nombre
 	saludo.text = GlobalManager.match_messages[0]
 	invitacion.text=GlobalManager.match_messages[1]
@@ -21,5 +22,6 @@ func _ready():
 	tween.parallel().tween_property(bottom_rect, "position", Vector2(0, viewport_size.y), 0.2)
 
 func _on_continuar_button_pressed() -> void:
+	print("to final")
 	print("continuar was pressed")
 	get_tree().change_scene_to_file("res://scenes/Pantalla_Final.tscn")
