@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsudkp0ofydnf"]
+
+[ext_resource type="AudioStream" uid="uid://rum3q14caiif" path="res://assets/sfx/music/menu_instrumental-acoustic-guitar-music-367223.mp3" id="1_hux41"]
+[ext_resource type="Script" uid="uid://cavc26j11ieny" path="res://scripts/AudioManager.gd" id="1_v6v0x"]
+[ext_resource type="AudioStream" uid="uid://cfgdhupsp4epf" path="res://assets/sfx/music/game_happy-background-music-366778.mp3" id="3_4tesi"]
+[ext_resource type="AudioStream" uid="uid://gtt4waoc7ho" path="res://assets/sfx/music/plot-twist_scary-horror-creepy-music-371663.mp3" id="4_3dgps"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_v6v0x")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_hux41")
+volume_db = -22.0
+parameters/looping = true
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4tesi")
+volume_db = -20.0
+
+[node name="PlotTwistMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3dgps")
