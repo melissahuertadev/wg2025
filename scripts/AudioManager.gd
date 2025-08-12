@@ -14,7 +14,7 @@ const PLOT_TWIST_VOLUME_DB = -12
 const FADE_TIME = 0.22
 
 func _ready():
-	print("AudioManager listo")
+	#print("AudioManager listo")
 	play_menu_music()
 
 func stop_all():

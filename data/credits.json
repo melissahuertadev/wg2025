@@ -1,0 +1,110 @@
+{
+	"es": {
+		"title": "CUPID GAME",
+		"subtitle": "Creado durante la Women Game Jam 2025",
+		"theme": "Nada es lo que parece",
+		"description": "Nuestro proceso fue divertido y lleno de creatividad.",
+		"subtitles": {
+			"members": "Integrantes",
+			"theme": "Tema",
+			"external_collab": "Colaboraciones Externas"
+		},
+		"members": [
+			{
+				"name": "Shiara Arauzo",
+				"role": "Game Designer & UI Artist",
+				"social": [
+					{"platform": "Instagram", "handle": "@the.research.blog"}
+				]
+			},
+			{
+				"name": "Melissa Huerta",
+				"role": "Game Developer & Audio Implementer",
+				"social": [
+					{"platform": "GitHub", "handle": "@melissahuertadev"},
+					{"platform": "Instagram", "handle": "@melissahuerta.dev"}
+				]
+			},
+			{
+				"name": "Maria Munayco",
+				"role": "Game Developer",
+				"social": [
+					{"platform": "GitHub", "handle": "@malumunayco"},
+					{"platform": "Instagram", "handle": "@malumunayco"}
+				]
+			},
+			{
+				"name": "Selene Negrón",
+				"role": "Concept Artist & 2D Artist",
+				"social": [
+					{"platform": "Instagram", "handle": "@yubae_2mu"}
+				]
+			},
+			{
+				"name": "Ariadna Mestanza",
+				"role": "Artist & UI Artist",
+				"social": [
+					{"platform": "Instagram", "handle": "@yellow_fx"}
+				]
+			}
+		],
+		"external_collab": [
+			{"type": "Música", "credit": "@Inplusmusic de www.pixabay.com"},
+			{"type": "Iconos", "credit": "@sonnycandra de www.flaticon.com"}
+		]
+	},
+	"en": {
+		"title": "CUPID GAME",
+		"subtitle": "Created during Women Game Jam 2025",
+		"theme": "Nothing is what it seems",
+		"description": "Our process was fun and full of creativity",
+		"subtitles": {
+			"members": "Members",
+			"theme": "Theme",
+			"external_collab": "External Collaborations"
+		},
+		"members": [
+			{
+				"name": "Shiara Arauzo",
+				"role": "Game Designer & UI Artist",
+				"social": [
+					{"platform": "Instagram", "handle": "@the.research.blog"}
+				]
+			},
+			{
+				"name": "Melissa Huerta",
+				"role": "Game Developer & Audio Implementer",
+				"social": [
+					{"platform": "GitHub", "handle": "@melissahuertadev"},
+					{"platform": "Instagram", "handle": "@melissahuerta.dev"}
+				]
+			},
+			{
+				"name": "Maria Munayco",
+				"role": "Game Developer",
+				"social": [
+					{"platform": "GitHub", "handle": "@malumunayco"},
+					{"platform": "Instagram", "handle": "@malumunayco"}
+				]
+			},
+			{
+				"name": "Selene Negrón",
+				"role": "Concept Artist & 2D Artist",
+				"social": [
+					{"platform": "Instagram", "handle": "@yubae_2mu"}
+				]
+			},
+			{
+				"name": "Ariadna Mestanza",
+				"role": "Artist & UI Artist",
+				"social": [
+					{"platform": "Instagram", "handle": "@yellow_fx"}
+				]
+			}
+		],
+		"external_collab": [
+			{"type": "Música", "credit": "@Inplusmusic from www.pixabay.com"},
+			{"type": "Iconos", "credit": "@sonnycandra from www.flaticon.com"}
+		]
+	}
+}

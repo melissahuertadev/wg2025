@@ -4,6 +4,7 @@ extends Node
 # Aqui se almacenan los intereses del jugador
 enum INTERESES {DEPORTES, CINE, VIDEOJUEGOS, ANIMES, LIBROS, COCINA, FESTIVALES, MUSICA, TECH}
 
+var game_language = "es"
 var main_character_intereses = []
 var main_character_nombre = "Gertrudis"
 var main_character_edad = 0 
@@ -21,4 +22,3 @@ func _ready():
 	# cuando Godot ya terminó de configurar el árbol de nodos y es seguro hacer cambios.
 	get_tree().root.call_deferred("add_child", audio_scene)
 	audio_manager = audio_scene
-	
