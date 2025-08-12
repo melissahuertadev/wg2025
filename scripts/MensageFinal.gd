@@ -12,7 +12,7 @@ func _ready() -> void:
 	display_final_message()
 	
 func _on_quit_button_pressed() -> void:
-	print("Quiting... ")
+	#print("Quiting... ")
 	GlobalManager.audio_manager.play_game_click_sfx()
 	var timer = Timer.new()
 	timer.wait_time = 0.5

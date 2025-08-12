@@ -217,6 +217,7 @@ func show_player_reply_options():
 	fade_nodes(nodos, true, 0.42)
 
 func handle_player_answer(inviteAccepted: bool):
+	GlobalManager.audio_manager.play_game_click_sfx()
 	# Hide options
 	var nodos = [
 		$Mujer_Movil/EsperandoRespuesta,
@@ -333,9 +334,9 @@ func _on_rpta_negativa_pressed() -> void:
 	GlobalManager.audio_manager.play_woman_dissapointed_sfx()
 	handle_player_answer(false)
 
-
 func _on_continuar_button_pressed() -> void:
 	print("ON CONTINUAR BUTTON PRESSED ")
+	GlobalManager.audio_manager.play_cupid_app_click_sfx()
 	top_rect.visible = true
 	bottom_rect.visible = true
 	

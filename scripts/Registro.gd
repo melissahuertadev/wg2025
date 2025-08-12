@@ -31,6 +31,7 @@ func mostrar_paso_edad():
 	continuar_button.disabled = true
 
 func _on_continuar_button_pressed() -> void:
+	GlobalManager.audio_manager.play_cupid_app_click_sfx()
 	if step == 0:
 		mostrar_paso_edad()
 	elif step == 1:
@@ -69,6 +70,7 @@ func _on_text_edit_text_changed() -> void:
 # get_tree().change_scene_to_file("res://scenes/Pantalla0_Inicio.tscn")
 
 func _on_regresar_button_pressed() -> void:
+	GlobalManager.audio_manager.play_cupid_app_click_sfx()
 	if step == 1:
 		mostrar_paso_nombre()
 		regresar_button.visible = false
