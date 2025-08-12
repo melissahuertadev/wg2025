@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckp4yxv20iiaq"]
+
+[ext_resource type="Script" uid="uid://l8uktyaekroa" path="res://scripts/Match.gd" id="1_ag7my"]
+[ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_3cxbl"]
+[ext_resource type="Texture2D" uid="uid://bnf4h7n1ynmg4" path="res://assets/chat/mujer_movil_match.png" id="3_8cgjg"]
+[ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="4_x58ye"]
+[ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="5_x58ye"]
+[ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="6_en1qw"]
+[ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="7_5klv2"]
+
+[node name="PantallaMatch" type="Node2D"]
+script = ExtResource("1_ag7my")
+
+[node name="Mujer_Frame" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3cxbl")
+expand_mode = 3
+
+[node name="Mujer_Movil" type="TextureRect" parent="."]
+offset_left = 497.0
+offset_top = 98.0
+offset_right = 781.0
+offset_bottom = 596.0
+texture = ExtResource("3_8cgjg")
+
+[node name="Mujer_Manos" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 721.0
+texture = ExtResource("4_x58ye")
+
+[node name="ContinuarButton" type="TextureButton" parent="."]
+offset_left = 730.0
+offset_top = 473.0
+offset_right = 754.0
+offset_bottom = 505.0
+texture_normal = ExtResource("5_x58ye")
+texture_pressed = ExtResource("6_en1qw")
+texture_disabled = ExtResource("7_5klv2")
+
+[connection signal="pressed" from="ContinuarButton" to="." method="_on_continuar_button_pressed"]

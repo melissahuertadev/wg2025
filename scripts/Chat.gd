@@ -168,10 +168,8 @@ func load_initial_match_messages(item_enum):
 
 func load_initial_player_messages(item_enum, inviteAccepted) -> void:
 	ultimo_emisor = ""
-
 	var player_message = msg_sent_1_dict[item_enum][0] if inviteAccepted else msg_sent_1_dict[item_enum][1]
-	print("rand_item_enum... ", rand_item_enum)
-	print("msg... ", player_message)
+	
 	# Esperar que termine show_player_message
 	await show_player_message(player_message)
 	GlobalManager.player_messages.push_back(player_message)
@@ -333,6 +331,7 @@ func _on_rpta_negativa_pressed() -> void:
 
 
 func _on_continuar_button_pressed() -> void:
+	print("ON CONTINUAR BUTTON PRESSED ")
 	top_rect.visible = true
 	bottom_rect.visible = true
 	

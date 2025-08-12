@@ -15,7 +15,7 @@ func disable_button():
 	continuarButton.disabled = true
 
 func handle_interest(param):
-	print("handle interest ", param)
+	#print("handle interest ", param)
 	if GlobalManager.main_character_intereses.has(param):
 		var index = GlobalManager.main_character_intereses.rfind(param)
 		GlobalManager.main_character_intereses.remove_at(index)

@@ -21,6 +21,22 @@
 position = Vector2(2, 1)
 script = ExtResource("1_p5lpp")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TopRect" type="ColorRect" parent="CanvasLayer"]
+offset_top = 3.0
+offset_right = 1279.0
+offset_bottom = 374.0
+color = Color(0, 0, 0, 1)
+
+[node name="BottomRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 369.0
+offset_right = 1281.0
+offset_bottom = 760.0
+theme = SubResource("Theme_p5lpp")
+color = Color(0, 0, 0, 1)
+
 [node name="Hombre_Frame" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,23 +98,6 @@ offset_bottom = 505.0
 texture_normal = ExtResource("4_wh6tj")
 texture_pressed = ExtResource("5_w72tf")
 texture_disabled = ExtResource("6_oo0hf")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="TopRect" type="ColorRect" parent="CanvasLayer"]
-offset_top = 3.0
-offset_right = 1279.0
-offset_bottom = 374.0
-color = Color(0, 0, 0, 1)
-
-[node name="BottomRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = -1.0
-offset_top = 369.0
-offset_right = 1281.0
-offset_bottom = 760.0
-theme = SubResource("Theme_p5lpp")
-color = Color(0, 0, 0, 1)
 
 [node name="PlotTwist" type="TextureRect" parent="."]
 visible = false

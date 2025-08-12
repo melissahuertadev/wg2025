@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b42cdt8riqtk8"]
+[gd_scene load_steps=42 format=3 uid="uid://b42cdt8riqtk8"]
 
 [ext_resource type="Script" uid="uid://dwn5i5w1d4gln" path="res://scripts/Intereses.gd" id="1_udxmp"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_gavju"]
@@ -15,6 +15,7 @@
 [ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="7_jgkl5"]
 [ext_resource type="Texture2D" uid="uid://dlvadjd6a4bx0" path="res://assets/ui/intereses/videojuegos_pressed.png" id="7_kbqxa"]
 [ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="8_bsbbg"]
+[ext_resource type="Script" uid="uid://bqaljc3ocn7l7" path="res://scripts/ToggleTextureButton.gd" id="9_s6b40"]
 [ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="9_wr0it"]
 [ext_resource type="Texture2D" uid="uid://d0rrhhlmitm20" path="res://assets/ui/emojis/deporte.png" id="14_8xxvk"]
 [ext_resource type="Texture2D" uid="uid://drqael15325q2" path="res://assets/ui/intereses/cine_standar.png" id="15_pc4ie"]
@@ -109,6 +110,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 texture_normal = ExtResource("4_bsbbg")
 texture_pressed = ExtResource("5_wr0it")
+script = ExtResource("9_s6b40")
+texture_normal_res = ExtResource("4_bsbbg")
+texture_pressed_res = ExtResource("5_wr0it")
 
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_deportes"]
 layout_mode = 0
@@ -134,6 +138,9 @@ size_flags_vertical = 0
 texture_normal = ExtResource("15_pc4ie")
 texture_pressed = ExtResource("16_mu2s7")
 stretch_mode = 0
+script = ExtResource("9_s6b40")
+texture_normal_res = ExtResource("15_pc4ie")
+texture_pressed_res = ExtResource("16_mu2s7")
 
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_cine"]
 layout_mode = 2
@@ -162,6 +169,9 @@ size_flags_horizontal = 0
 texture_normal = ExtResource("6_hrael")
 texture_pressed = ExtResource("7_kbqxa")
 stretch_mode = 0
+script = ExtResource("9_s6b40")
+texture_normal_res = ExtResource("6_hrael")
+texture_pressed_res = ExtResource("7_kbqxa")
 
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_videojuegos"]
 layout_mode = 0
@@ -191,6 +201,9 @@ size_flags_vertical = 4
 texture_normal = ExtResource("17_rc70f")
 texture_pressed = ExtResource("18_84y4e")
 stretch_mode = 3
+script = ExtResource("9_s6b40")
+texture_normal_res = ExtResource("17_rc70f")
+texture_pressed_res = ExtResource("18_84y4e")
 
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_anime"]
 layout_mode = 0
@@ -218,6 +231,9 @@ layout_mode = 2
 texture_normal = ExtResource("19_e18od")
 texture_pressed = ExtResource("20_jjvns")
 stretch_mode = 3
+script = ExtResource("9_s6b40")
+texture_normal_res = ExtResource("19_e18od")
+texture_pressed_res = ExtResource("20_jjvns")
 
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_libros"]
 layout_mode = 0
@@ -245,6 +261,9 @@ layout_mode = 2
 texture_normal = ExtResource("21_e18od")
 texture_pressed = ExtResource("22_jjvns")
 stretch_mode = 3
+script = ExtResource("9_s6b40")
+texture_normal_res = ExtResource("21_e18od")
+texture_pressed_res = ExtResource("22_jjvns")
 
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_cocina"]
 layout_mode = 0
@@ -272,6 +291,9 @@ layout_mode = 2
 texture_normal = ExtResource("23_1653i")
 texture_pressed = ExtResource("24_grgab")
 stretch_mode = 3
+script = ExtResource("9_s6b40")
+texture_normal_res = ExtResource("23_1653i")
+texture_pressed_res = ExtResource("24_grgab")
 
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_festivales"]
 layout_mode = 0
@@ -299,6 +321,9 @@ layout_mode = 2
 texture_normal = ExtResource("25_mganv")
 texture_pressed = ExtResource("26_sjuwq")
 stretch_mode = 3
+script = ExtResource("9_s6b40")
+texture_normal_res = ExtResource("25_mganv")
+texture_pressed_res = ExtResource("26_sjuwq")
 
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_musica"]
 layout_mode = 0
@@ -326,6 +351,9 @@ layout_mode = 2
 texture_normal = ExtResource("27_mganv")
 texture_pressed = ExtResource("28_sjuwq")
 stretch_mode = 3
+script = ExtResource("9_s6b40")
+texture_normal_res = ExtResource("27_mganv")
+texture_pressed_res = ExtResource("28_sjuwq")
 
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_tech"]
 layout_mode = 0
