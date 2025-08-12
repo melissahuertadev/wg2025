@@ -74,4 +74,4 @@ func _on_continuar_button_pressed() -> void:
 
 func _on_retroceder_button_pressed() -> void:
 	GlobalManager.audio_manager.play_cupid_app_click_sfx()
-	get_tree().change_scene_to_file("res://scenes/Pantalla1_RegistroEdad.tscn")
+	get_tree().change_scene_to_file("res://scenes/Pantalla1_Registro.tscn")

@@ -22,6 +22,6 @@ func _ready():
 	tween.parallel().tween_property(bottom_rect, "position", Vector2(0, viewport_size.y), 0.2)
 
 func _on_continuar_button_pressed() -> void:
+	GlobalManager.audio_manager.play_cupid_app_click_sfx()
 	print("to final")
-	print("continuar was pressed")
 	get_tree().change_scene_to_file("res://scenes/Pantalla_Final.tscn")
