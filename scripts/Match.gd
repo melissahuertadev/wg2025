@@ -1,7 +1,6 @@
 extends Node2D
 
 func _ready() -> void:
-	print("march scene")
 	GlobalManager.audio_manager.woman_thinking_sfx.stop()
 		
 func _on_continuar_button_pressed() -> void:

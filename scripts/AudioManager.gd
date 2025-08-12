@@ -4,6 +4,9 @@ extends Node
 @onready var game_music = $GameMusic
 @onready var plot_twist_music = $PlotTwistMusic
 @onready var woman_thinking_sfx = $WomanThinkingSFX
+@onready var woman_dissapointed_sfx = $WomanDissapointedSFX
+@onready var woman_excited_sfx = $WomanExcitedSFX
+@onready var woman_busted_sfx = $WomanBustedSFX
 
 var current_music = null
 var sound_on = true
@@ -27,7 +30,10 @@ func stop_all():
 		woman_thinking_sfx.stop()
 	if plot_twist_music.playing:
 		plot_twist_music.stop()
-		
+
+func play_sfx(sfx: AudioStreamPlayer):
+	sfx.play()
+
 func play_music_with_fade(new_music: AudioStreamPlayer, target_volume_db: float) -> void:
 	if not sound_on:
 		return
@@ -78,6 +84,15 @@ func play_game_music():
 func play_plot_twist_music():
 	play_plot_twist_music_no_fade()
 
+func play_woman_dissapointed_sfx():
+	play_sfx(woman_dissapointed_sfx)
+
+func play_woman_excited_sfx():
+	play_sfx(woman_excited_sfx)
+	
+func play_woman_busted_sfx():
+	play_sfx(woman_busted_sfx)
+	
 func toggle_sound():
 	sound_on = !sound_on
 	if sound_on:

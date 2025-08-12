@@ -192,6 +192,8 @@ func load_initial_player_messages(item_enum, inviteAccepted) -> void:
 	notification.z_index = 10
 	$Mujer_Manos.z_index = 20
 	
+	GlobalManager.audio_manager.play_woman_busted_sfx()
+	
 	# Mostrar boton CONTINUAR
 	var continue_btn = $ContinuarButton
 	continue_btn.z_index = 30
@@ -324,9 +326,11 @@ func _on_bubble_animation_finished():
 	self.disconnect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
 
 func _on_rpta_positiva_pressed() -> void:
+	GlobalManager.audio_manager.play_woman_excited_sfx()
 	handle_player_answer(true)
 
 func _on_rpta_negativa_pressed() -> void:
+	GlobalManager.audio_manager.play_woman_dissapointed_sfx()
 	handle_player_answer(false)
 
 
