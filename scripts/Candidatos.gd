@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var image_candidato = $Mujer_Movil
+@onready var image_candidato = $Mujer_Movil/Candidato
 @onready var boton_si = $Mujer_Movil/Rpta_Positiva
 @onready var boton_no =  $Mujer_Movil/Rpta_Negativa
 @onready var animation_player = $AnimationPlayer

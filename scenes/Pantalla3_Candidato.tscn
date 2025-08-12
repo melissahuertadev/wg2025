@@ -1,12 +1,49 @@
-[gd_scene load_steps=8 format=3 uid="uid://cih6d16t11fif"]
+[gd_scene load_steps=12 format=3 uid="uid://cih6d16t11fif"]
 
 [ext_resource type="Script" uid="uid://dsr3ieaqpr56f" path="res://scripts/Candidatos.gd" id="1_8cgjg"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_3cxbl"]
-[ext_resource type="Texture2D" uid="uid://mk4l06k04w8i" path="res://assets/candidates/candidato1.png" id="3_x58ye"]
+[ext_resource type="Texture2D" uid="uid://b48e4np3gntfa" path="res://assets/chat/mujer_movil_BG.png" id="3_x58ye"]
+[ext_resource type="Texture2D" uid="uid://mk4l06k04w8i" path="res://assets/candidates/candidato1.png" id="4_5klv2"]
 [ext_resource type="Texture2D" uid="uid://bfa0j5ope73ma" path="res://assets/ui/botones/boton_player_decision.png" id="4_en1qw"]
 [ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="4_x58ye"]
 [ext_resource type="Texture2D" uid="uid://gxmfwhawibhu" path="res://assets/ui/botones/hover button mesage.png" id="5_5klv2"]
 [ext_resource type="LabelSettings" uid="uid://h68p4ud46nej" path="res://tres/label_settings/player_answers.tres" id="6_lqih6"]
+
+[sub_resource type="Animation" id="Animation_x58ye"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mujer_Movil/Candidato:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0901961), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_en1qw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mujer_Movil/Candidato:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_en1qw"]
+_data = {
+&"RESET": SubResource("Animation_en1qw"),
+&"fade_in": SubResource("Animation_x58ye")
+}
 
 [node name="PantallaCandidato" type="Node2D"]
 script = ExtResource("1_8cgjg")
@@ -30,6 +67,15 @@ offset_bottom = 596.0
 mouse_filter = 2
 texture = ExtResource("3_x58ye")
 
+[node name="Candidato" type="TextureRect" parent="Mujer_Movil"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_5klv2")
+
 [node name="Label" type="Label" parent="Mujer_Movil"]
 layout_mode = 0
 offset_left = 12.0
@@ -41,9 +87,9 @@ horizontal_alignment = 3
 [node name="Rpta_Positiva" type="TextureButton" parent="Mujer_Movil"]
 layout_mode = 0
 offset_left = 22.0
-offset_top = 376.0
+offset_top = 360.0
 offset_right = 262.0
-offset_bottom = 416.0
+offset_bottom = 400.0
 texture_normal = ExtResource("4_en1qw")
 texture_pressed = ExtResource("5_5klv2")
 
@@ -65,9 +111,9 @@ label_settings = ExtResource("6_lqih6")
 [node name="Rpta_Negativa" type="TextureButton" parent="Mujer_Movil"]
 layout_mode = 0
 offset_left = 22.0
-offset_top = 415.0
+offset_top = 410.0
 offset_right = 262.0
-offset_bottom = 455.0
+offset_bottom = 450.0
 texture_normal = ExtResource("4_en1qw")
 texture_pressed = ExtResource("5_5klv2")
 
@@ -93,6 +139,9 @@ mouse_filter = 2
 texture = ExtResource("4_x58ye")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_en1qw")
+}
 
 [connection signal="pressed" from="Mujer_Movil/Rpta_Positiva" to="." method="_on_rpta_positiva_pressed"]
 [connection signal="pressed" from="Mujer_Movil/Rpta_Negativa" to="." method="_on_rpta_negativa_pressed"]
