@@ -56,6 +56,9 @@ func _on_text_edit_text_changed() -> void:
 			if edad_val < 16:
 				error_message.text = "Debes ser mayor de 16"
 				continuar_button.disabled = true
+			elif edad_val > 90:
+				error_message.text = "Debes ser menor de 90"
+				continuar_button.disabled = true
 			else:
 				GlobalManager.main_character_edad = edad_val
 				continuar_button.disabled = false
