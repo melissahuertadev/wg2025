@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d35xwhaqyijgf" path="res://assets/scenes/hombre_BG.png" id="1_w0da5"]
 [ext_resource type="Texture2D" uid="uid://bvoyixc0p6s0a" path="res://tres/hombre_movil_camara.png" id="2_xaoia"]
 [ext_resource type="Texture2D" uid="uid://n0xqghy7i8j4" path="res://assets/chat/hombre_manos.png" id="3_lk01a"]
-[ext_resource type="LabelSettings" uid="uid://beemax7wyajc0" path="res://scripts/main_menu_label_settings.tres" id="4_xaoia"]
+[ext_resource type="LabelSettings" uid="uid://beemax7wyajc0" path="res://tres/main_menu_label_settings.tres" id="4_xaoia"]
 [ext_resource type="Texture2D" uid="uid://c4bupiq7wdio2" path="res://assets/ui/botones/boton_rosa_enable.png" id="6_6t85f"]
 [ext_resource type="Texture2D" uid="uid://mhdwwnyfwenu" path="res://assets/ui/botones/boton_rosa_selected.png" id="7_n1tip"]
 

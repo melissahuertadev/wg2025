@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5peaafddqkcu"]
+[gd_scene load_steps=7 format=3 uid="uid://gqjie8x26xkb"]
 
-[ext_resource type="Script" uid="uid://oe8wonpyx1lx" path="res://scripts/CreditsModal.gd" id="1_tshy2"]
+[ext_resource type="Script" uid="uid://dgfkuw5406c42" path="res://scripts/CreditsModal.gd" id="1_tshy2"]
 [ext_resource type="FontFile" uid="uid://d302wexnvwwsx" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-Black.ttf" id="2_6fj7y"]
 [ext_resource type="FontFile" uid="uid://boe2oenoyudlq" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-Medium.ttf" id="2_gr48d"]
-[ext_resource type="LabelSettings" uid="uid://beemax7wyajc0" path="res://scripts/main_menu_label_settings.tres" id="2_xfrk5"]
+[ext_resource type="LabelSettings" uid="uid://beemax7wyajc0" path="res://tres/main_menu_label_settings.tres" id="2_xfrk5"]
 [ext_resource type="Texture2D" uid="uid://c4bupiq7wdio2" path="res://assets/ui/botones/boton_rosa_enable.png" id="3_6fj7y"]
 [ext_resource type="Texture2D" uid="uid://mhdwwnyfwenu" path="res://assets/ui/botones/boton_rosa_selected.png" id="4_gr48d"]
 
@@ -21,8 +21,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -4.0
-offset_bottom = -4.0
+offset_right = 636.0
+offset_bottom = 546.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3

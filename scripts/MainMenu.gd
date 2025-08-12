@@ -3,7 +3,6 @@ extends Node2D
 # Pantalla de Inicio: "Jugar y Creditos"
 
 func _ready() -> void:
-	print("MainMenu listo")
 	GlobalManager.audio_manager.play_menu_music()
 
 	
