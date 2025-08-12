@@ -13,9 +13,17 @@ func _ready() -> void:
 	
 func _on_quit_button_pressed() -> void:
 	print("Quiting... ")
-	get_tree().quit()
-
+	GlobalManager.audio_manager.play_game_click_sfx()
+	var timer = Timer.new()
+	timer.wait_time = 0.5
+	timer.one_shot = true
+	add_child(timer)
+	timer.start()
+	timer.timeout.connect(self._on_timer_timeout)
 
 func display_final_message():
 	var final_message = $Dark
 	final_message.visible = true
+
+func _on_timer_timeout():
+	get_tree().quit()

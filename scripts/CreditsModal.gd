@@ -57,6 +57,7 @@ func set_text_with_mentions(text: String):
 	return text
 
 func _on_texture_button_pressed() -> void:
+	GlobalManager.audio_manager.play_game_click_sfx()
 	hide()
 
 func _on_close_requested():

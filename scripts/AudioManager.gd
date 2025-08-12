@@ -7,6 +7,9 @@ extends Node
 @onready var woman_dissapointed_sfx = $WomanDissapointedSFX
 @onready var woman_excited_sfx = $WomanExcitedSFX
 @onready var woman_busted_sfx = $WomanBustedSFX
+@onready var game_click_sfx = $GameClickSFX
+@onready var cupid_app_click_sfx = $CupidAppClickSFX
+@onready var cupid_app_typing_sfx = $CupidAppTypingSFX
 
 var current_music = null
 var sound_on = true
@@ -84,6 +87,15 @@ func play_game_music():
 func play_plot_twist_music():
 	play_plot_twist_music_no_fade()
 
+func play_game_click_sfx():
+	play_sfx(game_click_sfx)
+
+func play_cupid_app_click_sfx():
+	play_sfx(cupid_app_click_sfx)
+
+func play_cupid_app_typing_sfx():
+	play_sfx(cupid_app_typing_sfx)
+
 func play_woman_dissapointed_sfx():
 	play_sfx(woman_dissapointed_sfx)
 
@@ -103,3 +115,7 @@ func toggle_sound():
 		
 func is_playing() -> bool:
 	return current_music != null and current_music.playing
+
+func wait_for_sfx_to_finish():
+	return $AudioStreamPlayer.finished
+	
