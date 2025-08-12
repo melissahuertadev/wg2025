@@ -1,0 +1,145 @@
+[gd_scene load_steps=16 format=3 uid="uid://cguv4iflhlyjr"]
+
+[ext_resource type="Script" uid="uid://dastvd7exyy0p" path="res://scripts/RegistroNuevo.gd" id="1_o7mbe"]
+[ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_5mpi4"]
+[ext_resource type="Texture2D" uid="uid://b48e4np3gntfa" path="res://assets/chat/mujer_movil_BG.png" id="3_8bfv1"]
+[ext_resource type="FontFile" uid="uid://c4o3xjoyseo1d" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-Bold.ttf" id="4_dlsv7"]
+[ext_resource type="Texture2D" uid="uid://ok2mtew4hfsq" path="res://assets/ui/botones/dating_app_logo.png" id="5_1oijj"]
+[ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="6_cmdjp"]
+[ext_resource type="FontFile" uid="uid://boe2oenoyudlq" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-Medium.ttf" id="7_5mpi4"]
+[ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="7_gnboj"]
+[ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="8_ef3yk"]
+[ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="9_cn5dh"]
+[ext_resource type="Texture2D" uid="uid://b81jox36n1p3m" path="res://assets/ui/botones/boton_back_enable.png" id="10_5jfdf"]
+[ext_resource type="Texture2D" uid="uid://cdowxou7i2sp8" path="res://assets/ui/botones/boton_back_pressed.png" id="11_ga5bd"]
+[ext_resource type="Texture2D" uid="uid://bjwsnkc2wimq1" path="res://assets/ui/botones/boton_next_disable.png" id="12_xp07d"]
+[ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="13_jquda"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blml6"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.329412, 0.0666667, 0.0705882, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[node name="PantallaRegistro" type="Node2D"]
+script = ExtResource("1_o7mbe")
+
+[node name="Mujer_Frame" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5mpi4")
+expand_mode = 3
+
+[node name="Mujer_Movil" type="TextureRect" parent="."]
+offset_left = 497.0
+offset_top = 98.0
+offset_right = 781.0
+offset_bottom = 596.0
+mouse_filter = 2
+texture = ExtResource("3_8bfv1")
+
+[node name="DatingAppLogo" type="TextureRect" parent="Mujer_Movil"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 19.0
+offset_right = 261.0
+offset_bottom = 137.0
+mouse_filter = 2
+texture = ExtResource("5_1oijj")
+
+[node name="SubtituloLabel" type="Label" parent="Mujer_Movil"]
+layout_mode = 0
+offset_left = 57.5
+offset_top = 133.0
+offset_right = 226.5
+offset_bottom = 156.0
+theme_override_colors/font_color = Color(0.305882, 0.0313726, 0.0313726, 1)
+theme_override_fonts/font = ExtResource("4_dlsv7")
+theme_override_font_sizes/font_size = 14
+text = "Elige a tu match perfecto"
+
+[node name="IndicacionLabel" type="Label" parent="Mujer_Movil"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 162.0
+offset_right = 198.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0.305882, 0.0313726, 0.0313726, 1)
+theme_override_fonts/font = ExtResource("13_jquda")
+theme_override_font_sizes/font_size = 20
+text = "Ingresa ..."
+
+[node name="Panel" type="Panel" parent="Mujer_Movil"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 195.0
+offset_right = 248.0
+offset_bottom = 234.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blml6")
+
+[node name="TextEdit" type="TextEdit" parent="Mujer_Movil/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 195.0
+offset_bottom = 35.0
+mouse_filter = 1
+theme_override_colors/background_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_fonts/font = ExtResource("4_dlsv7")
+theme_override_font_sizes/font_size = 14
+
+[node name="ErrorLabel" type="Label" parent="Mujer_Movil"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 247.0
+offset_right = 248.0
+offset_bottom = 270.0
+theme_override_colors/font_color = Color(0.992157, 0.243137, 0.498039, 1)
+theme_override_fonts/font = ExtResource("7_5mpi4")
+theme_override_font_sizes/font_size = 17
+
+[node name="Mujer_Manos" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 721.0
+mouse_filter = 2
+texture = ExtResource("6_cmdjp")
+
+[node name="ContinuarButton" type="TextureButton" parent="."]
+offset_left = 711.0
+offset_top = 380.0
+offset_right = 735.0
+offset_bottom = 412.0
+mouse_filter = 1
+disabled = true
+texture_normal = ExtResource("7_gnboj")
+texture_pressed = ExtResource("8_ef3yk")
+texture_disabled = ExtResource("9_cn5dh")
+
+[node name="RegresarButton" type="TextureButton" parent="."]
+offset_left = 538.0
+offset_top = 380.0
+offset_right = 562.0
+offset_bottom = 412.0
+mouse_filter = 1
+texture_normal = ExtResource("10_5jfdf")
+texture_pressed = ExtResource("11_ga5bd")
+texture_disabled = ExtResource("12_xp07d")
+flip_v = true
+
+[connection signal="text_changed" from="Mujer_Movil/Panel/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="ContinuarButton" to="." method="_on_continuar_button_pressed"]
+[connection signal="pressed" from="RegresarButton" to="." method="_on_regresar_button_pressed"]

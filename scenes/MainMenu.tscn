@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://5xyat6mnwf41" path="res://assets/main_bg.png" id="2_0ykhv"]
 [ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="3_2wh52"]
 [ext_resource type="Texture2D" uid="uid://c4bupiq7wdio2" path="res://assets/ui/botones/boton_rosa_enable.png" id="4_ucygd"]
-[ext_resource type="LabelSettings" uid="uid://beemax7wyajc0" path="res://scripts/main_menu_label_settings.tres" id="5_l72w3"]
+[ext_resource type="LabelSettings" uid="uid://beemax7wyajc0" path="res://tres/main_menu_label_settings.tres" id="5_l72w3"]
 [ext_resource type="Texture2D" uid="uid://mhdwwnyfwenu" path="res://assets/ui/botones/boton_rosa_selected.png" id="5_mipys"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ow34m"]
