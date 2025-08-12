@@ -12,9 +12,7 @@ var edad := 0
 
 func _ready():
 	mostrar_paso_nombre()
-	text_input.connect("text_changed", Callable(self, "_on_text_edit_text_changed"))
 	continuar_button.disabled = true
-	regresar_button.connect("pressed", Callable(self, "_on_regresar_button_pressed"))
 	regresar_button.visible = false
 	
 func mostrar_paso_nombre():
