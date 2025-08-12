@@ -3,6 +3,7 @@ extends Node
 @onready var menu_music = $MenuMusic
 @onready var game_music = $GameMusic
 @onready var plot_twist_music = $PlotTwistMusic
+@onready var woman_thinking_sfx = $WomanThinkingSFX
 
 var current_music = null
 var sound_on = true
@@ -10,6 +11,7 @@ var sound_on = true
 const MENU_VOLUME_DB = -22
 const GAME_VOLUME_DB = -24
 const PLOT_TWIST_VOLUME_DB = -12
+const WOMAN_THINKING_DB = -30
 # Duración del fade en segundos
 const FADE_TIME = 0.22
 
@@ -22,9 +24,10 @@ func stop_all():
 		menu_music.stop()
 	if game_music.playing:
 		game_music.stop()
+		woman_thinking_sfx.stop()
 	if plot_twist_music.playing:
 		plot_twist_music.stop()
-
+		
 func play_music_with_fade(new_music: AudioStreamPlayer, target_volume_db: float) -> void:
 	if not sound_on:
 		return
@@ -70,10 +73,11 @@ func play_menu_music():
 	
 func play_game_music():
 	play_music_with_fade(game_music, GAME_VOLUME_DB)
+	play_music_with_fade(woman_thinking_sfx, WOMAN_THINKING_DB)
 
 func play_plot_twist_music():
 	play_plot_twist_music_no_fade()
-	
+
 func toggle_sound():
 	sound_on = !sound_on
 	if sound_on:

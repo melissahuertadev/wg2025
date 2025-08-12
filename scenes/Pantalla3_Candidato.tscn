@@ -9,21 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://gxmfwhawibhu" path="res://assets/ui/botones/hover button mesage.png" id="5_5klv2"]
 [ext_resource type="LabelSettings" uid="uid://h68p4ud46nej" path="res://tres/label_settings/player_answers.tres" id="6_lqih6"]
 
-[sub_resource type="Animation" id="Animation_x58ye"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mujer_Movil/Candidato:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.0901961), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_en1qw"]
 length = 0.001
 tracks/0/type = "value"
@@ -37,6 +22,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x58ye"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mujer_Movil/Candidato:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0901961), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_en1qw"]
