@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckp4yxv20iiaq"]
+[gd_scene load_steps=8 format=3 uid="uid://ckp4yxv20iiaq"]
 
+[ext_resource type="Script" uid="uid://l8uktyaekroa" path="res://scripts/Match.gd" id="1_ag7my"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_3cxbl"]
 [ext_resource type="Texture2D" uid="uid://bnf4h7n1ynmg4" path="res://assets/chat/mujer_movil_match.png" id="3_8cgjg"]
 [ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="4_x58ye"]
@@ -7,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="6_en1qw"]
 [ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="7_5klv2"]
 
-[node name="PantallaCandidato" type="Node2D"]
+[node name="PantallaMatch" type="Node2D"]
+script = ExtResource("1_ag7my")
 
 [node name="Mujer_Frame" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -40,3 +42,5 @@ offset_bottom = 505.0
 texture_normal = ExtResource("5_x58ye")
 texture_pressed = ExtResource("6_en1qw")
 texture_disabled = ExtResource("7_5klv2")
+
+[connection signal="pressed" from="ContinuarButton" to="." method="_on_continuar_button_pressed"]
