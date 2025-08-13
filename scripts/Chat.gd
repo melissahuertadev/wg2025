@@ -316,4 +316,4 @@ func _on_continuar_button_pressed() -> void:
 	
 	
 func _on_animacion_terminada():
-	await get_tree().change_scene_to_file("res://scenes/Pantalla5_PlotTwist.tscn")
+	get_tree().change_scene_to_file("res://scenes/Pantalla5_PlotTwist.tscn")

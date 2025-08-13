@@ -4,7 +4,6 @@ extends Node2D
 @onready var selfie = $SelfieTextureRect
 @onready var circle_rect = $CircleRect
 @onready var shader_mat = circle_rect.material
-@onready var tween = get_tree().create_tween()
 
 func _ready() -> void:
 	if GlobalManager.inviteAccepted:
@@ -13,7 +12,10 @@ func _ready() -> void:
 		mensajeFinal.text = "Has esquivado una bala. Descubriste una verdad peligrosa."
 	
 	# Comienza cerrado
-	shader_mat.set_shader_parameter("radius", 0.0)
+	#shader_mat.set_shader_parameter("radius", 0.0)
+	var size = $CircleRect.size
+	var aspect = Vector2(size.x, size.y)
+	shader_mat.set_shader_parameter("aspect_ratio", aspect)
 	abrir_circulo()
 	
 	GlobalManager.audio_manager.cupid_app_open_camera_sfx()

@@ -6,6 +6,7 @@ uniform float radius : hint_range(0.0, 1.0);
 // Centro del círculo en coordenadas UV (0 a 1)
 // vec2(0.5, 0.5) significa centro exacto de la textura
 uniform vec2 center = vec2(0.5, 0.5);
+uniform vec2 aspect_ratio = vec2(1.0, 1.0); // ancho / alto
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -14,7 +15,11 @@ void vertex() {
 void fragment() {
 	// Called for every pixel the material is visible on.
 	vec2 uv = UV; // Coordenadas de textura
-	float dist = distance(uv, center); // Distancia del pixel al centro
+	// Ajustar proporción para que la distancia sea circular
+	vec2 diff = uv - center;
+	diff.x *= aspect_ratio.x / aspect_ratio.y; // compensar ancho/alto
+	float dist = length(diff);
+	//float dist = distance(uv, center); // Distancia del pixel al centro
 
 	if (dist < radius) {
 		// Dentro del círculo → transparente
