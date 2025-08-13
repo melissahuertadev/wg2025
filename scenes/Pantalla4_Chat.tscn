@@ -22,24 +22,6 @@
 [node name="PantallaChat" type="Node2D"]
 script = ExtResource("1_bl14k")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="TopRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-offset_top = 3.0
-offset_right = 1279.0
-offset_bottom = 374.0
-color = Color(0, 0, 0, 1)
-
-[node name="BottomRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-offset_left = -1.0
-offset_top = 369.0
-offset_right = 1281.0
-offset_bottom = 760.0
-theme = SubResource("Theme_7g0ak")
-color = Color(0, 0, 0, 1)
-
 [node name="Mujer_Frame" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -190,6 +172,23 @@ offset_bottom = 505.0
 texture_normal = ExtResource("14_7g0ak")
 texture_pressed = ExtResource("15_kj2j3")
 texture_disabled = ExtResource("16_5hf3c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TopRect" type="ColorRect" parent="CanvasLayer"]
+offset_top = 3.0
+offset_right = 1279.0
+offset_bottom = 374.0
+color = Color(0, 0, 0, 1)
+
+[node name="BottomRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 369.0
+offset_right = 1281.0
+offset_bottom = 760.0
+theme = SubResource("Theme_7g0ak")
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Mujer_Movil/Rpta_Positiva" to="." method="_on_rpta_positiva_pressed"]
 [connection signal="pressed" from="Mujer_Movil/Rpta_Negativa" to="." method="_on_rpta_negativa_pressed"]

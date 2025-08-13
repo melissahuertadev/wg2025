@@ -24,7 +24,9 @@ func mostrar_candidato(index):
 	# Reproducir animación fade in
 	animation_player.play("fade_in")
 
-func procesar_opcion(opcion):	
+func procesar_opcion(opcion):
+	GlobalManager.audio_manager.play_game_click_sfx()
+	print("opcion elegida", opcion)
 	candidato_actual += 1
 	if candidato_actual < candidatos.size():
 		if candidato_actual == candidatos.size() - 1:

@@ -8,14 +8,24 @@ func _ready() -> void:
 	else:
 		mensajeFinal.text = "Has esquivado una bala. Descubriste una verdad peligrosa."
 
+	GlobalManager.audio_manager.cupid_app_open_camera_sfx()
+	GlobalManager.audio_manager.play_man_reaction_sfx()
 	await get_tree().create_timer(2.0).timeout
 	display_final_message()
 	
 func _on_quit_button_pressed() -> void:
-	print("Quiting... ")
-	get_tree().quit()
-
+	#print("Quiting... ")
+	GlobalManager.audio_manager.play_game_click_sfx()
+	var timer = Timer.new()
+	timer.wait_time = 0.5
+	timer.one_shot = true
+	add_child(timer)
+	timer.start()
+	timer.timeout.connect(self._on_timer_timeout)
 
 func display_final_message():
 	var final_message = $Dark
 	final_message.visible = true
+
+func _on_timer_timeout():
+	get_tree().quit()

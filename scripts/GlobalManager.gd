@@ -6,7 +6,7 @@ enum INTERESES {DEPORTES, CINE, VIDEOJUEGOS, ANIMES, LIBROS, COCINA, FESTIVALES,
 
 var game_language = "es"
 var main_character_intereses = []
-var main_character_nombre = "Gertrudis"
+var main_character_nombre = ""
 var main_character_edad = 0 
 var inviteAccepted = false
 var match_messages = []

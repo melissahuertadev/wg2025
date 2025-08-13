@@ -50,7 +50,8 @@
 		],
 		"external_collab": [
 			{"type": "Música", "credit": "@Inplusmusic de www.pixabay.com"},
-			{"type": "Iconos", "credit": "@sonnycandra de www.flaticon.com"}
+			{"type": "Efectos de sonido", "credit": "@floraphonic @Virtual_Vibes @freesound_community de www.pixabay.com"},
+			{"type": "Iconos", "credit": "@sonnycandra de www.flaticon.com"},
 		]
 	},
 	"en": {
@@ -104,6 +105,7 @@
 		],
 		"external_collab": [
 			{"type": "Música", "credit": "@Inplusmusic from www.pixabay.com"},
+			{"type": "Sound effects", "credit": "@floraphonic @Virtual_Vibes @freesound_community from www.pixabay.com"},
 			{"type": "Iconos", "credit": "@sonnycandra from www.flaticon.com"}
 		]
 	}

@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsudkp0ofydnf"]
+[gd_scene load_steps=14 format=3 uid="uid://dsudkp0ofydnf"]
 
 [ext_resource type="AudioStream" uid="uid://rum3q14caiif" path="res://assets/sfx/music/menu_instrumental-acoustic-guitar-music-367223.mp3" id="1_hux41"]
 [ext_resource type="Script" uid="uid://ci4j7iq88knuk" path="res://scripts/AudioManager.gd" id="1_v6v0x"]
 [ext_resource type="AudioStream" uid="uid://cfgdhupsp4epf" path="res://assets/sfx/music/game_happy-background-music-366778.mp3" id="3_4tesi"]
 [ext_resource type="AudioStream" uid="uid://gtt4waoc7ho" path="res://assets/sfx/music/plot-twist_scary-horror-creepy-music-371663.mp3" id="4_3dgps"]
+[ext_resource type="AudioStream" uid="uid://bcj8mm4fwk8ch" path="res://assets/sfx/woman/woman-thinking.ogg" id="4_151wy"]
+[ext_resource type="AudioStream" uid="uid://3lbqsepsrxqd" path="res://assets/sfx/woman/woman_disappointed.ogg" id="6_v5v75"]
+[ext_resource type="AudioStream" uid="uid://dyhq86cr8drrr" path="res://assets/sfx/woman/woman_excited.ogg" id="7_hmi33"]
+[ext_resource type="AudioStream" uid="uid://fvc88w58yxkx" path="res://assets/sfx/woman/woman_busted.ogg" id="8_hmi33"]
+[ext_resource type="AudioStream" uid="uid://b02no0m30pddw" path="res://assets/sfx/cupid_app/cupid_app_click-SFX.ogg" id="9_qtie0"]
+[ext_resource type="AudioStream" uid="uid://k5k0wnc8asso" path="res://assets/sfx/game_button_click.ogg" id="10_3uvv3"]
+[ext_resource type="AudioStream" uid="uid://wnx5ekrwrecg" path="res://assets/sfx/cupid_app/iphone_typing-SFX.wav" id="11_qtie0"]
+[ext_resource type="AudioStream" uid="uid://b5fc4p2fbk1tl" path="res://assets/sfx/cupid_app/iphone_camera-SFX.wav" id="12_3uvv3"]
+[ext_resource type="AudioStream" uid="uid://bxkpjw6dxoi4r" path="res://assets/sfx/man/man_growl.wav" id="13_jtlmv"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_v6v0x")
@@ -17,5 +26,41 @@ parameters/looping = true
 stream = ExtResource("3_4tesi")
 volume_db = -20.0
 
+[node name="WomanThinkingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_151wy")
+volume_db = -20.0
+parameters/looping = true
+
 [node name="PlotTwistMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3dgps")
+
+[node name="WomanDisappointedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_v5v75")
+volume_db = -30.0
+
+[node name="WomanExcitedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hmi33")
+volume_db = -30.0
+
+[node name="WomanBustedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_hmi33")
+volume_db = -30.0
+
+[node name="CupidAppClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_qtie0")
+volume_db = -10.0
+
+[node name="GameClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_3uvv3")
+volume_db = -15.0
+
+[node name="CupidAppTypingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_qtie0")
+
+[node name="CupidAppCameraSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_3uvv3")
+volume_db = -10.0
+
+[node name="ManReactionSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_jtlmv")
+volume_db = -20.0

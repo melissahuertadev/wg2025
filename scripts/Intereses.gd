@@ -15,6 +15,7 @@ func disable_button():
 	continuarButton.disabled = true
 
 func handle_interest(param):
+	GlobalManager.audio_manager.play_cupid_app_click_sfx()
 	#print("handle interest ", param)
 	if GlobalManager.main_character_intereses.has(param):
 		var index = GlobalManager.main_character_intereses.rfind(param)
@@ -68,7 +69,9 @@ func _on_interes_tech_pressed() -> void:
 
 func _on_continuar_button_pressed() -> void:
 	#print("> Ir a escena 'Candidato'")
+	GlobalManager.audio_manager.play_cupid_app_click_sfx()
 	get_tree().change_scene_to_file("res://scenes/Pantalla3_Candidato.tscn")
 
 func _on_retroceder_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Pantalla1_RegistroEdad.tscn")
+	GlobalManager.audio_manager.play_cupid_app_click_sfx()
+	get_tree().change_scene_to_file("res://scenes/Pantalla1_Registro.tscn")

@@ -192,6 +192,8 @@ func load_initial_player_messages(item_enum, inviteAccepted) -> void:
 	notification.z_index = 10
 	$Mujer_Manos.z_index = 20
 	
+	GlobalManager.audio_manager.play_woman_busted_sfx()
+	
 	# Mostrar boton CONTINUAR
 	var continue_btn = $ContinuarButton
 	continue_btn.z_index = 30
@@ -215,6 +217,7 @@ func show_player_reply_options():
 	fade_nodes(nodos, true, 0.42)
 
 func handle_player_answer(inviteAccepted: bool):
+	GlobalManager.audio_manager.play_game_click_sfx()
 	# Hide options
 	var nodos = [
 		$Mujer_Movil/EsperandoRespuesta,
@@ -324,14 +327,16 @@ func _on_bubble_animation_finished():
 	self.disconnect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
 
 func _on_rpta_positiva_pressed() -> void:
+	GlobalManager.audio_manager.play_woman_excited_sfx()
 	handle_player_answer(true)
 
 func _on_rpta_negativa_pressed() -> void:
+	GlobalManager.audio_manager.play_woman_disappointed_sfx()
 	handle_player_answer(false)
-
 
 func _on_continuar_button_pressed() -> void:
 	print("ON CONTINUAR BUTTON PRESSED ")
+	GlobalManager.audio_manager.play_cupid_app_click_sfx()
 	top_rect.visible = true
 	bottom_rect.visible = true
 	
