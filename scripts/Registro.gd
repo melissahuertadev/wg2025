@@ -27,14 +27,16 @@ func _ready():
 func mostrar_paso_nombre():
 	step = 0
 	indicacion_label.text = "Ingresa tu nombre"
-	text_input.text = ""
+	text_input.placeholder_text = "Tu nombre"
+	text_input.text = GlobalManager.main_character_nombre if GlobalManager.main_character_nombre != "" else ""
 	text_input.editable = true
 	
 # 		continuar_button.disabled = false 
 func mostrar_paso_edad():
 	step = 1
 	indicacion_label.text = "Ingresa tu edad"
-	text_input.text = ""
+	text_input.placeholder_text = "16"
+	text_input.text = str(GlobalManager.main_character_edad) if GlobalManager.main_character_edad != 0 else ""
 	text_input.editable = true
 	regresar_button.visible = true 
 	continuar_button.disabled = true
