@@ -15,7 +15,7 @@ func _ready():
 	invitacion.text=GlobalManager.match_messages[1]
 	respuesta.text=GlobalManager.player_messages[0]
 	await get_tree().create_timer(1).timeout
-
+		
 	var tween = create_tween()
 	var viewport_size = get_viewport().size
 	tween.tween_property(top_rect, "position", Vector2(0, -top_rect.size.y), 0.2)

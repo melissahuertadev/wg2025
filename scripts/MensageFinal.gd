@@ -3,11 +3,14 @@ extends Node2D
 @onready var mensajeFinal = $Dark/MensajeFinal
 
 func _ready() -> void:
+	print("FINAL READY.. ")
 	if GlobalManager.inviteAccepted:
 		mensajeFinal.text = "Fin de la partida. Has llegado al final de la historia. Aunque ganaste la confianza y lograste la cita, la verdad se ha revelado. A veces, nada es lo que parece."
 	else:
 		mensajeFinal.text = "Has esquivado una bala. Descubriste una verdad peligrosa."
 
+	GlobalManager.audio_manager.cupid_app_open_camera_sfx()
+	GlobalManager.audio_manager.play_man_angry_sfx()
 	await get_tree().create_timer(2.0).timeout
 	display_final_message()
 	
