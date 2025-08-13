@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cudlgvfqa4w6f"]
+[gd_scene load_steps=14 format=3 uid="uid://cudlgvfqa4w6f"]
 
 [ext_resource type="Script" uid="uid://dshtvfie7mbgd" path="res://scripts/PlotTwistFinal.gd" id="1_p5lpp"]
 [ext_resource type="Texture2D" uid="uid://d35xwhaqyijgf" path="res://assets/scenes/hombre_BG.png" id="1_tlhj7"]
@@ -11,7 +11,6 @@
 [ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="8_w72tf"]
 [ext_resource type="PackedScene" uid="uid://dwrthkaxcgd63" path="res://scenes/chat/BurbujaJugador_ConAvatarPlot.tscn" id="9_oo0hf"]
 [ext_resource type="PackedScene" uid="uid://cypqbvcckkvst" path="res://scenes/chat/BurbujaMatch_ConAvatarPlot.tscn" id="10_28bfe"]
-[ext_resource type="Texture2D" uid="uid://bvgkddi4uh0fk" path="res://assets/chat/movil_dark.png" id="11_2hhfp"]
 [ext_resource type="FontFile" uid="uid://c4o3xjoyseo1d" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-Bold.ttf" id="14_6lmx0"]
 
 [sub_resource type="Theme" id="Theme_p5lpp"]
@@ -68,21 +67,6 @@ theme_override_font_sizes/font_size = 22
 text = "Usuario"
 horizontal_alignment = 1
 
-[node name="PlotTwist" type="TextureRect" parent="Hombre_Movil"]
-visible = false
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 277.0
-offset_bottom = 491.0
-texture = ExtResource("11_2hhfp")
-
-[node name="Notification" type="TextureRect" parent="Hombre_Movil/PlotTwist"]
-layout_mode = 0
-offset_left = 14.5
-offset_top = 16.0
-offset_right = 260.5
-offset_bottom = 93.0
-
 [node name="bubble-invitacion" parent="." instance=ExtResource("4_28bfe")]
 offset_left = 524.0
 offset_top = 240.0
@@ -104,6 +88,7 @@ offset_right = 735.0
 offset_bottom = 362.0
 
 [node name="ContinuarButton" type="TextureButton" parent="."]
+visible = false
 offset_left = 730.0
 offset_top = 473.0
 offset_right = 754.0

@@ -8,7 +8,6 @@ var game_lang = GlobalManager.game_language
 func _ready():
 	size = get_viewport().size
 
-
 func show_notification(character_type: String):
 	# character_type: "hija" o "novio"
 	var dark_bg = $DarkBG

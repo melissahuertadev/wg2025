@@ -1,15 +1,17 @@
 extends Node
 
-@onready var label_nombre = $JugadorLabel
+@onready var label_nombre = $Hombre_Movil/JugadorLabel
 @onready var top_rect = $CanvasLayer/TopRect
 @onready var bottom_rect = $CanvasLayer/BottomRect
 @onready var saludo = $lbl_saludo
 @onready var invitacion = $lbl_invitacion
 @onready var respuesta = $lbl_respuesta
+@onready var continue_btn = $ContinuarButton
 #@onready var reas = $lbl_reas
 
 var SHORT_WAITING_TIME = 0.75
 var LONG_WAITING_TIME = 1.25
+var notification_type = "hija"
 
 func _ready():
 	GlobalManager.audio_manager.play_plot_twist_music()
@@ -26,31 +28,29 @@ func _ready():
 	tween.parallel().tween_property(bottom_rect, "position", Vector2(0, viewport_size.y), 0.2)
 	await GlobalManager.create_timer(LONG_WAITING_TIME)
 	
-	print("segundo timer, mostrar notificacion de hija ")
+	show_plot_twist_notification()
+	await GlobalManager.create_timer(LONG_WAITING_TIME)
+	show_continue_button()
+	# mostrar boton
 
 # Funciones del plot twist (hija)
 func show_plot_twist_notification():
+	var plot_twist_scene = preload("res://scenes/chat/PlotTwistNotification.tscn")
+	var plot_twist = plot_twist_scene.instantiate()
+
+	add_child(plot_twist)
+	
 	# Mostrar las texturas del plot twist
 	var hombre_movil = $Hombre_Movil
-	var dark_bg = hombre_movil.get_node("PlotTwist")
-	var notification = dark_bg.get_node("Notification")
-	
-	# Reproducir sonido antes de mostrar la notificación
-	var sfx = hombre_movil.get_node("PlotTwistNotificationSFX")
-	sfx.play()
-	
-	# Asignar imagen (según idioma o tipo de mensaje)
-	var img_path = "res://assets/chat/notification/hija_" + game_lang + ".png"
-	notification.texture = load(img_path)
-	dark_bg.visible = true
-	notification.visible = true
 	
 	# Ajustar z_index para que estén por encima
-	$ScrollContainer.z_index = 0
-	dark_bg.z_index = 10
-	notification.z_index = 10
-	$Mujer_Manos.z_index = 20
+	plot_twist.show_notification(notification_type)
+	$Hombre_Manos.z_index = 20
 
+func show_continue_button():
+	# Mostrar boton CONTINUAR
+	continue_btn.z_index = 30
+	continue_btn.visible = true
 
 func _on_continuar_button_pressed() -> void:
 	GlobalManager.audio_manager.play_cupid_app_click_sfx()
