@@ -32,9 +32,9 @@ texture = ExtResource("1_kt0na")
 
 [node name="Notification" type="TextureRect" parent="DarkBG"]
 layout_mode = 0
-offset_left = 14.5
+offset_left = 10.5
 offset_top = 16.0
-offset_right = 260.5
+offset_right = 256.5
 offset_bottom = 93.0
 
 [node name="PlotTwistNotificationSFX" type="AudioStreamPlayer" parent="."]

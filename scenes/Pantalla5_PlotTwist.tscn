@@ -55,6 +55,7 @@ mouse_filter = 2
 texture = ExtResource("3_wh6tj")
 
 [node name="JugadorLabel" type="Label" parent="Hombre_Movil"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 27.0
 offset_right = 271.0

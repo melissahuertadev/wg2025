@@ -6,7 +6,7 @@ extends Control
 var game_lang = GlobalManager.game_language
 
 func _ready():
-	size = get_viewport().size
+	set_deferred("size", get_viewport().size)
 
 func show_notification(character_type: String):
 	# character_type: "hija" o "novio"

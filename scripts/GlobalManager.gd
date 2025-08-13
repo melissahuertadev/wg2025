@@ -5,7 +5,7 @@ extends Node
 enum INTERESES {DEPORTES, CINE, VIDEOJUEGOS, ANIMES, LIBROS, COCINA, FESTIVALES, MUSICA, TECH}
 
 var game_language = "en"
-var main_character_intereses = ["DEPORTES"]
+var main_character_intereses = []
 var main_character_nombre = ""
 var main_character_edad = 0 
 var inviteAccepted = false

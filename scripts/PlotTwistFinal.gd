@@ -7,7 +7,6 @@ extends Node
 @onready var invitacion = $lbl_invitacion
 @onready var respuesta = $lbl_respuesta
 @onready var continue_btn = $ContinuarButton
-#@onready var reas = $lbl_reas
 
 var SHORT_WAITING_TIME = 0.75
 var LONG_WAITING_TIME = 1.25
@@ -17,8 +16,8 @@ func _ready():
 	GlobalManager.audio_manager.play_plot_twist_music()
 	label_nombre.text = GlobalManager.main_character_nombre
 	saludo.text = GlobalManager.match_messages[0]
-	invitacion.text=GlobalManager.match_messages[1]
-	respuesta.text=GlobalManager.player_messages[0]
+	invitacion.text = GlobalManager.match_messages[1]
+	respuesta.text = GlobalManager.player_messages[0]
 
 	await GlobalManager.create_timer(LONG_WAITING_TIME)
 	
@@ -31,7 +30,6 @@ func _ready():
 	show_plot_twist_notification()
 	await GlobalManager.create_timer(LONG_WAITING_TIME)
 	show_continue_button()
-	# mostrar boton
 
 # Funciones del plot twist (hija)
 func show_plot_twist_notification():
@@ -39,10 +37,7 @@ func show_plot_twist_notification():
 	var plot_twist = plot_twist_scene.instantiate()
 
 	add_child(plot_twist)
-	
-	# Mostrar las texturas del plot twist
-	var hombre_movil = $Hombre_Movil
-	
+
 	# Ajustar z_index para que estén por encima
 	plot_twist.show_notification(notification_type)
 	$Hombre_Manos.z_index = 20
@@ -54,5 +49,4 @@ func show_continue_button():
 
 func _on_continuar_button_pressed() -> void:
 	GlobalManager.audio_manager.play_cupid_app_click_sfx()
-	print("to final")
 	get_tree().change_scene_to_file("res://scenes/Pantalla_Final.tscn")
