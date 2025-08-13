@@ -5,7 +5,7 @@ extends Node
 enum INTERESES {DEPORTES, CINE, VIDEOJUEGOS, ANIMES, LIBROS, COCINA, FESTIVALES, MUSICA, TECH}
 
 var game_language = "es"
-var main_character_intereses = []
+var main_character_intereses = ["DEPORTES"]
 var main_character_nombre = ""
 var main_character_edad = 0 
 var inviteAccepted = false
@@ -22,3 +22,7 @@ func _ready():
 	# cuando Godot ya terminó de configurar el árbol de nodos y es seguro hacer cambios.
 	get_tree().root.call_deferred("add_child", audio_scene)
 	audio_manager = audio_scene
+
+# Helper
+func create_timer(timeInSeconds: float):
+	return get_tree().create_timer(timeInSeconds).timeout
