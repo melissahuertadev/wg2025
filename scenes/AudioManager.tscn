@@ -61,6 +61,6 @@ stream = ExtResource("11_qtie0")
 stream = ExtResource("12_3uvv3")
 volume_db = -10.0
 
-[node name="ManAngrySFX" type="AudioStreamPlayer" parent="."]
+[node name="ManReactionSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_jtlmv")
 volume_db = -20.0

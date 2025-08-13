@@ -4,7 +4,7 @@ extends Node
 @onready var game_music = $GameMusic
 @onready var plot_twist_music = $PlotTwistMusic
 @onready var game_click_sfx = $GameClickSFX
-@onready var man_angry_sfx = $ManAngrySFX
+@onready var man_reaction_sfx = $ManReactionSFX
 @onready var woman_thinking_sfx = $WomanThinkingSFX
 @onready var woman_dissapointed_sfx = $WomanDissapointedSFX
 @onready var woman_excited_sfx = $WomanExcitedSFX
@@ -105,8 +105,14 @@ func play_cupid_app_typing_sfx():
 func cupid_app_open_camera_sfx():
 	play_sfx(cupid_app_camera_sfx)
 	
-func play_man_angry_sfx():
-	play_sfx(man_angry_sfx)
+func play_man_reaction_sfx():
+	if GlobalManager.inviteAccepted:
+		man_reaction_sfx.stream = preload("res://assets/sfx/man/man_laughing.wav")
+		man_reaction_sfx.volume_db = 0
+	else:
+		man_reaction_sfx.stream = preload("res://assets/sfx/man/man_growl.wav")
+		man_reaction_sfx.volume_db = -20
+	play_sfx(man_reaction_sfx)
 	
 func play_woman_dissapointed_sfx():
 	play_sfx(woman_dissapointed_sfx)
