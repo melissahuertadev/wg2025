@@ -36,6 +36,9 @@ func stop_all():
 
 func play_sfx(sfx: AudioStreamPlayer):
 	sfx.play()
+	
+func stop_sfx(sfx: AudioStreamPlayer):
+	sfx.stop()
 
 func play_music_with_fade(new_music: AudioStreamPlayer, target_volume_db: float) -> void:
 	if not sound_on:
@@ -94,7 +97,9 @@ func play_cupid_app_click_sfx():
 	play_sfx(cupid_app_click_sfx)
 
 func play_cupid_app_typing_sfx():
-	play_sfx(cupid_app_typing_sfx)
+	if not cupid_app_typing_sfx.playing:
+		print("start playing typing")
+		play_sfx(cupid_app_typing_sfx)
 
 func play_woman_dissapointed_sfx():
 	play_sfx(woman_dissapointed_sfx)
@@ -104,6 +109,12 @@ func play_woman_excited_sfx():
 	
 func play_woman_busted_sfx():
 	play_sfx(woman_busted_sfx)
+	
+func stop_cupid_app_typing_sfx():
+	stop_sfx(cupid_app_typing_sfx)
+
+func is_typing_sound_playing():
+	return cupid_app_typing_sfx.playing
 	
 func toggle_sound():
 	sound_on = !sound_on

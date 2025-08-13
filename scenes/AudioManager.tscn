@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://fvc88w58yxkx" path="res://assets/sfx/woman/woman_busted.ogg" id="8_hmi33"]
 [ext_resource type="AudioStream" uid="uid://b02no0m30pddw" path="res://assets/sfx/cupid_app/cupid_app_click-SFX.ogg" id="9_qtie0"]
 [ext_resource type="AudioStream" uid="uid://k5k0wnc8asso" path="res://assets/sfx/game_button_click.ogg" id="10_3uvv3"]
-[ext_resource type="AudioStream" uid="uid://bnxmur88vs5v0" path="res://assets/sfx/cupid_app/iphone-typing-SFX.ogg" id="11_jtlmv"]
+[ext_resource type="AudioStream" uid="uid://wnx5ekrwrecg" path="res://assets/sfx/cupid_app/iphone_typing-SFX.wav" id="11_qtie0"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_v6v0x")
@@ -53,4 +53,4 @@ stream = ExtResource("10_3uvv3")
 volume_db = -15.0
 
 [node name="CupidAppTypingSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_jtlmv")
+stream = ExtResource("11_qtie0")
