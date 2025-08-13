@@ -1,0 +1,48 @@
+{
+  "msg_r_1": "Hi! How are you? I saw you like PLAYER_INTEREST",
+  "msg_recieved_1": {
+	"DEPORTES": "playing sports.",
+	"CINE": "going to the movies.",
+	"VIDEOJUEGOS": "video games.",
+	"ANIMES": "watching anime.",
+	"LIBROS": "reading.",
+	"COCINA": "cooking. Yum",
+	"FESTIVALES": "going to festivals.",
+	"MUSICA": "listening to music.",
+	"TECH": "technology."
+  },
+  "msg_recieved_2": {
+	"DEPORTES": "Do you want to go for a run together this weekend?",
+	"CINE": "Do you feel like going to the movies tonight?",
+	"VIDEOJUEGOS": "Shall we play something together tomorrow? ;)",
+	"ANIMES": "Shall we watch anime at my place this Saturday?",
+	"LIBROS": "Shall we go to a book fair this Sunday?",
+	"COCINA": "Shall we cook something together tonight?",
+	"FESTIVALES": "Will you come to a festival with me this weekend?",
+	"MUSICA": "Shall we go to a concert this Friday?",
+	"TECH": "Shall we visit a tech expo tomorrow?"
+  },
+  "player_decisions_1": {
+	"DEPORTES": ["Sure! Let’s go for a run.", "No, I got injured. Bye."],
+	"CINE": ["Yes, I’d love to go.", "No, I already saw that one. Bye."],
+	"VIDEOJUEGOS": ["Absolutely! Count me in.", "No, I don’t play. Bye."],
+	"ANIMES": ["Yes, sounds great.", "I don’t watch anime. Bye."],
+	"LIBROS": ["Perfect, let’s go.", "I don’t read much. Bye."],
+	"COCINA": ["Sounds delicious! Yes.", "I hate cooking. Bye."],
+	"FESTIVALES": ["Of course, let’s go.", "I don’t like them. Bye."],
+	"MUSICA": ["Yes, I love it.", "I hate that genre. Bye."],
+	"TECH": ["Let’s go together!", "I’m not interested. Bye."]
+  },
+  "msg_sent_1": {
+	"DEPORTES": ["Great! I’d love to go for a run with you this weekend.", "Sorry, I got injured and need to rest."],
+	"CINE": ["Perfect! I’d love to go to the movies with you.", "I can’t, I already saw that movie."],
+	"VIDEOJUEGOS": ["Absolutely! I’m in for playing with you.", "I don’t play much, but thanks."],
+	"ANIMES": ["Sure! Watching anime with you sounds great.", "I don’t watch anime, but thanks."],
+	"LIBROS": ["Let’s go to the book fair together!", "I won’t be able to go this time, but thanks."],
+	"COCINA": ["Yes! Cooking together sounds fun.", "I’m not up for cooking today."],
+	"FESTIVALES": ["Of course! I love festivals.", "I’m not in the mood to go."],
+	"MUSICA": ["Yes! Going to the concert will be great.", "I can’t this time, but thanks."],
+	"TECH": ["Perfect! I’m really interested in the expo.", "It’s not my thing, but thanks."]
+  },
+"waiting_response": "Mario is waiting for a response..."
+}

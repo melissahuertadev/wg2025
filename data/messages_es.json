@@ -1,0 +1,48 @@
+{
+	"msg_r_1": "¡Hola! ¿Qué tal? Vi en tu perfil que te gusta PLAYER_INTEREST",
+  "msg_recieved_1": {
+	"DEPORTES": "hacer deporte.",
+	"CINE": "ir al cine.",
+	"VIDEOJUEGOS": "los videojuegos.",
+	"ANIMES": "ver animes.",
+	"LIBROS": "la lectura.",
+	"COCINA": "cocinar. Niam",
+	"FESTIVALES": "ir a festivales.",
+	"MUSICA": "escuchar música",
+	"TECH": "la tecnología"
+  },
+  "msg_recieved_2": {
+	"DEPORTES": "¿Quieres ir a correr juntos este finde?",
+	"CINE": "¿Te apetece ir al cine esta noche?",
+	"VIDEOJUEGOS": "¿Jugamos algo juntos mañana? ;)",
+	"ANIMES": "¿Vemos anime en mi casa este sábado?",
+	"LIBROS": "¿Vamos a una feria de libros este domingo?",
+	"COCINA": "¿Cocinamos algo juntos esta noche?",
+	"FESTIVALES": "¿Vienes a un festival conmigo este finde?",
+	"MUSICA": "¿Vamos a un concierto este viernes?",
+	"TECH": "¿Visitamos una expo de tecnología mañana?"
+  },
+  "player_decisions_1": {
+	"DEPORTES": ["¡Claro! Vamos a correr.", "No, me lesioné. Chau."],
+	"CINE": ["Sí, me encantaría ir.", "No, ya vi esa. Chau."],
+	"VIDEOJUEGOS": ["¡De una! Me apunto.", "No, no juego. Chau."],
+	"ANIMES": ["Sí, suena genial.", "No veo anime. Chau."],
+	"LIBROS": ["Perfecto, vamos.", "No leo mucho. Chau."],
+	"COCINA": ["¡Qué rico! Sí.", "Odio cocinar. Chau."],
+	"FESTIVALES": ["Obvio, vamos.", "No me gustan. Chau."],
+	"MUSICA": ["Sí, me encanta.", "Odio ese género. Chau."],
+	"TECH": ["¡Vamos juntos!", "No me interesa. Chau."]
+  },
+  "msg_sent_1": {
+	"DEPORTES": ["¡Genial! Me encantaría correr contigo este finde.", "Lo siento, me lesioné y necesito descansar."],
+	"CINE": ["¡Perfecto! Me encantaría ir al cine contigo.", "No puedo, ya vi esa película."],
+	"VIDEOJUEGOS": ["¡De una! Me apunto para jugar contigo.", "No juego mucho, pero gracias."],
+	"ANIMES": ["¡Claro! Ver anime contigo sería genial.", "No veo anime, pero gracias."],
+	"LIBROS": ["¡Vamos a la feria de libros juntos!", "No podré ir esta vez, pero gracias."],
+	"COCINA": ["¡Sí! Cocinar juntos suena divertido.", "No me animo a cocinar hoy."],
+	"FESTIVALES": ["¡Obvio! Me encantan los festivales.", "No me siento con ánimos para ir."],
+	"MUSICA": ["¡Sí! Ir al concierto será genial.", "No puedo esta vez, pero gracias."],
+	"TECH": ["¡Perfecto! Me interesa mucho la expo.", "No es lo mío, pero gracias."]
+  },
+"waiting_response": "Mario está esperando una respuesta..."
+}

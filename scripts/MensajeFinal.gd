@@ -1,17 +1,36 @@
 extends Node2D
 
 @onready var mensajeFinal = $Dark/MensajeFinal
+@onready var selfie = $SelfieTextureRect
+@onready var circle_rect = $CircleRect
+@onready var shader_mat = circle_rect.material
 
 func _ready() -> void:
 	if GlobalManager.inviteAccepted:
 		mensajeFinal.text = "Fin de la partida. Has llegado al final de la historia. Aunque ganaste la confianza y lograste la cita, la verdad se ha revelado. A veces, nada es lo que parece."
 	else:
 		mensajeFinal.text = "Has esquivado una bala. Descubriste una verdad peligrosa."
-
+	
+	# Comienza cerrado
+	#shader_mat.set_shader_parameter("radius", 0.0)
+	var size = $CircleRect.size
+	var aspect = Vector2(size.x, size.y)
+	shader_mat.set_shader_parameter("aspect_ratio", aspect)
+	abrir_circulo()
+	
 	GlobalManager.audio_manager.cupid_app_open_camera_sfx()
 	GlobalManager.audio_manager.play_man_reaction_sfx()
 	await get_tree().create_timer(2.0).timeout
 	display_final_message()
+	
+func abrir_circulo() -> void:
+	var tween = create_tween()
+	tween.tween_method(
+		func(value): shader_mat.set_shader_parameter("radius", value),
+		0.0, # valor inicial
+		1.0, # valor final
+		1.5  # duración
+	)
 	
 func _on_quit_button_pressed() -> void:
 	#print("Quiting... ")

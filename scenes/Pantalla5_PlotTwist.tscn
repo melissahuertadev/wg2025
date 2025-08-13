@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cudlgvfqa4w6f"]
+[gd_scene load_steps=14 format=3 uid="uid://cudlgvfqa4w6f"]
 
 [ext_resource type="Script" uid="uid://dshtvfie7mbgd" path="res://scripts/PlotTwistFinal.gd" id="1_p5lpp"]
 [ext_resource type="Texture2D" uid="uid://d35xwhaqyijgf" path="res://assets/scenes/hombre_BG.png" id="1_tlhj7"]
@@ -11,8 +11,6 @@
 [ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="8_w72tf"]
 [ext_resource type="PackedScene" uid="uid://dwrthkaxcgd63" path="res://scenes/chat/BurbujaJugador_ConAvatarPlot.tscn" id="9_oo0hf"]
 [ext_resource type="PackedScene" uid="uid://cypqbvcckkvst" path="res://scenes/chat/BurbujaMatch_ConAvatarPlot.tscn" id="10_28bfe"]
-[ext_resource type="Texture2D" uid="uid://bvgkddi4uh0fk" path="res://assets/chat/movil_dark.png" id="11_2hhfp"]
-[ext_resource type="Texture2D" uid="uid://08blnk63e7jy" path="res://assets/plot_twist_1a.png" id="12_2hhfp"]
 [ext_resource type="FontFile" uid="uid://c4o3xjoyseo1d" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-Bold.ttf" id="14_6lmx0"]
 
 [sub_resource type="Theme" id="Theme_p5lpp"]
@@ -22,18 +20,17 @@ position = Vector2(2, 1)
 script = ExtResource("1_p5lpp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TopRect" type="ColorRect" parent="CanvasLayer"]
-offset_top = 3.0
-offset_right = 1279.0
-offset_bottom = 374.0
+offset_right = 1280.0
+offset_bottom = 360.0
 color = Color(0, 0, 0, 1)
 
 [node name="BottomRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = -1.0
-offset_top = 369.0
-offset_right = 1281.0
-offset_bottom = 760.0
+offset_top = 360.0
+offset_right = 1280.0
+offset_bottom = 720.0
 theme = SubResource("Theme_p5lpp")
 color = Color(0, 0, 0, 1)
 
@@ -57,6 +54,20 @@ offset_bottom = 596.0
 mouse_filter = 2
 texture = ExtResource("3_wh6tj")
 
+[node name="JugadorLabel" type="Label" parent="Hombre_Movil"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 27.0
+offset_right = 271.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.329412, 0.0666667, 0.0705882, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("8_w72tf")
+theme_override_font_sizes/font_size = 22
+text = "Usuario"
+horizontal_alignment = 1
+
 [node name="bubble-invitacion" parent="." instance=ExtResource("4_28bfe")]
 offset_left = 524.0
 offset_top = 240.0
@@ -77,20 +88,8 @@ offset_top = 314.0
 offset_right = 735.0
 offset_bottom = 362.0
 
-[node name="lbltexto" type="Label" parent="."]
-offset_left = 507.0
-offset_top = 125.0
-offset_right = 768.0
-offset_bottom = 158.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.329412, 0.0666667, 0.0705882, 1)
-theme_override_constants/outline_size = 15
-theme_override_fonts/font = ExtResource("8_w72tf")
-theme_override_font_sizes/font_size = 22
-text = "Usuario"
-horizontal_alignment = 1
-
 [node name="ContinuarButton" type="TextureButton" parent="."]
+visible = false
 offset_left = 730.0
 offset_top = 473.0
 offset_right = 754.0
@@ -98,23 +97,6 @@ offset_bottom = 505.0
 texture_normal = ExtResource("4_wh6tj")
 texture_pressed = ExtResource("5_w72tf")
 texture_disabled = ExtResource("6_oo0hf")
-
-[node name="PlotTwist" type="TextureRect" parent="."]
-visible = false
-offset_left = 499.0
-offset_top = 101.0
-offset_right = 774.0
-offset_bottom = 589.0
-texture = ExtResource("11_2hhfp")
-
-[node name="Notification" type="TextureRect" parent="PlotTwist"]
-visible = false
-layout_mode = 0
-offset_left = 14.5
-offset_top = 16.0
-offset_right = 260.5
-offset_bottom = 93.0
-texture = ExtResource("12_2hhfp")
 
 [node name="Hombre_Manos" type="TextureRect" parent="."]
 offset_right = 1280.0

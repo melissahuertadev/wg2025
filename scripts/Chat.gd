@@ -5,6 +5,7 @@ signal bubble_animation_finished
 @onready var top_rect = $CanvasLayer/TopRect
 @onready var bottom_rect = $CanvasLayer/BottomRect
 
+var game_lang = GlobalManager.game_language
 var ultimo_emisor = null # "match" o "player"
 var isWaitingReply: bool = false
 var msg_recieved_1_dict: Dictionary
@@ -12,134 +13,63 @@ var msg_recieved_2_dict: Dictionary
 var player_decisions_1_dict: Dictionary
 var msg_sent_1_dict: Dictionary
 
-var msg_r_1 = "¡Hola! ¿Qué tal? Vi en tu perfil que te gusta PLAYER_INTEREST"
+var isWaitingResponseLabel = ""
+var msg_r_1 = ""
 var msg_r_2 = ""
 var rand_item_enum = ""
+var SHORT_WAITING_TIME = 0.75
+var LONG_WAITING_TIME = 1.25
+var notification_type = "novio"
 
 func _ready():
 	ultimo_emisor = null
-	load_dictionaries()
+	load_dictionaries(game_lang)
 	# Conectar señal solo una vez acá (antes de cargar mensajes)
 	self.connect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
 
 	set_labels_text()
-
+	
 func replace_message(original_str, old_text, new_text):
 	var new_str = original_str.replace(old_text, new_text)
 	return new_str
 
-func load_dictionaries():
-	# Primer mensaje del hombre
-	msg_recieved_1_dict = {
-		GlobalManager.INTERESES.DEPORTES: "hacer deporte.",
-		GlobalManager.INTERESES.CINE: "ir al cine.", 
-		GlobalManager.INTERESES.VIDEOJUEGOS: "los videojuegos.", 
-		GlobalManager.INTERESES.ANIMES: "ver animes.",
-		GlobalManager.INTERESES.LIBROS: "la lectura.",
-		GlobalManager.INTERESES.COCINA: "cocinar. Niam",
-		GlobalManager.INTERESES.FESTIVALES: "ir a festivales.",
-		GlobalManager.INTERESES.MUSICA: "escuchar música",
-		GlobalManager.INTERESES.TECH: "la tecnología"
-	}
-	
-	# Segundo mensaje del hombre
-	msg_recieved_2_dict = {
-		GlobalManager.INTERESES.DEPORTES: "¿Quieres ir a correr juntos este finde?",
-		GlobalManager.INTERESES.CINE: "¿Te apetece ir al cine esta noche?",
-		GlobalManager.INTERESES.VIDEOJUEGOS: "¿Jugamos algo juntos mañana? 😉😉",
-		GlobalManager.INTERESES.ANIMES: "¿Vemos anime en mi casa este sábado?",
-		GlobalManager.INTERESES.LIBROS: "¿Vamos a una feria de libros este domingo?",
-		GlobalManager.INTERESES.COCINA: "¿Cocinamos algo juntos esta noche?",
-		GlobalManager.INTERESES.FESTIVALES: "¿Vienes a un festival conmigo este finde?",
-		GlobalManager.INTERESES.MUSICA: "¿Vamos a un concierto este viernes?",
-		GlobalManager.INTERESES.TECH: "¿Visitamos una expo de tecnología mañana?"
-	}
+func load_dictionaries(lang_code := "es"):
+	var file_path = "res://data/messages_%s.json" % lang_code
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	if file:
+		var data = JSON.parse_string(file.get_as_text())
+		if typeof(data) == TYPE_DICTIONARY:
+			msg_r_1 = data["msg_r_1"]
+			msg_recieved_1_dict = {}
+			msg_recieved_2_dict = {}
+			player_decisions_1_dict = {}
+			msg_sent_1_dict = {}
 
-	# Respuestas de la chica (player)
-	player_decisions_1_dict = {
-		GlobalManager.INTERESES.DEPORTES: [
-			"¡Claro! Vamos a correr.",
-			"No, me lesioné. Chau."
-		],
-		GlobalManager.INTERESES.CINE: [
-			"Sí, me encantaría ir.",
-			"No, ya vi esa. Chau."
-		],
-		GlobalManager.INTERESES.VIDEOJUEGOS: [
-			"¡De una! Me apunto.",
-			"No, no juego. Chau."
-		],
-		GlobalManager.INTERESES.ANIMES: [
-			"Sí, suena genial.",
-			"No veo anime. Chau."
-		],
-		GlobalManager.INTERESES.LIBROS: [
-			"Perfecto, vamos.",
-			"No leo mucho. Chau."
-		],
-		GlobalManager.INTERESES.COCINA: [
-			"¡Qué rico! Sí.",
-			"Odio cocinar. Chau."
-		],
-		GlobalManager.INTERESES.FESTIVALES: [
-			"Obvio, vamos.",
-			"No me gustan. Chau."
-		],
-		GlobalManager.INTERESES.MUSICA: [
-			"Sí, me encanta.",
-			"Odio ese género. Chau."
-		],
-		GlobalManager.INTERESES.TECH: [
-			"¡Vamos juntos!",
-			"No me interesa. Chau."
-		]
-	}
-	
-	# Respuesta en burbuja de la chica
-	msg_sent_1_dict = {
-		GlobalManager.INTERESES.DEPORTES: [
-			"¡Genial! Me encantaría correr contigo este finde.",
-			"Lo siento, me lesioné y necesito descansar."
-		],
-		GlobalManager.INTERESES.CINE: [
-			"¡Perfecto! Me encantaría ir al cine contigo.",
-			"No puedo, ya vi esa película."
-		],
-		GlobalManager.INTERESES.VIDEOJUEGOS: [
-			"¡De una! Me apunto para jugar contigo.",
-			"No juego mucho, pero gracias."
-		],
-		GlobalManager.INTERESES.ANIMES: [
-			"¡Claro! Ver anime contigo sería genial.",
-			"No veo anime, pero gracias."
-		],
-		GlobalManager.INTERESES.LIBROS: [
-			"¡Vamos a la feria de libros juntos!",
-			"No podré ir esta vez, pero gracias."
-		],
-		GlobalManager.INTERESES.COCINA: [
-			"¡Sí! Cocinar juntos suena divertido.",
-			"No me animo a cocinar hoy."
-		],
-		GlobalManager.INTERESES.FESTIVALES: [
-			"¡Obvio! Me encantan los festivales.",
-			"No me siento con ánimos para ir."
-		],
-		GlobalManager.INTERESES.MUSICA: [
-			"¡Sí! Ir al concierto será genial.",
-			"No puedo esta vez, pero gracias."
-		],
-		GlobalManager.INTERESES.TECH: [
-			"¡Perfecto! Me interesa mucho la expo.",
-			"No es lo mío, pero gracias."
-		]
-}
+			# Primer mensaje del hombre
+			for key in data["msg_recieved_1"]:
+				msg_recieved_1_dict[GlobalManager.INTERESES.get(key)] = data["msg_recieved_1"][key]
 
+			# Segundo mensaje del hombre
+			for key in data["msg_recieved_2"]:
+				msg_recieved_2_dict[GlobalManager.INTERESES.get(key)] = data["msg_recieved_2"][key]
+
+			# Opciones de respuesta de la chica (player)
+			for key in data["player_decisions_1"]:
+				player_decisions_1_dict[GlobalManager.INTERESES.get(key)] = data["player_decisions_1"][key]
+
+			# Respuesta en burbuja de la chica
+			for key in data["msg_sent_1"]:
+				msg_sent_1_dict[GlobalManager.INTERESES.get(key)] = data["msg_sent_1"][key]
+				
+			isWaitingResponseLabel = data["waiting_response"]
+		else:
+			push_error("JSON inválido en %s" % file_path)
+	else:
+		push_error("No se pudo abrir %s" % file_path)
 
 func load_player_options(action_name: String) -> void:
 	if action_name == "first":
 		self.connect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
-		#show_player_reply_options()
 
 func get_rand_item_enum():
 	var rand_idx = randi() % GlobalManager.main_character_intereses.size()
@@ -149,10 +79,11 @@ func get_rand_item_enum():
 	
 	return rand_item_en
 
+# Mostrar los mensajes iniciales del "match" y Setear las respuestas posibles del jugador
 func set_labels_text():
 	rand_item_enum = get_rand_item_enum()
 	
-	load_initial_match_messages(rand_item_enum)
+	await load_initial_match_messages(rand_item_enum)
 	set_rptas_text(rand_item_enum)
 
 func load_initial_match_messages(item_enum):
@@ -160,44 +91,23 @@ func load_initial_match_messages(item_enum):
 	var new_message_1 = replace_message(msg_r_1, "PLAYER_INTEREST", msg_recieved_1_dict[item_enum])
 	var new_message_2 = msg_recieved_2_dict[item_enum]
 
-	await show_match_message(new_message_1)
-	await show_match_message(new_message_2)
 	GlobalManager.match_messages.push_back(new_message_1)
 	GlobalManager.match_messages.push_back(new_message_2)
+	await show_match_message(new_message_1)
+	await GlobalManager.create_timer(SHORT_WAITING_TIME)
+	await show_match_message(new_message_2)
+	
+	#TODO: use when there is more than one interaction
 	#load_player_options("first")
 
-func load_initial_player_messages(item_enum, inviteAccepted) -> void:
+func load_initial_player_messages(item_enum) -> void:
 	ultimo_emisor = ""
-	var player_message = msg_sent_1_dict[item_enum][0] if inviteAccepted else msg_sent_1_dict[item_enum][1]
+	var player_message = msg_sent_1_dict[item_enum][0] if GlobalManager.inviteAccepted else msg_sent_1_dict[item_enum][1]
 	
 	# Esperar que termine show_player_message
-	await show_player_message(player_message)
 	GlobalManager.player_messages.push_back(player_message)
-	
-	# Mostrar las texturas del plot twist
-	var mujer_movil = $Mujer_Movil
-	var dark_bg = mujer_movil.get_node("PlotTwist")
-	var notification = dark_bg.get_node("Notification")
-	
-	# Reproducir sonido antes de mostrar la notificación
-	var sfx = mujer_movil.get_node("PlotTwistNotificationSFX")
-	sfx.play()
-	
-	dark_bg.visible = true
-	notification.visible = true
-	
-	# Ajustar z_index para que estén por encima
-	$ScrollContainer.z_index = 0
-	dark_bg.z_index = 10
-	notification.z_index = 10
-	$Mujer_Manos.z_index = 20
-	
-	GlobalManager.audio_manager.play_woman_busted_sfx()
-	
-	# Mostrar boton CONTINUAR
-	var continue_btn = $ContinuarButton
-	continue_btn.z_index = 30
-	continue_btn.visible = true
+	await show_player_message(player_message)
+	play_player_sfx(false)
 	
 func set_rptas_text(item_enum):
 	var RptaPositivaLabel =  $Mujer_Movil/Rpta_Positiva/Label
@@ -213,11 +123,17 @@ func show_player_reply_options():
 		$Mujer_Movil/Rpta_Positiva,
 		$Mujer_Movil/Rpta_Negativa
 	]
-	
+
+	# Cambiar texto del Label en el nodo "EsperandoRespuesta"
+	var isWaitingResponseNode = nodos[0].get_node("Label")
+	isWaitingResponseNode.text = isWaitingResponseLabel
+	# "waiting_response" 
 	fade_nodes(nodos, true, 0.42)
 
 func handle_player_answer(inviteAccepted: bool):
+	GlobalManager.inviteAccepted = inviteAccepted
 	GlobalManager.audio_manager.play_game_click_sfx()
+	
 	# Hide options
 	var nodos = [
 		$Mujer_Movil/EsperandoRespuesta,
@@ -225,10 +141,17 @@ func handle_player_answer(inviteAccepted: bool):
 		$Mujer_Movil/Rpta_Negativa
 	]
 	
+	await GlobalManager.create_timer(SHORT_WAITING_TIME)
 	fade_nodes(nodos, false, 0.42)
-	GlobalManager.inviteAccepted = inviteAccepted
-	load_initial_player_messages(rand_item_enum, inviteAccepted)
-
+	await load_initial_player_messages(rand_item_enum)
+	
+func handle_plot_twist_notification():
+	await GlobalManager.create_timer(LONG_WAITING_TIME)
+	show_plot_twist_notification()
+	await play_player_sfx(true)
+	await GlobalManager.create_timer(LONG_WAITING_TIME)
+	show_continue_button()
+	
 func fade_nodes(nodes: Array, showNode: bool, duration: float = 1.542):
 	for nodo in nodes:
 		if showNode:
@@ -283,6 +206,42 @@ func play_bubble_animation(escena_burbuja: Node) -> void:
 	tween.tween_property(burbuja, "scale", Vector2(1, 1), 0.4)
 	tween.finished.connect(Callable(self, "_on_tween_finished"))
 
+# Funciones del Jugador/Player (mujer)
+func show_player_message(texto: String):
+	await show_bubble_message("player", texto)
+
+func play_player_sfx(isLastMessage: bool):
+	if GlobalManager.inviteAccepted and isLastMessage:
+		GlobalManager.audio_manager.play_woman_busted_sfx()
+	elif GlobalManager.inviteAccepted and not isLastMessage:
+		GlobalManager.audio_manager.play_woman_excited_sfx()
+	elif not GlobalManager.inviteAccepted and isLastMessage:
+		GlobalManager.audio_manager.play_woman_excited_sfx()
+	else:
+		GlobalManager.audio_manager.play_woman_disappointed_sfx()
+
+# Funciones del plot twist (novio)
+func show_plot_twist_notification():
+	var plot_twist_scene = preload("res://scenes/chat/PlotTwistNotification.tscn")
+	var plot_twist = plot_twist_scene.instantiate()
+
+	add_child(plot_twist)
+	
+	# Mostrar las texturas del plot twist
+	var mujer_movil = $Mujer_Movil
+	
+	# Ajustar z_index para que estén por encima
+	$ScrollContainer.z_index = 0
+	plot_twist.show_notification(notification_type)
+	$Mujer_Manos.z_index = 20
+	
+
+func show_continue_button():
+	# Mostrar boton CONTINUAR
+	var continue_btn = $ContinuarButton
+	continue_btn.z_index = 30
+	continue_btn.visible = true
+		
 # Mostrar Burbuja verde, rosa segun el emisor, estas burbujas son escenas creadas
 func show_bubble_message(emisor: String, texto: String) -> void:
 	var escena_burbuja = load_bubble_scene(emisor, safe_string(ultimo_emisor))
@@ -302,7 +261,7 @@ func show_bubble_message(emisor: String, texto: String) -> void:
 	await get_tree().process_frame
 	$ScrollContainer.scroll_vertical = $ScrollContainer.get_v_scroll_bar().max_value
 	ultimo_emisor = emisor
-	print("ultimo emisor ? ", ultimo_emisor)
+	#print("ultimo emisor ? ", ultimo_emisor)
 
 func show_match_message(texto: String):
 	var mujer_movil = $Mujer_Movil
@@ -310,13 +269,14 @@ func show_match_message(texto: String):
 	sfx.play()
 	await show_bubble_message("match", texto)
 
-func show_player_message(texto: String):
-	await show_bubble_message("player", texto)
+func handle_flow(inviteAccepted: bool):
+	await handle_player_answer(inviteAccepted)
+	handle_plot_twist_notification()
 
 # Helper
 func safe_string(value) -> String:
 	return value if value != null else ""
-	
+
 # Signals
 func _on_tween_finished() -> void:
 	emit_signal("bubble_animation_finished")
@@ -327,15 +287,12 @@ func _on_bubble_animation_finished():
 	self.disconnect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
 
 func _on_rpta_positiva_pressed() -> void:
-	GlobalManager.audio_manager.play_woman_excited_sfx()
-	handle_player_answer(true)
+	handle_flow(true)
 
 func _on_rpta_negativa_pressed() -> void:
-	GlobalManager.audio_manager.play_woman_disappointed_sfx()
-	handle_player_answer(false)
+	handle_flow(false)
 
 func _on_continuar_button_pressed() -> void:
-	print("ON CONTINUAR BUTTON PRESSED ")
 	GlobalManager.audio_manager.play_cupid_app_click_sfx()
 	top_rect.visible = true
 	bottom_rect.visible = true
@@ -359,4 +316,4 @@ func _on_continuar_button_pressed() -> void:
 	
 	
 func _on_animacion_terminada():
-	await get_tree().change_scene_to_file("res://scenes/Pantalla5_PlotTwist.tscn")
+	get_tree().change_scene_to_file("res://scenes/Pantalla5_PlotTwist.tscn")
