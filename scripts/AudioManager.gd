@@ -6,7 +6,7 @@ extends Node
 @onready var game_click_sfx = $GameClickSFX
 @onready var man_reaction_sfx = $ManReactionSFX
 @onready var woman_thinking_sfx = $WomanThinkingSFX
-@onready var woman_dissapointed_sfx = $WomanDissapointedSFX
+@onready var woman_disappointed_sfx = $WomanDisappointedSFX
 @onready var woman_excited_sfx = $WomanExcitedSFX
 @onready var woman_busted_sfx = $WomanBustedSFX
 @onready var cupid_app_camera_sfx = $CupidAppCameraSFX
@@ -114,8 +114,8 @@ func play_man_reaction_sfx():
 		man_reaction_sfx.volume_db = -20
 	play_sfx(man_reaction_sfx)
 	
-func play_woman_dissapointed_sfx():
-	play_sfx(woman_dissapointed_sfx)
+func play_woman_disappointed_sfx():
+	play_sfx(woman_disappointed_sfx)
 
 func play_woman_excited_sfx():
 	play_sfx(woman_excited_sfx)

@@ -331,7 +331,7 @@ func _on_rpta_positiva_pressed() -> void:
 	handle_player_answer(true)
 
 func _on_rpta_negativa_pressed() -> void:
-	GlobalManager.audio_manager.play_woman_dissapointed_sfx()
+	GlobalManager.audio_manager.play_woman_disappointed_sfx()
 	handle_player_answer(false)
 
 func _on_continuar_button_pressed() -> void:

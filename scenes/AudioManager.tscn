@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cfgdhupsp4epf" path="res://assets/sfx/music/game_happy-background-music-366778.mp3" id="3_4tesi"]
 [ext_resource type="AudioStream" uid="uid://gtt4waoc7ho" path="res://assets/sfx/music/plot-twist_scary-horror-creepy-music-371663.mp3" id="4_3dgps"]
 [ext_resource type="AudioStream" uid="uid://bcj8mm4fwk8ch" path="res://assets/sfx/woman/woman-thinking.ogg" id="4_151wy"]
-[ext_resource type="AudioStream" uid="uid://3lbqsepsrxqd" path="res://assets/sfx/woman/woman_dissapointed.ogg" id="6_v5v75"]
+[ext_resource type="AudioStream" uid="uid://3lbqsepsrxqd" path="res://assets/sfx/woman/woman_disappointed.ogg" id="6_v5v75"]
 [ext_resource type="AudioStream" uid="uid://dyhq86cr8drrr" path="res://assets/sfx/woman/woman_excited.ogg" id="7_hmi33"]
 [ext_resource type="AudioStream" uid="uid://fvc88w58yxkx" path="res://assets/sfx/woman/woman_busted.ogg" id="8_hmi33"]
 [ext_resource type="AudioStream" uid="uid://b02no0m30pddw" path="res://assets/sfx/cupid_app/cupid_app_click-SFX.ogg" id="9_qtie0"]
@@ -34,7 +34,7 @@ parameters/looping = true
 [node name="PlotTwistMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3dgps")
 
-[node name="WomanDissapointedSFX" type="AudioStreamPlayer" parent="."]
+[node name="WomanDisappointedSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_v5v75")
 volume_db = -30.0
 
