@@ -5,6 +5,7 @@ signal bubble_animation_finished
 @onready var top_rect = $CanvasLayer/TopRect
 @onready var bottom_rect = $CanvasLayer/BottomRect
 
+var game_lang = GlobalManager.game_language
 var ultimo_emisor = null # "match" o "player"
 var isWaitingReply: bool = false
 var msg_recieved_1_dict: Dictionary
@@ -12,7 +13,8 @@ var msg_recieved_2_dict: Dictionary
 var player_decisions_1_dict: Dictionary
 var msg_sent_1_dict: Dictionary
 
-var msg_r_1 = "¡Hola! ¿Qué tal? Vi en tu perfil que te gusta PLAYER_INTEREST"
+var isWaitingResponseLabel = ""
+var msg_r_1 = ""
 var msg_r_2 = ""
 var rand_item_enum = ""
 var SHORT_WAITING_TIME = 0.75
@@ -20,7 +22,7 @@ var LONG_WAITING_TIME = 1.25
 
 func _ready():
 	ultimo_emisor = null
-	load_dictionaries()
+	load_dictionaries(game_lang)
 	# Conectar señal solo una vez acá (antes de cargar mensajes)
 	self.connect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
 
@@ -30,112 +32,39 @@ func replace_message(original_str, old_text, new_text):
 	var new_str = original_str.replace(old_text, new_text)
 	return new_str
 
-func load_dictionaries():
-	# Primer mensaje del hombre
-	msg_recieved_1_dict = {
-		GlobalManager.INTERESES.DEPORTES: "hacer deporte.",
-		GlobalManager.INTERESES.CINE: "ir al cine.", 
-		GlobalManager.INTERESES.VIDEOJUEGOS: "los videojuegos.", 
-		GlobalManager.INTERESES.ANIMES: "ver animes.",
-		GlobalManager.INTERESES.LIBROS: "la lectura.",
-		GlobalManager.INTERESES.COCINA: "cocinar. Niam",
-		GlobalManager.INTERESES.FESTIVALES: "ir a festivales.",
-		GlobalManager.INTERESES.MUSICA: "escuchar música",
-		GlobalManager.INTERESES.TECH: "la tecnología"
-	}
-	
-	# Segundo mensaje del hombre
-	msg_recieved_2_dict = {
-		GlobalManager.INTERESES.DEPORTES: "¿Quieres ir a correr juntos este finde?",
-		GlobalManager.INTERESES.CINE: "¿Te apetece ir al cine esta noche?",
-		GlobalManager.INTERESES.VIDEOJUEGOS: "¿Jugamos algo juntos mañana? 😉😉",
-		GlobalManager.INTERESES.ANIMES: "¿Vemos anime en mi casa este sábado?",
-		GlobalManager.INTERESES.LIBROS: "¿Vamos a una feria de libros este domingo?",
-		GlobalManager.INTERESES.COCINA: "¿Cocinamos algo juntos esta noche?",
-		GlobalManager.INTERESES.FESTIVALES: "¿Vienes a un festival conmigo este finde?",
-		GlobalManager.INTERESES.MUSICA: "¿Vamos a un concierto este viernes?",
-		GlobalManager.INTERESES.TECH: "¿Visitamos una expo de tecnología mañana?"
-	}
+func load_dictionaries(lang_code := "es"):
+	var file_path = "res://data/messages_%s.json" % lang_code
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	if file:
+		var data = JSON.parse_string(file.get_as_text())
+		if typeof(data) == TYPE_DICTIONARY:
+			msg_r_1 = data["msg_r_1"]
+			msg_recieved_1_dict = {}
+			msg_recieved_2_dict = {}
+			player_decisions_1_dict = {}
+			msg_sent_1_dict = {}
 
-	# Respuestas de la chica (player)
-	player_decisions_1_dict = {
-		GlobalManager.INTERESES.DEPORTES: [
-			"¡Claro! Vamos a correr.",
-			"No, me lesioné. Chau."
-		],
-		GlobalManager.INTERESES.CINE: [
-			"Sí, me encantaría ir.",
-			"No, ya vi esa. Chau."
-		],
-		GlobalManager.INTERESES.VIDEOJUEGOS: [
-			"¡De una! Me apunto.",
-			"No, no juego. Chau."
-		],
-		GlobalManager.INTERESES.ANIMES: [
-			"Sí, suena genial.",
-			"No veo anime. Chau."
-		],
-		GlobalManager.INTERESES.LIBROS: [
-			"Perfecto, vamos.",
-			"No leo mucho. Chau."
-		],
-		GlobalManager.INTERESES.COCINA: [
-			"¡Qué rico! Sí.",
-			"Odio cocinar. Chau."
-		],
-		GlobalManager.INTERESES.FESTIVALES: [
-			"Obvio, vamos.",
-			"No me gustan. Chau."
-		],
-		GlobalManager.INTERESES.MUSICA: [
-			"Sí, me encanta.",
-			"Odio ese género. Chau."
-		],
-		GlobalManager.INTERESES.TECH: [
-			"¡Vamos juntos!",
-			"No me interesa. Chau."
-		]
-	}
-	
-	# Respuesta en burbuja de la chica
-	msg_sent_1_dict = {
-		GlobalManager.INTERESES.DEPORTES: [
-			"¡Genial! Me encantaría correr contigo este finde.",
-			"Lo siento, me lesioné y necesito descansar."
-		],
-		GlobalManager.INTERESES.CINE: [
-			"¡Perfecto! Me encantaría ir al cine contigo.",
-			"No puedo, ya vi esa película."
-		],
-		GlobalManager.INTERESES.VIDEOJUEGOS: [
-			"¡De una! Me apunto para jugar contigo.",
-			"No juego mucho, pero gracias."
-		],
-		GlobalManager.INTERESES.ANIMES: [
-			"¡Claro! Ver anime contigo sería genial.",
-			"No veo anime, pero gracias."
-		],
-		GlobalManager.INTERESES.LIBROS: [
-			"¡Vamos a la feria de libros juntos!",
-			"No podré ir esta vez, pero gracias."
-		],
-		GlobalManager.INTERESES.COCINA: [
-			"¡Sí! Cocinar juntos suena divertido.",
-			"No me animo a cocinar hoy."
-		],
-		GlobalManager.INTERESES.FESTIVALES: [
-			"¡Obvio! Me encantan los festivales.",
-			"No me siento con ánimos para ir."
-		],
-		GlobalManager.INTERESES.MUSICA: [
-			"¡Sí! Ir al concierto será genial.",
-			"No puedo esta vez, pero gracias."
-		],
-		GlobalManager.INTERESES.TECH: [
-			"¡Perfecto! Me interesa mucho la expo.",
-			"No es lo mío, pero gracias."
-		]
-}
+			# Primer mensaje del hombre
+			for key in data["msg_recieved_1"]:
+				msg_recieved_1_dict[GlobalManager.INTERESES.get(key)] = data["msg_recieved_1"][key]
+
+			# Segundo mensaje del hombre
+			for key in data["msg_recieved_2"]:
+				msg_recieved_2_dict[GlobalManager.INTERESES.get(key)] = data["msg_recieved_2"][key]
+
+			# Opciones de respuesta de la chica (player)
+			for key in data["player_decisions_1"]:
+				player_decisions_1_dict[GlobalManager.INTERESES.get(key)] = data["player_decisions_1"][key]
+
+			# Respuesta en burbuja de la chica
+			for key in data["msg_sent_1"]:
+				msg_sent_1_dict[GlobalManager.INTERESES.get(key)] = data["msg_sent_1"][key]
+				
+			isWaitingResponseLabel = data["waiting_response"]
+		else:
+			push_error("JSON inválido en %s" % file_path)
+	else:
+		push_error("No se pudo abrir %s" % file_path)
 
 func load_player_options(action_name: String) -> void:
 	if action_name == "first":
@@ -193,7 +122,11 @@ func show_player_reply_options():
 		$Mujer_Movil/Rpta_Positiva,
 		$Mujer_Movil/Rpta_Negativa
 	]
-	
+	print("isWaitingResponseLabel", isWaitingResponseLabel)
+	# Cambiar texto del Label en el nodo "EsperandoRespuesta"
+	var isWaitingResponseNode = nodos[0].get_node("Label")
+	isWaitingResponseNode.text = isWaitingResponseLabel
+	# "waiting_response" 
 	fade_nodes(nodos, true, 0.42)
 
 func handle_player_answer(inviteAccepted: bool):
@@ -297,6 +230,9 @@ func show_boyfriend_message():
 	var sfx = mujer_movil.get_node("PlotTwistNotificationSFX")
 	sfx.play()
 	
+	# Asignar imagen (según idioma o tipo de mensaje)
+	var img_path = "res://assets/chat/notification/novio_" + game_lang + ".png"
+	notification.texture = load(img_path)
 	dark_bg.visible = true
 	notification.visible = true
 	
@@ -353,6 +289,7 @@ func _on_tween_finished() -> void:
 	
 func _on_bubble_animation_finished():
 	isWaitingReply = true
+	print("BEFORE", isWaitingResponseLabel)
 	show_player_reply_options()
 	self.disconnect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
 

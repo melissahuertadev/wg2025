@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dwrthkaxcgd63" path="res://scenes/chat/BurbujaJugador_ConAvatarPlot.tscn" id="9_oo0hf"]
 [ext_resource type="PackedScene" uid="uid://cypqbvcckkvst" path="res://scenes/chat/BurbujaMatch_ConAvatarPlot.tscn" id="10_28bfe"]
 [ext_resource type="Texture2D" uid="uid://bvgkddi4uh0fk" path="res://assets/chat/movil_dark.png" id="11_2hhfp"]
-[ext_resource type="Texture2D" uid="uid://08blnk63e7jy" path="res://assets/plot_twist_1a.png" id="12_2hhfp"]
+[ext_resource type="Texture2D" uid="uid://08blnk63e7jy" path="res://assets/chat/notification/novio_es.png" id="12_2hhfp"]
 [ext_resource type="FontFile" uid="uid://c4o3xjoyseo1d" path="res://assets/fonts/Cherry_Bomb_One/Outfit/static/Outfit-Bold.ttf" id="14_6lmx0"]
 
 [sub_resource type="Theme" id="Theme_p5lpp"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://digfkxxqpjcrm"
-path="res://.godot/imported/plot_twist_1.png-3304a675966e18edff631a1186973a05.ctex"
+uid="uid://08blnk63e7jy"
+path="res://.godot/imported/novio_es.png-95b66991c0fcf6f761adcf743cb1c487.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/plot_twist_1.png"
-dest_files=["res://.godot/imported/plot_twist_1.png-3304a675966e18edff631a1186973a05.ctex"]
+source_file="res://assets/chat/notification/novio_es.png"
+dest_files=["res://.godot/imported/novio_es.png-95b66991c0fcf6f761adcf743cb1c487.ctex"]
 
 [params]
 

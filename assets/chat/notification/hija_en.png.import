@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://08blnk63e7jy"
-path="res://.godot/imported/plot_twist_1a.png-f174c659b9cad98863370697016e74f6.ctex"
+uid="uid://nx1xhuhx7i05"
+path="res://.godot/imported/hija_en.png-c357fb453a91744c101c1bc080b45d13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/plot_twist_1a.png"
-dest_files=["res://.godot/imported/plot_twist_1a.png-f174c659b9cad98863370697016e74f6.ctex"]
+source_file="res://assets/chat/notification/hija_en.png"
+dest_files=["res://.godot/imported/hija_en.png-c357fb453a91744c101c1bc080b45d13.ctex"]
 
 [params]
 

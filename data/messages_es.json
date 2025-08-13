@@ -43,5 +43,6 @@
 	"FESTIVALES": ["¡Obvio! Me encantan los festivales.", "No me siento con ánimos para ir."],
 	"MUSICA": ["¡Sí! Ir al concierto será genial.", "No puedo esta vez, pero gracias."],
 	"TECH": ["¡Perfecto! Me interesa mucho la expo.", "No es lo mío, pero gracias."]
-  }
+  },
+"waiting_response": "Mario está esperando una respuesta..."
 }
