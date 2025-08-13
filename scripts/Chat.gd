@@ -27,7 +27,7 @@ func _ready():
 	self.connect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
 
 	set_labels_text()
-
+	
 func replace_message(original_str, old_text, new_text):
 	var new_str = original_str.replace(old_text, new_text)
 	return new_str
@@ -122,7 +122,7 @@ func show_player_reply_options():
 		$Mujer_Movil/Rpta_Positiva,
 		$Mujer_Movil/Rpta_Negativa
 	]
-	print("isWaitingResponseLabel", isWaitingResponseLabel)
+
 	# Cambiar texto del Label en el nodo "EsperandoRespuesta"
 	var isWaitingResponseNode = nodos[0].get_node("Label")
 	isWaitingResponseNode.text = isWaitingResponseLabel
@@ -221,26 +221,36 @@ func play_player_sfx(isLastMessage: bool):
 
 # Funciones del plot twist (novio)
 func show_boyfriend_message():
+	var plot_twist_scene = preload("res://scenes/chat/PlotTwistNotification.tscn")
+	var plot_twist = plot_twist_scene.instantiate()
+
+	add_child(plot_twist) # Lo agregas a la escena actual
+
+	
+	
+	
 	# Mostrar las texturas del plot twist
 	var mujer_movil = $Mujer_Movil
-	var dark_bg = mujer_movil.get_node("PlotTwist")
-	var notification = dark_bg.get_node("Notification")
+	#var dark_bg = mujer_movil.get_node("PlotTwist")
+	#var notification = dark_bg.get_node("Notification")
 	
 	# Reproducir sonido antes de mostrar la notificación
-	var sfx = mujer_movil.get_node("PlotTwistNotificationSFX")
-	sfx.play()
+	#var sfx = mujer_movil.get_node("PlotTwistNotificationSFX")
+	#sfx.play()
 	
 	# Asignar imagen (según idioma o tipo de mensaje)
-	var img_path = "res://assets/chat/notification/novio_" + game_lang + ".png"
-	notification.texture = load(img_path)
-	dark_bg.visible = true
-	notification.visible = true
+	#var img_path = "res://assets/chat/notification/novio_" + game_lang + ".png"
+	#notification.texture = load(img_path)
+	#dark_bg.visible = true
+	#notification.visible = true
 	
 	# Ajustar z_index para que estén por encima
 	$ScrollContainer.z_index = 0
-	dark_bg.z_index = 10
-	notification.z_index = 10
+	plot_twist.show_notification("novio") # aquí le pasas el tipo
+	#dark_bg.z_index = 10
+	#notification.z_index = 10
 	$Mujer_Manos.z_index = 20
+	
 
 func show_continue_button():
 	# Mostrar boton CONTINUAR
@@ -289,7 +299,6 @@ func _on_tween_finished() -> void:
 	
 func _on_bubble_animation_finished():
 	isWaitingReply = true
-	print("BEFORE", isWaitingResponseLabel)
 	show_player_reply_options()
 	self.disconnect("bubble_animation_finished", Callable(self, "_on_bubble_animation_finished"))
 

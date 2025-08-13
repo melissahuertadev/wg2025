@@ -1,13 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://5sr4dns83sex"]
+[gd_scene load_steps=15 format=3 uid="uid://5sr4dns83sex"]
 
 [ext_resource type="Script" uid="uid://deqiylcb2cqcb" path="res://scripts/Chat.gd" id="1_bl14k"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="1_ud1xa"]
 [ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="3_5grah"]
 [ext_resource type="Texture2D" uid="uid://dyfs8e3t4on7" path="res://assets/chat/mujer_movil_chat.png" id="3_bl14k"]
 [ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="7_bl14k"]
-[ext_resource type="Texture2D" uid="uid://beduk6ero8lwl" path="res://assets/chat/iconchat_woman.png" id="8_kk3dd"]
 [ext_resource type="Texture2D" uid="uid://gxmfwhawibhu" path="res://assets/ui/botones/hover button mesage.png" id="8_n68mj"]
-[ext_resource type="Texture2D" uid="uid://bvgkddi4uh0fk" path="res://assets/chat/movil_dark.png" id="10_hsa72"]
 [ext_resource type="Texture2D" uid="uid://bfa0j5ope73ma" path="res://assets/ui/botones/boton_player_decision.png" id="10_m5bj7"]
 [ext_resource type="AudioStream" uid="uid://0ec3wvorlsnq" path="res://assets/sfx/653820__ukjoncollins__iphone-text-sound.wav" id="11_7g0ak"]
 [ext_resource type="LabelSettings" uid="uid://h68p4ud46nej" path="res://tres/label_settings/player_answers.tres" id="11_hsa72"]
@@ -40,20 +38,6 @@ offset_bottom = 598.0
 mouse_filter = 2
 texture = ExtResource("3_bl14k")
 
-[node name="Player_PP" type="TextureRect" parent="Mujer_Movil"]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -48.0
-offset_top = 228.0
-offset_right = -20.0
-offset_bottom = 255.0
-grow_horizontal = 0
-mouse_filter = 0
-texture = ExtResource("8_kk3dd")
-
 [node name="EsperandoRespuesta" type="TextureRect" parent="Mujer_Movil"]
 visible = false
 layout_mode = 0
@@ -69,22 +53,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "?"
 label_settings = ExtResource("7_bl14k")
-
-[node name="PlotTwist" type="TextureRect" parent="Mujer_Movil"]
-visible = false
-layout_mode = 0
-offset_left = 3.0
-offset_right = 278.0
-offset_bottom = 488.0
-texture = ExtResource("10_hsa72")
-
-[node name="Notification" type="TextureRect" parent="Mujer_Movil/PlotTwist"]
-visible = false
-layout_mode = 0
-offset_left = 14.5
-offset_top = 16.0
-offset_right = 260.5
-offset_bottom = 93.0
 
 [node name="Rpta_Positiva" type="TextureButton" parent="Mujer_Movil"]
 visible = false
