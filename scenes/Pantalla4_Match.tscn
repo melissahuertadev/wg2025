@@ -1,0 +1,244 @@
+[gd_scene load_steps=15 format=3 uid="uid://ckp4yxv20iiaq"]
+
+[ext_resource type="Script" uid="uid://l8uktyaekroa" path="res://scripts/Match.gd" id="1_ue2ju"]
+[ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_tof20"]
+[ext_resource type="Texture2D" uid="uid://b48e4np3gntfa" path="res://assets/chat/mujer_movil_BG.png" id="3_57s0b"]
+[ext_resource type="Texture2D" uid="uid://bcku8wcd5nocd" path="res://assets/chat/match/Match_Hombre.png" id="4_4iov4"]
+[ext_resource type="Texture2D" uid="uid://bnglq5nsyc5b" path="res://assets/chat/match/Match_Jugador.png" id="5_fyymc"]
+[ext_resource type="Texture2D" uid="uid://87jrmntc1gdk" path="res://assets/chat/match/Match_text.png" id="6_qtmnu"]
+[ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="7_catdn"]
+[ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="8_eh0d3"]
+[ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="9_bxy0r"]
+[ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="10_txevo"]
+[ext_resource type="AudioStream" uid="uid://i5ajrxyuyq18" path="res://assets/sfx/cupid_app/new_match.wav" id="11_be36q"]
+
+[sub_resource type="Animation" id="Animation_wgs8g"]
+resource_name = "MatchAppear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mujer_Movil/MatchText:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(129.9, 244.4), Vector2(21, 184)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mujer_Movil/MatchText:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mujer_Movil/TriangleRight:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.403922), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mujer_Movil/TriangleLeft:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.403922), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mujer_Movil/TriangleRight:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.671327, 0.39005, 0.647533, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mujer_Movil/TriangleLeft:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.223529, 0.521569, 0.709804, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8ngaw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mujer_Movil/MatchText:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(129.9, 244.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mujer_Movil/MatchText:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mujer_Movil/TriangleRight:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.00784314)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mujer_Movil/TriangleLeft:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.403922)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mujer_Movil/TriangleRight:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.671327, 0.39005, 0.647533, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mujer_Movil/TriangleLeft:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oh5er"]
+_data = {
+&"MatchAppear": SubResource("Animation_wgs8g"),
+&"RESET": SubResource("Animation_8ngaw")
+}
+
+[node name="PantallaMatch" type="Node2D"]
+script = ExtResource("1_ue2ju")
+
+[node name="Mujer_Frame" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tof20")
+expand_mode = 3
+
+[node name="Mujer_Movil" type="TextureRect" parent="."]
+offset_left = 497.0
+offset_top = 98.0
+offset_right = 781.0
+offset_bottom = 596.0
+texture = ExtResource("3_57s0b")
+
+[node name="TriangleLeft" type="TextureRect" parent="Mujer_Movil"]
+modulate = Color(1, 1, 1, 0.403922)
+layout_mode = 0
+offset_left = 18.0
+offset_top = 199.0
+offset_right = 265.0
+offset_bottom = 438.0
+texture = ExtResource("4_4iov4")
+
+[node name="TriangleRight" type="TextureRect" parent="Mujer_Movil"]
+modulate = Color(1, 1, 1, 0.00784314)
+self_modulate = Color(0.671327, 0.39005, 0.647533, 1)
+layout_mode = 0
+offset_left = 18.0
+offset_top = 30.0
+offset_right = 264.0
+offset_bottom = 231.0
+texture = ExtResource("5_fyymc")
+
+[node name="MatchText" type="TextureRect" parent="Mujer_Movil"]
+visible = false
+layout_mode = 0
+offset_left = 129.9
+offset_top = 244.4
+offset_right = 371.9
+offset_bottom = 336.4
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_qtmnu")
+
+[node name="Mujer_Manos" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 721.0
+texture = ExtResource("7_catdn")
+
+[node name="ContinuarButton" type="TextureButton" parent="."]
+offset_left = 730.0
+offset_top = 473.0
+offset_right = 754.0
+offset_bottom = 505.0
+texture_normal = ExtResource("8_eh0d3")
+texture_pressed = ExtResource("9_bxy0r")
+texture_disabled = ExtResource("10_txevo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_oh5er")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_be36q")
+volume_db = -5.0
+
+[connection signal="pressed" from="ContinuarButton" to="." method="_on_continuar_button_pressed"]
