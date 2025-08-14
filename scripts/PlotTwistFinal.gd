@@ -34,14 +34,15 @@ func _ready():
 # Funciones del plot twist (hija)
 func show_plot_twist_notification():
 	var plot_twist_scene = preload("res://scenes/chat/PlotTwistNotification.tscn")
-	var plot_twist = plot_twist_scene.instantiate()
+	var plot_twist_instance = plot_twist_scene.instantiate()
 
-	add_child(plot_twist)
-
+	#add_child(plot_twist)
+	plot_twist_instance.show_notification(notification_type, $Hombre_Movil)
+	
 	# Ajustar z_index para que estén por encima
-	plot_twist.show_notification(notification_type)
+	#$ScrollContainer.z_index = 0
 	$Hombre_Manos.z_index = 20
-
+	
 func show_continue_button():
 	# Mostrar boton CONTINUAR
 	continue_btn.z_index = 30

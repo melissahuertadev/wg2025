@@ -223,18 +223,14 @@ func play_player_sfx(isLastMessage: bool):
 # Funciones del plot twist (novio)
 func show_plot_twist_notification():
 	var plot_twist_scene = preload("res://scenes/chat/PlotTwistNotification.tscn")
-	var plot_twist = plot_twist_scene.instantiate()
+	var plot_twist_instance = plot_twist_scene.instantiate()
 
-	add_child(plot_twist)
-	
-	# Mostrar las texturas del plot twist
-	var mujer_movil = $Mujer_Movil
+	# Mostrar sobre Mujer_Movil
+	plot_twist_instance.show_notification(notification_type, $Mujer_Movil)
 	
 	# Ajustar z_index para que estén por encima
 	$ScrollContainer.z_index = 0
-	plot_twist.show_notification(notification_type)
 	$Mujer_Manos.z_index = 20
-	
 
 func show_continue_button():
 	# Mostrar boton CONTINUAR
