@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://5sr4dns83sex"]
+[gd_scene load_steps=17 format=3 uid="uid://5sr4dns83sex"]
 
 [ext_resource type="Script" uid="uid://deqiylcb2cqcb" path="res://scripts/Chat.gd" id="1_bl14k"]
 [ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="1_ud1xa"]
 [ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="3_5grah"]
 [ext_resource type="Texture2D" uid="uid://dyfs8e3t4on7" path="res://assets/chat/mujer_movil_chat.png" id="3_bl14k"]
+[ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="4_elatv"]
 [ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="7_bl14k"]
 [ext_resource type="Texture2D" uid="uid://gxmfwhawibhu" path="res://assets/ui/botones/hover button mesage.png" id="8_n68mj"]
 [ext_resource type="Texture2D" uid="uid://bfa0j5ope73ma" path="res://assets/ui/botones/boton_player_decision.png" id="10_m5bj7"]
@@ -13,6 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="14_7g0ak"]
 [ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="15_kj2j3"]
 [ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="16_5hf3c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6lxv6"]
+font = ExtResource("4_elatv")
+font_size = 38
+outline_size = 21
+outline_color = Color(0.329412, 0.0705882, 0.0705882, 1)
 
 [sub_resource type="Theme" id="Theme_7g0ak"]
 
@@ -37,6 +44,15 @@ offset_right = 782.0
 offset_bottom = 598.0
 mouse_filter = 2
 texture = ExtResource("3_bl14k")
+
+[node name="MatchName" type="Label" parent="Mujer_Movil"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 4.0
+offset_right = 223.0
+offset_bottom = 68.0
+text = "Rodrigo"
+label_settings = SubResource("LabelSettings_6lxv6")
 
 [node name="EsperandoRespuesta" type="TextureRect" parent="Mujer_Movil"]
 visible = false

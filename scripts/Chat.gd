@@ -225,15 +225,24 @@ func show_plot_twist_notification():
 	var plot_twist_scene = preload("res://scenes/chat/PlotTwistNotification.tscn")
 	var plot_twist = plot_twist_scene.instantiate()
 
-	add_child(plot_twist)
+	# Buscar el TextureRect Mujer_Movil
+	var mujer_movil: TextureRect = $Mujer_Movil
+	if not mujer_movil:
+		push_error("No se encontró Mujer_Movil")
+		return
 	
-	# Mostrar las texturas del plot twist
-	var mujer_movil = $Mujer_Movil
+	# Agregar la notificación como hijo de Mujer_Movil
+	mujer_movil.add_child(plot_twist)
+	
+	# Ajustar el tamaño relativo al Mujer_Movil
+	plot_twist.size = mujer_movil.size
+	plot_twist.position = Vector2.ZERO
+	mujer_movil.z_index = 0
 	
 	# Ajustar z_index para que estén por encima
 	$ScrollContainer.z_index = 0
-	plot_twist.show_notification(notification_type)
 	$Mujer_Manos.z_index = 20
+	plot_twist.show_notification(notification_type)
 	
 
 func show_continue_button():
