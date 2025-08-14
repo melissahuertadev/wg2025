@@ -34,7 +34,7 @@ func procesar_opcion(opcion):
 			boton_no.get_node("Label").text = opciones["match"][1]
 		mostrar_candidato(candidato_actual)
 	else:
-		get_tree().change_scene_to_file("res://scenes/Pantalla3_Match.tscn")
+		get_tree().change_scene_to_file("res://scenes/Pantalla4_Match.tscn")
 
 func _on_rpta_positiva_pressed() -> void:
 	procesar_opcion(1)

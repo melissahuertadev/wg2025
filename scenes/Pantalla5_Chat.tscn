@@ -1,22 +1,22 @@
 [gd_scene load_steps=17 format=3 uid="uid://5sr4dns83sex"]
 
-[ext_resource type="Script" uid="uid://deqiylcb2cqcb" path="res://scripts/Chat.gd" id="1_bl14k"]
-[ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="1_ud1xa"]
-[ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="3_5grah"]
-[ext_resource type="Texture2D" uid="uid://dyfs8e3t4on7" path="res://assets/chat/mujer_movil_chat.png" id="3_bl14k"]
-[ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="4_elatv"]
-[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="7_bl14k"]
-[ext_resource type="Texture2D" uid="uid://gxmfwhawibhu" path="res://assets/ui/botones/hover button mesage.png" id="8_n68mj"]
-[ext_resource type="Texture2D" uid="uid://bfa0j5ope73ma" path="res://assets/ui/botones/boton_player_decision.png" id="10_m5bj7"]
-[ext_resource type="AudioStream" uid="uid://0ec3wvorlsnq" path="res://assets/sfx/653820__ukjoncollins__iphone-text-sound.wav" id="11_7g0ak"]
-[ext_resource type="LabelSettings" uid="uid://h68p4ud46nej" path="res://tres/label_settings/player_answers.tres" id="11_hsa72"]
-[ext_resource type="AudioStream" uid="uid://tsohnea8e5w4" path="res://assets/sfx/new-notification-010-352755.mp3" id="12_xte4i"]
-[ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="14_7g0ak"]
-[ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="15_kj2j3"]
-[ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="16_5hf3c"]
+[ext_resource type="Script" uid="uid://deqiylcb2cqcb" path="res://scripts/Chat.gd" id="1_mvahs"]
+[ext_resource type="Texture2D" uid="uid://sk4edt1vteia" path="res://assets/scenes/mujer_BG.png" id="2_fymwq"]
+[ext_resource type="Texture2D" uid="uid://dyfs8e3t4on7" path="res://assets/chat/mujer_movil_chat.png" id="3_wjq4d"]
+[ext_resource type="FontFile" uid="uid://dau58fdkdok2k" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="4_d8bq1"]
+[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="5_j4i5y"]
+[ext_resource type="Texture2D" uid="uid://bfa0j5ope73ma" path="res://assets/ui/botones/boton_player_decision.png" id="6_hdvat"]
+[ext_resource type="Texture2D" uid="uid://gxmfwhawibhu" path="res://assets/ui/botones/hover button mesage.png" id="7_cj1fa"]
+[ext_resource type="LabelSettings" uid="uid://h68p4ud46nej" path="res://tres/label_settings/player_answers.tres" id="8_el1x2"]
+[ext_resource type="AudioStream" uid="uid://0ec3wvorlsnq" path="res://assets/sfx/653820__ukjoncollins__iphone-text-sound.wav" id="9_gx0sa"]
+[ext_resource type="AudioStream" uid="uid://tsohnea8e5w4" path="res://assets/sfx/new-notification-010-352755.mp3" id="10_vd100"]
+[ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="11_2yddh"]
+[ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="12_holuf"]
+[ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="13_ft4kw"]
+[ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="14_7qw85"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6lxv6"]
-font = ExtResource("4_elatv")
+font = ExtResource("4_d8bq1")
 font_size = 38
 outline_size = 21
 outline_color = Color(0.329412, 0.0705882, 0.0705882, 1)
@@ -24,7 +24,7 @@ outline_color = Color(0.329412, 0.0705882, 0.0705882, 1)
 [sub_resource type="Theme" id="Theme_7g0ak"]
 
 [node name="PantallaChat" type="Node2D"]
-script = ExtResource("1_bl14k")
+script = ExtResource("1_mvahs")
 
 [node name="Mujer_Frame" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -34,7 +34,7 @@ offset_right = 1280.0
 offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ud1xa")
+texture = ExtResource("2_fymwq")
 expand_mode = 3
 
 [node name="Mujer_Movil" type="TextureRect" parent="."]
@@ -43,7 +43,7 @@ offset_top = 100.0
 offset_right = 782.0
 offset_bottom = 598.0
 mouse_filter = 2
-texture = ExtResource("3_bl14k")
+texture = ExtResource("3_wjq4d")
 
 [node name="MatchName" type="Label" parent="Mujer_Movil"]
 layout_mode = 0
@@ -68,7 +68,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "?"
-label_settings = ExtResource("7_bl14k")
+label_settings = ExtResource("5_j4i5y")
 
 [node name="Rpta_Positiva" type="TextureButton" parent="Mujer_Movil"]
 visible = false
@@ -77,8 +77,8 @@ offset_left = 22.0
 offset_top = 372.0
 offset_right = 262.0
 offset_bottom = 412.0
-texture_normal = ExtResource("10_m5bj7")
-texture_pressed = ExtResource("8_n68mj")
+texture_normal = ExtResource("6_hdvat")
+texture_pressed = ExtResource("7_cj1fa")
 
 [node name="Label" type="Label" parent="Mujer_Movil/Rpta_Positiva"]
 layout_mode = 1
@@ -93,7 +93,7 @@ offset_right = 100.5
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-label_settings = ExtResource("11_hsa72")
+label_settings = ExtResource("8_el1x2")
 
 [node name="Rpta_Negativa" type="TextureButton" parent="Mujer_Movil"]
 visible = false
@@ -102,8 +102,8 @@ offset_left = 22.0
 offset_top = 413.0
 offset_right = 262.0
 offset_bottom = 453.0
-texture_normal = ExtResource("10_m5bj7")
-texture_pressed = ExtResource("8_n68mj")
+texture_normal = ExtResource("6_hdvat")
+texture_pressed = ExtResource("7_cj1fa")
 
 [node name="Label" type="Label" parent="Mujer_Movil/Rpta_Negativa"]
 layout_mode = 1
@@ -118,21 +118,21 @@ offset_right = 100.5
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-label_settings = ExtResource("11_hsa72")
+label_settings = ExtResource("8_el1x2")
 
 [node name="PlotTwistNotificationSFX" type="AudioStreamPlayer" parent="Mujer_Movil"]
-stream = ExtResource("11_7g0ak")
+stream = ExtResource("9_gx0sa")
 volume_db = -5.0
 
 [node name="MatchMessageSFX" type="AudioStreamPlayer" parent="Mujer_Movil"]
-stream = ExtResource("12_xte4i")
+stream = ExtResource("10_vd100")
 volume_db = -5.0
 
 [node name="Mujer_Manos" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 721.0
 mouse_filter = 2
-texture = ExtResource("3_5grah")
+texture = ExtResource("11_2yddh")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 offset_left = 514.0
@@ -151,9 +151,9 @@ offset_left = 730.0
 offset_top = 473.0
 offset_right = 754.0
 offset_bottom = 505.0
-texture_normal = ExtResource("14_7g0ak")
-texture_pressed = ExtResource("15_kj2j3")
-texture_disabled = ExtResource("16_5hf3c")
+texture_normal = ExtResource("12_holuf")
+texture_pressed = ExtResource("13_ft4kw")
+texture_disabled = ExtResource("14_7qw85")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
