@@ -6,13 +6,25 @@ extends Control
 var game_lang = GlobalManager.game_language
 var current_character_type = ""
 
-func show_notification(character_type: String):
+
+func show_notification(character_type: String, parent_texture_rect: TextureRect = null):
 	# character_type: "hija" o "novio"
 	current_character_type = character_type
-	
+
+	# Utiliza el padre explicito, si no, se obtiene con get_parent()
+	var parent_control: TextureRect = parent_texture_rect if parent_texture_rect else get_parent()
+	if not (parent_control is TextureRect):
+		push_error("Parent no es un TextureRect")
+		return
+
+	# Agregar esta escena como hijo del padre si aún no lo es
+	if self.get_parent() != parent_control:
+		parent_control.add_child(self)
+		self.position = Vector2.ZERO  # se coloca en la esquina superior izquierda del padre
+
 	# Reproducir sonido antes de mostrar la notificación
 	play_notification_sfx()
-	update_dark_bg_size_and_position()
+	update_dark_bg_size_and_position(parent_control)
 	update_notification_image(character_type)
 	show_elements()
 
@@ -24,18 +36,11 @@ func play_notification_sfx():
 	var sfx: AudioStreamPlayer = $PlotTwistNotificationSFX
 	sfx.play()
 
-func update_dark_bg_size_and_position():
+func update_dark_bg_size_and_position(parent_control: TextureRect):
 	# Tamaño del padre (Mujer_Movil)
 	var dark_bg: ColorRect = $DarkBG
-	var parent_control = get_parent()
-	var parent_size: Vector2
+	var parent_size = parent_control.size
 	print("parent control ", parent_control)
-	
-	if parent_control is TextureRect:
-		parent_size = parent_control.size
-	else:
-		push_error("Parent no es TextureRect")
-		return
 	
 	dark_bg.size = parent_size * Vector2(0.95, 1)
 	dark_bg.position = parent_size * Vector2(0.025, 0.015)
@@ -53,7 +58,6 @@ func update_notification_image(character_type: String):
 	var img_path = image_base_path + character_type + "_" + game_lang + ".png"
 	notification.texture = load(img_path)
 	notification.z_index = default_z_index
-	
 	
 func _notification(what):
 	if what == NOTIFICATION_RESIZED and current_character_type != "":
