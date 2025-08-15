@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bfa0j5ope73ma" path="res://assets/ui/botones/boton_player_decision.png" id="4_en1qw"]
 [ext_resource type="Texture2D" uid="uid://b5xdhws1vred3" path="res://assets/chat/mujer_manos.png" id="4_x58ye"]
 [ext_resource type="Texture2D" uid="uid://gxmfwhawibhu" path="res://assets/ui/botones/hover button mesage.png" id="5_5klv2"]
-[ext_resource type="LabelSettings" uid="uid://h68p4ud46nej" path="res://tres/label_settings/player_answers.tres" id="6_lqih6"]
+[ext_resource type="LabelSettings" uid="uid://h68p4ud46nej" path="res://custom_resources/label_settings/player_answers.tres" id="6_lqih6"]
 
 [sub_resource type="Animation" id="Animation_en1qw"]
 length = 0.001

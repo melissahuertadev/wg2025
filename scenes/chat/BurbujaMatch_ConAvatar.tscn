@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://blnv8tbv0db84" path="res://assets/chat/iconchat_man.png" id="1_460wv"]
 [ext_resource type="Texture2D" uid="uid://c3i11lx3bhl15" path="res://assets/chat/message_recieved.png" id="2_q8i35"]
-[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="3_q8i35"]
+[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://custom_resources/label_settings/messages.tres" id="3_q8i35"]
 
 [node name="BurbujaMatchConAvatar" type="HBoxContainer"]
 offset_right = 237.0

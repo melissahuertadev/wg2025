@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://q7yrjukqmgkf"]
+
+[ext_resource type="Script" uid="uid://cdeoqvhw0hw3t" path="res://scripts/global_ui.gd" id="1_fhyh8"]
+
+[node name="GlobalUI" type="CanvasLayer"]
+script = ExtResource("1_fhyh8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1280, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 20
+
+[node name="Control" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0

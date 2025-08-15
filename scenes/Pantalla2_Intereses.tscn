@@ -12,11 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cdowxou7i2sp8" path="res://assets/ui/botones/boton_back_pressed.png" id="6_e0vuy"]
 [ext_resource type="Texture2D" uid="uid://dqommqmkueh2b" path="res://assets/ui/intereses/videojuegos_standar.png" id="6_hrael"]
 [ext_resource type="Texture2D" uid="uid://cafgu6uwdrg8t" path="res://assets/ui/botones/boton_next_enable.png" id="7_e0vuy"]
-[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="7_jgkl5"]
 [ext_resource type="Texture2D" uid="uid://dlvadjd6a4bx0" path="res://assets/ui/intereses/videojuegos_pressed.png" id="7_kbqxa"]
 [ext_resource type="Texture2D" uid="uid://fos6r4dkhmtf" path="res://assets/ui/botones/boton_next_pressed.png" id="8_bsbbg"]
 [ext_resource type="Script" uid="uid://bqaljc3ocn7l7" path="res://scripts/ToggleTextureButton.gd" id="9_s6b40"]
 [ext_resource type="Texture2D" uid="uid://bv4sdthu38woq" path="res://assets/ui/botones/boton_back_disable.png" id="9_wr0it"]
+[ext_resource type="LabelSettings" uid="uid://blcj8jkmck0sl" path="res://custom_resources/label_settings/interes_label.tres" id="10_n41l3"]
 [ext_resource type="Texture2D" uid="uid://d0rrhhlmitm20" path="res://assets/ui/emojis/deporte.png" id="14_8xxvk"]
 [ext_resource type="Texture2D" uid="uid://drqael15325q2" path="res://assets/ui/intereses/cine_standar.png" id="15_pc4ie"]
 [ext_resource type="Texture2D" uid="uid://tlwlwhqrdm54" path="res://assets/ui/intereses/cine_pressed.png" id="16_mu2s7"]
@@ -117,11 +117,11 @@ texture_pressed_res = ExtResource("5_wr0it")
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_deportes"]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 7.0
+offset_top = 4.0
 offset_right = 99.0
 offset_bottom = 23.0
 text = "Deportes"
-label_settings = ExtResource("7_jgkl5")
+label_settings = ExtResource("10_n41l3")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Hobbies/Interes_deportes"]
 layout_mode = 0
@@ -145,11 +145,11 @@ texture_pressed_res = ExtResource("16_mu2s7")
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_cine"]
 layout_mode = 2
 offset_left = 38.0
-offset_top = 8.0
+offset_top = 5.0
 offset_right = 71.0
-offset_bottom = 25.0
+offset_bottom = 24.0
 text = "Cine"
-label_settings = ExtResource("7_jgkl5")
+label_settings = ExtResource("10_n41l3")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Hobbies/Interes_cine"]
 layout_mode = 1
@@ -176,11 +176,11 @@ texture_pressed_res = ExtResource("7_kbqxa")
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_videojuegos"]
 layout_mode = 0
 offset_left = 36.0
-offset_top = 7.0
+offset_top = 4.0
 offset_right = 124.0
-offset_bottom = 24.0
+offset_bottom = 23.0
 text = "Videojuegos"
-label_settings = ExtResource("7_jgkl5")
+label_settings = ExtResource("10_n41l3")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Hobbies/Interes_videojuegos"]
 layout_mode = 1
@@ -208,11 +208,11 @@ texture_pressed_res = ExtResource("18_84y4e")
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_anime"]
 layout_mode = 0
 offset_left = 34.0
-offset_top = 7.0
+offset_top = 4.0
 offset_right = 82.0
 offset_bottom = 23.0
 text = "Anime"
-label_settings = ExtResource("7_jgkl5")
+label_settings = ExtResource("10_n41l3")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Hobbies/Interes_anime"]
 layout_mode = 1
@@ -238,11 +238,11 @@ texture_pressed_res = ExtResource("20_jjvns")
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_libros"]
 layout_mode = 0
 offset_left = 38.0
-offset_top = 7.0
+offset_top = 4.0
 offset_right = 86.0
-offset_bottom = 28.0
+offset_bottom = 25.0
 text = "Libros"
-label_settings = ExtResource("7_jgkl5")
+label_settings = ExtResource("10_n41l3")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Hobbies/Interes_libros"]
 layout_mode = 1
@@ -268,11 +268,11 @@ texture_pressed_res = ExtResource("22_jjvns")
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_cocina"]
 layout_mode = 0
 offset_left = 34.0
-offset_top = 7.0
+offset_top = 4.0
 offset_right = 82.0
-offset_bottom = 28.0
+offset_bottom = 25.0
 text = "Cocina"
-label_settings = ExtResource("7_jgkl5")
+label_settings = ExtResource("10_n41l3")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Hobbies/Interes_cocina"]
 layout_mode = 1
@@ -298,11 +298,11 @@ texture_pressed_res = ExtResource("24_grgab")
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_festivales"]
 layout_mode = 0
 offset_left = 31.0
-offset_top = 7.0
+offset_top = 4.0
 offset_right = 101.0
-offset_bottom = 28.0
+offset_bottom = 25.0
 text = "Festivales"
-label_settings = ExtResource("7_jgkl5")
+label_settings = ExtResource("10_n41l3")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Hobbies/Interes_festivales"]
 layout_mode = 1
@@ -328,11 +328,11 @@ texture_pressed_res = ExtResource("26_sjuwq")
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_musica"]
 layout_mode = 0
 offset_left = 34.0
-offset_top = 6.0
+offset_top = 3.0
 offset_right = 82.0
-offset_bottom = 27.0
+offset_bottom = 24.0
 text = "Música"
-label_settings = ExtResource("7_jgkl5")
+label_settings = ExtResource("10_n41l3")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Hobbies/Interes_musica"]
 layout_mode = 1
@@ -358,11 +358,11 @@ texture_pressed_res = ExtResource("28_sjuwq")
 [node name="Label" type="Label" parent="Control/Hobbies/Interes_tech"]
 layout_mode = 0
 offset_left = 28.0
-offset_top = 6.0
+offset_top = 3.0
 offset_right = 64.0
-offset_bottom = 27.0
+offset_bottom = 24.0
 text = "Tech"
-label_settings = ExtResource("7_jgkl5")
+label_settings = ExtResource("10_n41l3")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Hobbies/Interes_tech"]
 layout_mode = 1

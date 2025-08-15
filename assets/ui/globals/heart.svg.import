@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvoyixc0p6s0a"
-path="res://.godot/imported/hombre_movil_camara.png-f6af26f2a49f87bcb1d47b429162beb4.ctex"
+uid="uid://bplti1auwjuxm"
+path="res://.godot/imported/heart.svg-dd65ffae523f65e1dfd773b2f824a16b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tres/hombre_movil_camara.png"
-dest_files=["res://.godot/imported/hombre_movil_camara.png-f6af26f2a49f87bcb1d47b429162beb4.ctex"]
+source_file="res://assets/ui/globals/heart.svg"
+dest_files=["res://.godot/imported/heart.svg-dd65ffae523f65e1dfd773b2f824a16b.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

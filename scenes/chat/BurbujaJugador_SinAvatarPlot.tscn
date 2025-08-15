@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyfoab8j3xc33"]
 
 [ext_resource type="Texture2D" uid="uid://wy7aixvatfn0" path="res://assets/chat/message_sent.png" id="1_namlk"]
-[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://tres/label_settings/messages.tres" id="2_66dbl"]
+[ext_resource type="LabelSettings" uid="uid://8frijjk43tp8" path="res://custom_resources/label_settings/messages.tres" id="2_66dbl"]
 
 [node name="BurbujaJugadorSinAvatar" type="HBoxContainer"]
 
